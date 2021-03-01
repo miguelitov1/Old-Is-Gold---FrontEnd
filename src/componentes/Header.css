@@ -3,7 +3,7 @@
   padding: 0;
 }
 
-.container {
+.Header-container {
   background-color: rgb(199, 199, 199);
   padding: 15px;
   display: flex;
@@ -13,9 +13,11 @@
   height: 30px;
 }
 
-.container2 {
+.Header-container2 {
   background-color: rgb(199, 199, 199);
   padding: 15px;
+  padding-right: 0;
+  padding-left: 5;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,7 +44,7 @@ input {
   width: 100%;
 }
 
-.lupa {
+.Header-lupa {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   background-color: white;

@@ -5,16 +5,18 @@ import "./Header.css";
 
 export const Header = () => {
   return (
-    <header className="container">
+    <header className="Header-container">
       <img src="logo.jpg" alt="imgPerfil" />
 
-      <form className="container2">
-        <img className="lupa" src="lupa.png" alt="lupa" />
+      <form className="Header-container2">
+        <img className="Header-lupa" src="lupa.png" alt="lupa" />
         <input type="text" placeholder="¿Que estás buscando?"></input>
       </form>
 
-      <img src="menu.png" alt="menu" />
-      <a href="#">Vender</a>
+      <div className="Header-container2">
+        <a href="#">Vender</a>
+        <img src="menu.png" alt="menu" />
+      </div>
     </header>
   );
 };

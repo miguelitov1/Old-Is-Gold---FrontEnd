@@ -4,15 +4,15 @@ import "./register-login.css";
 export function Login() {
   return (
     <div className="section-login">
-      <form class="form-register">
+      <form className="form-register">
         <p>Registrarse o iniciar sesión</p>
-        <input type="email" placeholder="Usuario" />
+        <input type="email" placeholder="Usuario/email" />
         <input type="password" placeholder="Contraseña" />
-        <div class="buttons">
-          <button class="button-activate" type="submit">
+        <div className="buttons">
+          <button className="button-activate" type="submit">
             Iniciar sesión
           </button>
-          <button class="button-no-activate">Registrarse</button>
+          <button className="button-no-activate">Registrarse</button>
         </div>
       </form>
     </div>
