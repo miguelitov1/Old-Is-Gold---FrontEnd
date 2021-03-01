@@ -23,6 +23,8 @@ p {
   font-size: 18px;
   margin: 5px;
   background: transparent;
+  outline: none;
+  height: 35px;
   border: none;
   border-bottom: 2px solid;
 }
@@ -47,4 +49,9 @@ p {
 .button-no-activate {
   background-color: none;
   color: #a8d3c6;
+}
+
+.Register-error {
+  text-align: center;
+  color: red;
 }

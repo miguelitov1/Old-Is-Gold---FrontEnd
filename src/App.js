@@ -2,6 +2,7 @@ import "./App.css";
 import { Header } from "./componentes/Header";
 import { Login } from "./routes/Login";
 import { Register } from "./routes/Register";
+import { Home } from "./routes/Home";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
@@ -26,7 +27,9 @@ function App() {
         </div>
 
         <Switch>
-          <Route path="/" exact></Route>
+          <Route path="/" exact>
+            <Home />
+          </Route>
           <Route path="/registro" exact>
             <Register />
           </Route>

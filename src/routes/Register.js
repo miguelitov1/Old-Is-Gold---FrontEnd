@@ -1,4 +1,5 @@
-import React, { useState, Redirect } from "react";
+import React, { useState } from "react";
+import { Redirect } from "react-router";
 import { UsuarioRegistrado } from "../componentes/UsuarioRegistrado";
 import "./register-login.css";
 
@@ -11,7 +12,7 @@ export function Register() {
   const [repetirContrasenha, setRepetirContrasenha] = useState("");
   const [localidad, setLocalidad] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-  const [redirection, setRedirection] = useState(false);
+  const [redirection, setRedirection] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -45,12 +46,8 @@ export function Register() {
         }
       );
 
-      console.log(res);
-
       if (res.status === 201) {
         //o sino el res.status===200 para login y 201 para register
-        const json = await res.json();
-        console.log(json);
         setNombre("");
         setApellidos("");
         setEmail("");
@@ -59,10 +56,9 @@ export function Register() {
         setRepetirContrasenha("");
         setLocalidad("");
         setErrorMsg("");
-        setRedirection(true);
+        setRedirection("usuarioRegistrado");
       } else {
         const json = await res.json();
-        console.log(json);
         setErrorMsg(json.error);
       }
     } else {
@@ -70,7 +66,11 @@ export function Register() {
     }
   };
 
-  return redirection ? (
+  const handleOnClick = () => setRedirection("login");
+
+  return redirection === "login" ? (
+    <Redirect to="/login" />
+  ) : redirection === "usuarioRegistrado" ? (
     <UsuarioRegistrado />
   ) : (
     <div className="section-login">
@@ -129,10 +129,12 @@ export function Register() {
           <button className="button-activate" type="submit">
             Crear cuenta
           </button>
-          <button className="button-no-activate">Iniciar sesión</button>
+          <button className="button-no-activate" onClick={handleOnClick}>
+            Iniciar sesión
+          </button>
         </div>
       </form>
-      <div>{errorMsg && <div>{errorMsg}</div>}</div>{" "}
+      <div className="Register-error">{errorMsg && <div>{errorMsg}</div>}</div>{" "}
     </div>
   );
 }
