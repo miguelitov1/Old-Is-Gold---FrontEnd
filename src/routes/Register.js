@@ -73,7 +73,7 @@ export function Register() {
   ) : redirection === "usuarioRegistrado" ? (
     <UsuarioRegistrado />
   ) : (
-    <div className="section-login">
+    <div className="Register-section">
       <form className="form-register" onSubmit={handleSubmit}>
         <p>Registrarse</p>
         <input
@@ -125,11 +125,14 @@ export function Register() {
           value={localidad}
           onChange={(e) => setLocalidad(e.target.value)}
         />
-        <div className="buttons">
-          <button className="button-activate" type="submit">
+        <div className="Register-buttons">
+          <button className="Register-button-activate" type="submit">
             Crear cuenta
           </button>
-          <button className="button-no-activate" onClick={handleOnClick}>
+          <button
+            className="Register-button-no-activate"
+            onClick={handleOnClick}
+          >
             Iniciar sesión
           </button>
         </div>
