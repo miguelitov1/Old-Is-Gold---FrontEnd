@@ -4,6 +4,8 @@ import { Login } from "./routes/Login";
 import { Register } from "./routes/Register";
 import { Home } from "./routes/Home";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Articulos } from "./routes/Articulos";
+import { Footer } from "./componentes/Footer";
 
 function App() {
   return (
@@ -22,6 +24,9 @@ function App() {
               <li>
                 <Link to="/login">Login</Link>
               </li>
+              <li>
+                <Link to="/articulos">Articulos</Link>
+              </li>
             </ul>
           </nav>
         </div>
@@ -36,8 +41,12 @@ function App() {
           <Route path="/login" exact>
             <Login />
           </Route>
+          <Route path="/articulos" exact>
+            <Articulos />
+          </Route>
         </Switch>
       </Router>
+      <Footer />
     </>
   );
 }

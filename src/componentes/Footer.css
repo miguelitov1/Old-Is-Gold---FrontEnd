@@ -1,0 +1,17 @@
+.footer {
+  background-color: rgb(199, 199, 199);
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  color: white;
+  font-size: 10px;
+  text-align: center;
+}
+
+.footer-neg {
+  font-weight: bold;
+}
+footer div a {
+  color: white;
+  display: flex;
+}
