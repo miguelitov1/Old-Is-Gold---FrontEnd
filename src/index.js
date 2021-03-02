@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { useLocalStorage } from "./componentes/useLocalStorage";
+import { useLocalStorage } from "./herramientas/useLocalStorage";
 
 export const AuthContext = React.createContext();
 const AuthProvider = (props) => {

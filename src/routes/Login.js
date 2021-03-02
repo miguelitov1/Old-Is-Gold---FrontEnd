@@ -50,7 +50,7 @@ export function Login() {
   ) : redirection ? (
     <Redirect to="/registro" />
   ) : (
-    <div className="section-login">
+    <div className="Register-section">
       <form className="form-register" onSubmit={handleSubmit}>
         <p>Registrarse o iniciar sesión</p>
         <input
@@ -68,10 +68,13 @@ export function Login() {
           onChange={(e) => setContrasenha(e.target.value)}
         />
         <div className="buttons">
-          <button className="button-activate" type="submit">
+          <button className="register-button-activate" type="submit">
             Iniciar sesión
           </button>
-          <button className="button-no-activate" onClick={handleOnClick}>
+          <button
+            className="Register-button-no-activate"
+            onClick={handleOnClick}
+          >
             Registrarse
           </button>
         </div>
