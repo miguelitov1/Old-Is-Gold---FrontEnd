@@ -12,7 +12,7 @@ p {
   display: flex;
   flex-direction: column;
   padding: 40px;
-  margin-bottom: 20px;
+  margin: 50px;
   border-radius: 5px;
   max-width: 400px;
   margin-left: auto;
@@ -38,15 +38,15 @@ p {
   width: 100%;
 }
 
-.Register-buttons {
+.buttons {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
 }
-.Register-button-activate {
+.button-activate {
   background-color: #a8d3c6;
 }
-.Register-button-no-activate {
+.button-no-activate {
   background-color: none;
   color: #a8d3c6;
 }

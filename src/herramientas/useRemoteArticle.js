@@ -35,5 +35,5 @@ export const useRemoteArticle = (idArticulo) => {
     };
     loadArticle();
   }, []);
-  return [articulo];
+  return articulo;
 };
