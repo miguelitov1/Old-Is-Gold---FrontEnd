@@ -5,6 +5,7 @@ import "./Articulos.css";
 export function Articulos() {
   const articulo = useRemoteArticle(2);
   console.log(articulo);
+
   return (
     <>
       <p>{articulo.fecha}</p>

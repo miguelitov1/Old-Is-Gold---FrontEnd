@@ -1,14 +1,23 @@
 .Footer {
-  background-color: rgb(199, 199, 199);
-  display: flex;
-  justify-content: space-around;
-  color: white;
-  font-size: 12px;
-  text-align: center;
-  padding: 5px;
-  margin-top: 100px;
+  display: none;
 }
 
-.Footer-neg {
-  font-weight: bold;
+@media (min-width: 640px) {
+  .Footer-neg {
+    font-weight: bold;
+    padding: 20px;
+  }
+  .Footer {
+    background-color: #333333;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    padding: 5px;
+    margin-top: 100px;
+  }
+  .Footer-logo {
+    width: 80px;
+  }
 }
