@@ -1,14 +1,25 @@
 import "./App.css";
+import { useContext } from "react";
 import { Header } from "./componentes/Header";
 import { Login } from "./routes/Login";
 import { Register } from "./routes/Register";
 import { Home } from "./routes/Home";
+import { Categorias } from "./componentes/Categorias";
+import { AuthContext } from "./componentes/providers/AuthProvider";
+
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
+  const [token, setToken] = useContext(AuthContext);
+
+  const handleOnClick = () => {
+    setToken("");
+  };
+
   return (
-    <>
+    <div className="App">
       <Header />
+      <Categorias />
       <Router>
         <div className="App-links">
           <nav>
@@ -21,6 +32,9 @@ function App() {
               </li>
               <li>
                 <Link to="/login">Login</Link>
+              </li>
+              <li>
+                <p onClick={handleOnClick}>Logout</p>
               </li>
             </ul>
           </nav>
@@ -38,7 +52,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </>
+    </div>
   );
 }
 

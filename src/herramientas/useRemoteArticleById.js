@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
-import { AuthContext } from "../index";
+import { useState, useEffect } from "react";
+// import { AuthContext } from "../index";
 
-export const useRemoteArticle = (idArticulo) => {
+export const useRemoteArticleById = (idArticulo) => {
   const [articulo, setArticulo] = useState([]);
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -35,5 +35,5 @@ export const useRemoteArticle = (idArticulo) => {
     };
     loadArticle();
   }, []);
-  return [articulo];
+  return articulo;
 };

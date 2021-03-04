@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Redirect } from "react-router";
 import "./register-login.css";
-import { AuthContext } from "../index";
+import { AuthContext } from "../componentes/providers/AuthProvider";
 
 export function Login() {
   const [email, setEmail] = useState("");

@@ -1,0 +1,28 @@
+.Categorias-conteiner {
+  background-image: url("./fondo-movil.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  align-items: flex-start;
+}
+
+.Categorias-conteiner img {
+  height: 25px;
+}
+
+.Categorias-conteiner p {
+  font-family: sans-serif;
+  color: #ffffff;
+  padding-top: 5px;
+  text-align: center;
+  font-size: 6.9pt;
+}
+
+.Categorias-conteiner div {
+  margin: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

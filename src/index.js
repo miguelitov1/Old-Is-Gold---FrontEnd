@@ -1,23 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { useLocalStorage } from "./herramientas/useLocalStorage";
-
-export const AuthContext = React.createContext();
-const AuthProvider = (props) => {
-  const { children } = props;
-  const [token, setToken] = useLocalStorage("accessToken", "");
-  return (
-    <AuthContext.Provider value={[token, setToken]}>
-      {children}
-    </AuthContext.Provider>
-  );
-};
+import { AuthProvider } from "./componentes/providers/AuthProvider";
+// import { UserProvider } from "./componentes/providers/UserProvider";
 
 ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
+      {/* <UserProvider> */}
       <App />
+      {/* </UserProvider> */}
     </AuthProvider>
   </React.StrictMode>,
   document.getElementById("root")
