@@ -1,9 +1,10 @@
 import "./App.css";
 import { useContext } from "react";
-import { Header } from "./componentes/Header";
 import { Login } from "./routes/Login";
 import { Register } from "./routes/Register";
 import { Home } from "./routes/Home";
+import { Perfil } from "./routes/Perfil";
+import { Header } from "./componentes/Header";
 import { Categorias } from "./componentes/Categorias";
 import { AuthContext } from "./componentes/providers/AuthProvider";
 
@@ -38,6 +39,12 @@ function App() {
               <li>
                 <p onClick={handleOnClick}>Logout</p>
               </li>
+              <li>
+                <Link to="/articulo">Articulo</Link>
+              </li>
+              <li>
+                <Link to="/perfil">Perfil</Link>
+              </li>
             </ul>
           </nav>
         </div>
@@ -52,8 +59,11 @@ function App() {
           <Route path="/login" exact>
             <Login />
           </Route>
-          <Route path="/articulos" exact>
+          <Route path="/articulo" exact>
             <Articulos />
+          </Route>
+          <Route path="/perfil" exact>
+            <Perfil />
           </Route>
         </Switch>
       </Router>

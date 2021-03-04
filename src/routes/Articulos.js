@@ -1,10 +1,9 @@
 import React from "react";
-import { useRemoteArticle } from "../herramientas/useRemoteArticle";
+import { useRemoteArticle } from "../herramientas/useRemoteArticles";
 import "./Articulos.css";
 
 export function Articulos() {
   const articulo = useRemoteArticle(2);
-  console.log(articulo);
 
   return (
     <>

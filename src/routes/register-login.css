@@ -44,11 +44,11 @@ p {
   margin-top: 20px;
 }
 .Register-button-activate {
-  background-color: #a8d3c6;
+  background-color: #f8d334;
 }
 .Register-button-no-activate {
   background-color: none;
-  color: #a8d3c6;
+  color: #f8d334;
 }
 
 .Register-error {
