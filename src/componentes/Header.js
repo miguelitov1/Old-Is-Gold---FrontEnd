@@ -6,7 +6,7 @@ import "./Header.css";
 export const Header = () => {
   return (
     <header className="Header-container">
-      <img src="logo.jpg" alt="imgPerfil" />
+      <img src="./logo/logo_old-is-gold.png" alt="imgPerfil" />
 
       <form className="Header-container2">
         <div className="Header-lupa">

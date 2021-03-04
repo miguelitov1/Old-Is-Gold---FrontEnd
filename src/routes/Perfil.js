@@ -3,11 +3,10 @@ import { useRemoteUser } from "../herramientas/useRemoteUser";
 
 export function Perfil() {
   const perfil = useRemoteUser(1);
-  console.log("hola", perfil);
 
   return (
     <>
-      <div></div>
+      <div>NOMBRE:{perfil.nombre}</div>
     </>
   );
 }
