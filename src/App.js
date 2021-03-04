@@ -8,6 +8,8 @@ import { Categorias } from "./componentes/Categorias";
 import { AuthContext } from "./componentes/providers/AuthProvider";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Articulos } from "./routes/Articulos";
+import { Footer } from "./componentes/Footer";
 
 function App() {
   const [token, setToken] = useContext(AuthContext);
@@ -49,6 +51,9 @@ function App() {
           </Route>
           <Route path="/login" exact>
             <Login />
+          </Route>
+          <Route path="/articulos" exact>
+            <Articulos />
           </Route>
         </Switch>
       </Router>
