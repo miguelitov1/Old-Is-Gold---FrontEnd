@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 // import { AuthContext } from "../componentes/providers/AuthProvider";
 
-export const useRemoteArticle = (idArticulo) => {
+export const useRemoteArticles = (path) => {
   const [articulos, setArticulos] = useState([]);
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -15,7 +15,7 @@ export const useRemoteArticle = (idArticulo) => {
   useEffect(() => {
     const loadArticle = async () => {
       const response = await fetch(
-        `http://localhost:8081/api/v1/proyecto8/articulos`,
+        `http://localhost:8081/api/v1/proyecto8/articulos/${path}`,
         {
           method: "GET",
           headers: {

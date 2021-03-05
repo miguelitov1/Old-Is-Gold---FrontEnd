@@ -41,7 +41,7 @@ export function Categorias() {
           <p>TV</p>
         </div>
 
-        {/* <div>
+        <div>
           <img src="./iconos/icono-video2.png" alt="video"></img>
           <p>Video</p>
         </div>
@@ -62,7 +62,7 @@ export function Categorias() {
         <div>
           <img src="./iconos/icono-otros2.png" alt="otros"></img>
           <p>Otros</p>
-        </div> */}
+        </div>
       </div>
     </>
   );

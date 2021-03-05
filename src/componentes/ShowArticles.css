@@ -7,6 +7,7 @@
 }
 
 .ArticuloHome p {
+  display: block;
   text-align: left;
   font-family: sans-serif;
   font-size: 9pt;
@@ -19,10 +20,6 @@
   color: #f8d334;
 }
 
-.ArticuloHome {
-  width: 100%;
-}
-
 .ArticuloHome-conteiner {
   margin: 10px;
   /* width: 100%; */
@@ -30,6 +27,7 @@
   background-color: white;
   display: flex;
   flex-direction: row;
+  overflow: hidden;
 }
 
 .ArticuloHome-divImg {
@@ -56,5 +54,3 @@
   align-items: baseline;
   flex-direction: row;
 }
-
-/* overflow: hidden*/

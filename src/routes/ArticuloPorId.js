@@ -1,16 +1,16 @@
 import React from "react";
-import { useRemoteArticleById } from "../herramientas/useRemoteArticleById";
+import { useRemoteArticles } from "../herramientas/useRemoteArticles";
 import { formatearFecha } from "../herramientas/formatearFecha";
 import "./ArticuloPorId.css";
 
 export function ArticuloPorId() {
-  const articulo = useRemoteArticleById(4);
+  const articulo = useRemoteArticles(4);
 
   return (
     <div className="ArticuloPorId">
       <div className="fechaTitulo">
         <div>
-          <p>{articulo.fecha}</p>
+          <p>{formatearFecha(articulo.fecha)}</p>
           <h1>{articulo.titulo}</h1>
         </div>
       </div>
@@ -20,6 +20,7 @@ export function ArticuloPorId() {
           <img
             className="ArticuloPorId-user-img"
             src="https://via.placeholder.com/50x50.png"
+            alt="img"
           />
           <div>
             <img

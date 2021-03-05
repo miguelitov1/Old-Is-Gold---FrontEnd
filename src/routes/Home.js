@@ -1,12 +1,12 @@
 import React from "react";
-import { useRemoteArticle } from "../herramientas/useRemoteArticles";
-import { ArticuloHome } from "../componentes/ArticuloHome";
+import { useRemoteArticles } from "../herramientas/useRemoteArticles";
+import { ShowArticles } from "../componentes/ShowArticles";
 
 export function Home() {
-  const articulos = useRemoteArticle();
+  const articulos = useRemoteArticles("");
   return articulos.map((articulo) => {
     return (
-      <ArticuloHome
+      <ShowArticles
         key={articulo.id}
         descripcion={articulo.descripcion}
         titulo={articulo.titulo}

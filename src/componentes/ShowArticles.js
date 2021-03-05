@@ -1,11 +1,11 @@
 import React from "react";
-import "./ArticuloHome.css";
+import "./ShowArticles.css";
 
-export function ArticuloHome(props) {
+export function ShowArticles(props) {
   return (
     <div className="ArticuloHome-conteiner">
       <div className="ArticuloHome-divImg">
-        <img src="./gamecube.jpg"></img>
+        <img src="./gamecube.jpg" alt="gamecube"></img>
       </div>
 
       <div className="ArticuloHome">
@@ -14,10 +14,11 @@ export function ArticuloHome(props) {
           <img
             className="ArticuloHome-corazon"
             src="./corazon-estrellas/corazonFav.png"
+            alt="corazon"
           />
         </div>
         <p className="ArticuloHome-precio">{props.precio}€</p>
-        <p>{props.descripcion}</p>
+        <p className="ArticuloHome-descripcion">{props.descripcion}</p>
       </div>
     </div>
   );
