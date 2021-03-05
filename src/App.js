@@ -21,7 +21,9 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <div className="App-header">
+        <Header />
+      </div>
       <Categorias />
       <Router>
         <div className="App-links">

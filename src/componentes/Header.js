@@ -15,10 +15,7 @@ export const Header = () => {
         <input type="text" placeholder="¿Que estás buscando?"></input>
       </form>
 
-      <div className="Header-container2">
-        <a href="#">VENDER</a>
-        <img src="./iconos/menu.png" alt="menu" />
-      </div>
+      <a href="#">VENDER</a>
     </header>
   );
 };
