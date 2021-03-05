@@ -11,44 +11,15 @@ import { AuthContext } from "./componentes/providers/AuthProvider";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Articulos } from "./routes/Articulos";
 import { Footer } from "./componentes/Footer";
+import { NavBar } from "./componentes/NavBar";
 
 function App() {
-  const [token, setToken] = useContext(AuthContext);
-
-  const handleOnClick = () => {
-    setToken("");
-  };
-
   return (
     <div className="App">
       <Header />
       <Categorias />
       <Router>
-        <div className="App-links">
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/registro">Register</Link>
-              </li>
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-              <li>
-                <p onClick={handleOnClick}>Logout</p>
-              </li>
-              <li>
-                <Link to="/articulo">Articulo</Link>
-              </li>
-              <li>
-                <Link to="/perfil">Perfil</Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
-
+        <NavBar />
         <Switch>
           <Route path="/" exact>
             <Home />

@@ -1,9 +1,9 @@
 import React from "react";
-import { useRemoteArticle } from "../herramientas/useRemoteArticles";
+import { useRemoteArticleById } from "../herramientas/useRemoteArticleById";
 import "./Articulos.css";
 
 export function Articulos() {
-  const articulo = useRemoteArticle(2);
+  const articulo = useRemoteArticleById(2);
 
   return (
     <>
@@ -29,7 +29,7 @@ export function Articulos() {
       </div>
       <div className="Articulo-datos">
         <p>{articulo.precio}€</p>
-        <img src="./Corazon.png"></img>
+        <img src="./corazon-estrellas/corazon.png"></img>
         <p>{articulo.localizacion}</p>
       </div>
       <div className="Articulo-buttons">
