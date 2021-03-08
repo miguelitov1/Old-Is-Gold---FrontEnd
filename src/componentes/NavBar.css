@@ -26,21 +26,25 @@
   left: 0px;
   transition: 350px;
 }
-.nav-text {
+.nav-text,
+.nav-no-token {
   display: flex;
   justify-content: start;
   align-items: center;
   list-style: none;
 }
-.nav-text a {
+.nav-text a,
+.nav-no-token a {
   text-decoration: none;
   color: #f7cd2d;
 }
-.nav-text a:hover {
+.nav-text a:hover,
+.nav-no-token a:hover {
   background-color: #f7cd2d;
   color: #000000;
 }
-.nav-menu.items {
+.nav-menu.items,
+.nav-no-token.items {
   width: 100%;
 }
 .nav-toggle a {

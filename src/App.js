@@ -10,16 +10,12 @@ import { Categorias } from "./componentes/Categorias";
 import { AuthContext } from "./componentes/providers/AuthProvider";
 import { ArticuloPorId } from "./routes/ArticuloPorId";
 import { NavBar } from "./componentes/NavBar";
+import { Logout } from "./routes/Logout";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { FooterNav } from "./componentes/FooterNav";
 
 function App() {
-  const [token, setToken] = useContext(AuthContext);
-
-  const handleOnClick = () => {
-    setToken("");
-  };
-
   return (
     <div className="App">
       <div className="App-header">
@@ -43,10 +39,13 @@ function App() {
           </Route>
           <Route path="/perfil" exact>
             <Perfil />
+            <Route path="/logout" exact>
+              <Logout />
+            </Route>
           </Route>
         </Switch>
+        <Footer />
       </Router>
-      <Footer />
     </div>
   );
 }
