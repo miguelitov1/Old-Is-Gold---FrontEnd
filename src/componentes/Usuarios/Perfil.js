@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Redirect } from "react-router";
-import { AuthContext } from "../componentes/providers/AuthProvider";
-import { useRemoteUser } from "../herramientas/useRemoteUser";
+import { AuthContext } from "../providers/AuthProvider";
+import { useRemoteUser } from "../../herramientas/useRemoteUser";
 import "./Perfil.css";
 export function Perfil() {
   const perfil = useRemoteUser(1);
