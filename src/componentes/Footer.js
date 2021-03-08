@@ -7,6 +7,7 @@ export function Footer() {
     <>
       <footer className="Footer">
         <div className="Footer-div">
+          <FooterNav />
           <img
             src="./logo/logo_old-is-gold.png"
             className="Footer-logo"
