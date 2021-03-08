@@ -11,7 +11,7 @@ import { Header } from "./componentes/Header";
 import { NavBar } from "./componentes/NavBar";
 import { sidebarCategorias } from "./componentes/sidebarCategorias";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Logout } from "./routes/Logout";
+// import { Logout } from "./routes/Logout";
 
 function App() {
   return (
@@ -40,9 +40,9 @@ function App() {
           </Route>{" "}
           <Route path="/vender" exact>
             <Vender />
-            <Route path="/logout" exact>
+            {/* <Route path="/logout" exact>
               <Logout />
-            </Route>
+            </Route> */}
           </Route>
           {sidebarCategorias.map((categoria) =>
             categoria.idCategoria === 0 ? (
