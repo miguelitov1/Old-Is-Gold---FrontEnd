@@ -1,27 +1,19 @@
 import React from "react";
-import { FooterNav } from "./FooterNav";
 import "./Footer.css";
+import { FooterNav } from "./FooterNav";
 
 export function Footer() {
   return (
     <>
       <footer className="Footer">
-        <div className="Footer-div">
+        <div className="Footer-menu">
           <FooterNav />
-          <img
-            src="./logo/logo_old-is-gold.png"
-            className="Footer-logo"
-            alt="log"
-          ></img>
-          <p>Compraventa de tecnología retro</p>
-          <p>Copyright 2021 OldIsGold</p>
         </div>
         <div className="Footer-footer">
           <div className="Footer-div">
             <img
               src="./logo/logo_old-is-gold.png"
               className="Footer-logo"
-              alt="logo"
             ></img>
             <p>Compraventa de tecnología retro</p>
             <p>Copyright 2021 OldIsGold</p>
