@@ -2,7 +2,7 @@ import "./Footer.css";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { SidebarData, SidebarDataToken } from "./SidebarData";
-import { AuthContext } from "./providers/AuthProvider";
+import { AuthContext } from "../providers/AuthProvider";
 
 export function FooterNav() {
   const [token] = useContext(AuthContext);

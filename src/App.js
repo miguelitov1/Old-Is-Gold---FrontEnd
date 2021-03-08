@@ -3,13 +3,12 @@ import { Login } from "./routes/Login";
 import { Register } from "./routes/Register";
 import { ListaArticulos } from "./routes/ListaArticulos";
 import { Perfil } from "./routes/Perfil";
-import { Categorias } from "./componentes/Categorias";
+import { Categorias } from "./componentes/Categorias/Categorias";
 import { ArticuloPorId } from "./routes/ArticuloPorId";
 import { Vender } from "./routes/Vender";
-import { Footer } from "./componentes/Footer";
-import { Header } from "./componentes/Header";
-import { NavBar } from "./componentes/NavBar";
-import { sidebarCategorias } from "./componentes/sidebarCategorias";
+import { Footer } from "./componentes/Header-Footer/Footer";
+import { Header } from "./componentes/Header-Footer/Header";
+import { sidebarCategorias } from "./componentes/Categorias/sidebarCategorias";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import { Logout } from "./routes/Logout";
 
@@ -19,7 +18,6 @@ function App() {
       <Router>
         <Header />
         <Categorias />
-        <NavBar />
         <Switch>
           <Route path="/" exact>
             <ListaArticulos path="" />

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Redirect } from "react-router";
 import { AuthContext } from "../componentes/providers/AuthProvider";
-import { UsuarioRegistrado } from "../componentes/UsuarioRegistrado";
+import { UsuarioRegistrado } from "../componentes/Usuarios/UsuarioRegistrado";
 import "./register-login.css";
 
 export function Register() {
