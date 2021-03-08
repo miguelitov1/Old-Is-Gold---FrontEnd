@@ -2,16 +2,15 @@ import React, { useState, useContext } from "react";
 import { Redirect } from "react-router";
 import { AuthContext } from "../providers/AuthProvider";
 import { useRemoteUser } from "../../herramientas/useRemoteUser";
+import { Logout } from "../../routes/Logout";
 import "./Perfil.css";
 export function Perfil() {
   const perfil = useRemoteUser(1);
   const [token, setToken] = useContext(AuthContext);
-  console.log(perfil);
-
+  const handleOnClick = () => setToken("");
   return token ? (
     <>
       <form className="Perfil-form">
-        <h2>Datos del usuario</h2>
         <div className="Perfil-img">
           <img
             className="Perfil-foto-de-perfil"
@@ -26,50 +25,51 @@ export function Perfil() {
           <img src="./corazon-estrellas/estrella-100.png" alt="estrella"></img>
           <img src="./corazon-estrellas/estrella-100.png" alt="estrella"></img>
           <img src="./corazon-estrellas/estrella-50.png" alt="estrella"></img>
+          <h2 className="Perfil-info">Datos del usuario</h2>
         </div>
 
-        <label htmlFor="nombre" className="perfil-label">
+        <label htmlFor="nombre" className="Perfil-label">
           Nombre:
           <input type="text" name="nombre" placeholder={perfil.nombre} />
         </label>
 
-        <label htmlFor="apellidos" className="perfil-label">
+        <label htmlFor="apellidos" className="Perfil-label">
           Apellidos:
           <input type="text" name="apellidos" placeholder={perfil.apellidos} />
         </label>
-        <label htmlFor="localidad" className="perfil-label">
+
+        <label htmlFor="localidad" className="Perfil-label">
           Localidad:
           <input type="text" name="localidad" placeholder={perfil.localidad} />
         </label>
-      </form>
-      <div className="Register-section">
-        <form className="form-register">
-          <h2>Datos de cuenta:</h2>
-          <label htmlFor="nombreUsuario" className="perfil-label">
-            Nombre de usuario:
-            <input
-              type="text"
-              name="nombreUsuario"
-              placeholder={perfil.nombreUsuario}
-            />
-          </label>
 
-          <label htmlFor="apellidos" className="perfil-label">
-            Email:
-            <input type="email" name="email" placeholder={perfil.email} />
-          </label>
-          <label htmlFor="localidad" className="perfil-label">
-            Contraseña:
-            <input type="password" name="password" placeholder="********" />
-          </label>
-        </form>
-      </div>
-      <div className="Perfil-botones">
-        <button>Modificar perfil</button>
-        <button>Cerrar sesión</button>
-      </div>
+        <h2 className="Perfil-info">Datos de cuenta:</h2>
+
+        <label htmlFor="nombreUsuario" className="Perfil-label">
+          Nombre de usuario:
+          <input
+            type="text"
+            name="nombreUsuario"
+            placeholder={perfil.nombreUsuario}
+          />
+        </label>
+
+        <label htmlFor="apellidos" className="Perfil-label">
+          Email:
+          <input type="email" name="email" placeholder={perfil.email} />
+        </label>
+
+        <label htmlFor="localidad" className="Perfil-label">
+          Contraseña:
+          <input type="password" name="password" placeholder="********" />
+        </label>
+        <div className="Perfil-botones">
+          <button>Modificar perfil</button>
+          <button onClick={handleOnClick}>Cerrar sesión</button>
+        </div>
+      </form>
     </>
   ) : (
-    <Redirect to="/registro" />
+    <Redirect to="/" />
   );
 }
