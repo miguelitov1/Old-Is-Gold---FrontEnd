@@ -6,13 +6,12 @@ import "./Perfil.css";
 export function Perfil() {
   const perfil = useRemoteUser(1);
   const [token, setToken] = useContext(AuthContext);
-  const [redirection, setRedirection] = useState("");
   console.log(perfil);
 
   return token ? (
     <>
-      <div className="Register-section">
-        <form className="form-register">
+      <div className="Perfil-section">
+        <form className="form-Perfil">
           <h2>Perfil</h2>
           <div className="perfil-img">
             <div className="perfil-pg">PG</div>
@@ -60,8 +59,8 @@ export function Perfil() {
             />
           </label>
         </form>
-        <div className="Register-section">
-          <form className="form-register">
+        <div className="Perfil-section">
+          <form className="form-Perfil">
             <h2>Datos de cuenta:</h2>
             <label htmlFor="nombreUsuario" className="perfil-label">
               Nombre de usuario:

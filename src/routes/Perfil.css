@@ -1,4 +1,4 @@
-.form-register {
+.form-Perfil {
   background-color: #f2f1f1;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@
   align-items: center;
 }
 
-.form-register input {
+.form-Perfil input {
   font-size: 18px;
   margin: auto;
   background: transparent;
@@ -22,7 +22,7 @@
   display: inline-block;
 }
 
-.form-register div button {
+.form-Perfil div button {
   border-radius: 5px;
   width: 300px;
   border: none;
@@ -31,15 +31,15 @@
   width: 100%;
 }
 
-.Register-buttons {
+.Perfil-buttons {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
 }
-.Register-button-activate {
+.Perfil-button-activate {
   background-color: #f8d334;
 }
-.Register-button-no-activate {
+.Perfil-button-no-activate {
   background-color: none;
   color: #f8d334;
 }

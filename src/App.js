@@ -17,9 +17,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <div className="App-header">
-          <Header />
-        </div>
+        <Header />
         <Categorias />
         <NavBar />
         <Switch>
