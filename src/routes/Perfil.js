@@ -11,11 +11,17 @@ export function Perfil() {
 
   return token ? (
     <>
-      <form className="perfil-form">
-        <h2>Perfil</h2>
-        <div className="perfil-img"></div>
+      <form className="Perfil-form">
+        <h2>Datos del usuario</h2>
+        <div className="Perfil-img">
+          <img
+            className="Perfil-foto-de-perfil"
+            src="logo/logo_old-is-gold.png"
+            alt="Foto de perfil"
+          ></img>
+        </div>
 
-        <div>
+        <div className="Perfil-valoraciones">
           <img src="./corazon-estrellas/estrella-100.png" alt="estrella"></img>
           <img src="./corazon-estrellas/estrella-100.png" alt="estrella"></img>
           <img src="./corazon-estrellas/estrella-100.png" alt="estrella"></img>
