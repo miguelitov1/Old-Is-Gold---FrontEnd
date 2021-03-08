@@ -6,7 +6,6 @@ import "./Perfil.css";
 export function Perfil() {
   const perfil = useRemoteUser(1);
   const [token, setToken] = useContext(AuthContext);
-  const [redirection, setRedirection] = useState("");
   console.log(perfil);
 
   return token ? (

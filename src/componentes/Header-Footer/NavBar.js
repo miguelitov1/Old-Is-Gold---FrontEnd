@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import { SidebarData, SidebarDataToken } from "./SidebarData";
-import { AuthContext } from "./providers/AuthProvider";
+import { AuthContext } from "../providers/AuthProvider";
 // import { Link } from "react-router-dom";
 
 export function NavBar() {

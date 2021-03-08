@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useRemoteArticles } from "../herramientas/useRemoteArticles";
-import { ShowArticles } from "../componentes/ShowArticles";
+import { ShowArticles } from "../componentes/Articulos/ShowArticles";
 // import { Link } from "react-router-dom";
 // import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 

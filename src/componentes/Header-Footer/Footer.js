@@ -1,5 +1,6 @@
 import React from "react";
 import "./Footer.css";
+import "./NavBar.css";
 import { FooterNav } from "./FooterNav";
 
 export function Footer() {
@@ -14,6 +15,7 @@ export function Footer() {
             <img
               src="./logo/logo_old-is-gold.png"
               className="Footer-logo"
+              alt="logo"
             ></img>
             <p>Compraventa de tecnología retro</p>
             <p>Copyright 2021 OldIsGold</p>
