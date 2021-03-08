@@ -1,58 +1,11 @@
-.form-Perfil {
-  background-color: #f2f1f1;
-  display: flex;
-  flex-direction: column;
-  padding: 40px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  max-width: 400px;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
-}
-
-.form-Perfil input {
-  font-size: 18px;
-  margin: auto;
-  background: transparent;
-  outline: none;
-  height: 35px;
-  border: none;
-  width: 200px;
-  display: inline-block;
-}
-
-.form-Perfil div button {
-  border-radius: 5px;
-  width: 300px;
-  border: none;
-  font-size: 18px;
-  height: 50px;
-  width: 100%;
-}
-
-.Perfil-buttons {
+.Perfil-botones {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
 }
-.Perfil-button-activate {
-  background-color: #f8d334;
-}
-.Perfil-button-no-activate {
+.Perfil-botones button {
   background-color: none;
   color: #f8d334;
-}
-
-.perfil-pg {
-  background-color: rgb(1, 75, 1);
-  margin: 0;
-  text-align: center;
-  font-size: 90px;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  color: #e7e4e4;
 }
 
 .perfil-img {
