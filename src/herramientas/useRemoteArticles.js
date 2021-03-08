@@ -3,8 +3,7 @@ import { useState, useEffect } from "react";
 
 export const useRemoteArticles = (path) => {
   const [articulos, setArticulos] = useState([]);
-  const [errorMsg, setErrorMsg] = useState("");
-
+  const [, setErrorMsg] = useState("");
   // const [random, setRandom] = useState(Math.random());
   // const [token, setToken] = useContext(AuthContext);
 
@@ -34,6 +33,6 @@ export const useRemoteArticles = (path) => {
       }
     };
     loadArticle();
-  }, []);
+  }, [path]);
   return articulos;
 };

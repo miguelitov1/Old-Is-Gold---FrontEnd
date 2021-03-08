@@ -1,32 +1,30 @@
 import "./App.css";
-import { useContext } from "react";
 import { Login } from "./routes/Login";
 import { Register } from "./routes/Register";
-import { Home } from "./routes/Home";
+import { ListaArticulos } from "./routes/ListaArticulos";
 import { Perfil } from "./routes/Perfil";
-import { Header } from "./componentes/Header";
-import { Footer } from "./componentes/Footer";
 import { Categorias } from "./componentes/Categorias";
-import { AuthContext } from "./componentes/providers/AuthProvider";
 import { ArticuloPorId } from "./routes/ArticuloPorId";
+import { Vender } from "./routes/Vender";
+import { Footer } from "./componentes/Footer";
+import { Header } from "./componentes/Header";
 import { NavBar } from "./componentes/NavBar";
+import { sidebarCategorias } from "./componentes/sidebarCategorias";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Logout } from "./routes/Logout";
-
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { FooterNav } from "./componentes/FooterNav";
 
 function App() {
   return (
     <div className="App">
-      <div className="App-header">
-        <Header />
-      </div>
-      <Categorias />
       <Router>
+        <div className="App-header">
+          <Header />
+        </div>
+        <Categorias />
         <NavBar />
         <Switch>
           <Route path="/" exact>
-            <Home />
+            <ListaArticulos path="" />
           </Route>
           <Route path="/registro" exact>
             <Register />
@@ -35,14 +33,32 @@ function App() {
             <Login />
           </Route>
           <Route path="/articulo" exact>
-            <ArticuloPorId />
+            <ArticuloPorId idArticulo="4" />
           </Route>
           <Route path="/perfil" exact>
             <Perfil />
+          </Route>{" "}
+          <Route path="/vender" exact>
+            <Vender />
             <Route path="/logout" exact>
               <Logout />
             </Route>
           </Route>
+          {sidebarCategorias.map((categoria) =>
+            categoria.idCategoria === 0 ? (
+              <Route key={categoria.idCategoria} path={categoria.path} exact>
+                <ListaArticulos path="" />
+              </Route>
+            ) : (
+              <Route key={categoria.idCategoria} path={categoria.path} exact>
+                <ListaArticulos
+                  path={`categoria/${categoria.idCategoria}`}
+                  titulo={categoria.nombre}
+                  key={categoria.idCategoria}
+                />
+              </Route>
+            )
+          )}
         </Switch>
         <Footer />
       </Router>

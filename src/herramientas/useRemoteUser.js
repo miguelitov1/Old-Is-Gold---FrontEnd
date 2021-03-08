@@ -3,8 +3,8 @@ import { AuthContext } from "../componentes/providers/AuthProvider";
 
 export const useRemoteUser = (idUsuario) => {
   const [usuario, setUsuario] = useState({});
-  const [errorMsg, setErrorMsg] = useState("");
-  const [token, setToken] = useContext(AuthContext);
+  const [, setErrorMsg] = useState("");
+  const [token] = useContext(AuthContext);
   // const [random, setRandom] = useState(Math.random());
   // const [token, setToken] = useContext(AuthContext);
 
@@ -34,6 +34,6 @@ export const useRemoteUser = (idUsuario) => {
       }
     };
     loadUser();
-  }, []);
+  }, [idUsuario, token]);
   return usuario;
 };
