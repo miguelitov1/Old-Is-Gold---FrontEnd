@@ -6,14 +6,12 @@ import { Perfil } from "./routes/Perfil";
 import { Categorias } from "./componentes/Categorias";
 import { ArticuloPorId } from "./routes/ArticuloPorId";
 import { Vender } from "./routes/Vender";
-
 import { Footer } from "./componentes/Footer";
 import { Header } from "./componentes/Header";
 import { NavBar } from "./componentes/NavBar";
-
 import { sidebarCategorias } from "./componentes/sidebarCategorias";
-
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Logout } from "./routes/Logout";
 
 function App() {
   return (
@@ -42,6 +40,9 @@ function App() {
           </Route>{" "}
           <Route path="/vender" exact>
             <Vender />
+            <Route path="/logout" exact>
+              <Logout />
+            </Route>
           </Route>
           {sidebarCategorias.map((categoria) =>
             categoria.idCategoria === 0 ? (
@@ -59,8 +60,8 @@ function App() {
             )
           )}
         </Switch>
+        <Footer />
       </Router>
-      <Footer />
     </div>
   );
 }

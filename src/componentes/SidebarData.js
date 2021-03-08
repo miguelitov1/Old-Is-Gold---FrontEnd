@@ -4,7 +4,7 @@ import React from "react";
 // import * as IoIcons from "react-icons/ai";
 import * as BsIcons from "react-icons/bs";
 
-export const SidebarData = [
+export const SidebarDataToken = [
   {
     tittle: "Chat",
     path: "/chat",
@@ -18,58 +18,36 @@ export const SidebarData = [
     cName: "nav-text",
   },
   {
-    tittle: "Compras",
+    tittle: "Perfil",
+    path: "/perfil",
+    icon: <img src="./logo/logo_old-is-gold.png" alt="imgPerfil" />,
+    cName: "nav-text",
+  },
+  {
+    tittle: "Mis compras",
     path: "/",
     icon: <BsIcons.BsCreditCard />,
     cName: "nav-text",
   },
   {
     tittle: "Favoritos",
-    path: "/hoem",
+    path: "/favoritos",
     icon: <BsIcons.BsHeart />,
     cName: "nav-text",
   },
-  {
-    tittle: "Logout",
-    path: "/logout",
-    icon: <BsIcons.BsPower />,
-    cName: "nav-text",
-  },
+];
 
+export const SidebarData = [
   {
-    tittle: "Home",
-    path: "/home",
+    tittle: "Registro",
+    path: "/registro",
     icon: <BsIcons.BsChat />,
-    cName: "nav-text",
-  },
-  {
-    tittle: "register",
-    path: "/register",
-    icon: <BsIcons.BsChat />,
-    cName: "nav-text",
+    cName: "nav-no-token",
   },
   {
     tittle: "Login",
     path: "/login",
     icon: <BsIcons.BsChat />,
-    cName: "nav-text",
-  },
-  {
-    tittle: "logout",
-    path: "/chat",
-    icon: <BsIcons.BsChat />,
-    cName: "nav-text",
-  },
-  {
-    tittle: "Articulo",
-    path: "/articulo",
-    icon: <BsIcons.BsChat />,
-    cName: "nav-text",
-  },
-  {
-    tittle: "Perfil",
-    path: "/pergil",
-    icon: <BsIcons.BsChat />,
-    cName: "nav-text",
+    cName: "nav-no-token",
   },
 ];
