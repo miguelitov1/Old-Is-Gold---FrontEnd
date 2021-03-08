@@ -1,6 +1,6 @@
 import React from "react";
-import "./Footer.css";
 import { FooterNav } from "./FooterNav";
+import "./Footer.css";
 
 export function Footer() {
   return (
