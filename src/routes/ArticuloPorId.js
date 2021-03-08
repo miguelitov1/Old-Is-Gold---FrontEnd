@@ -3,8 +3,8 @@ import { useRemoteArticles } from "../herramientas/useRemoteArticles";
 import { formatearFecha } from "../herramientas/formatearFecha";
 import "./ArticuloPorId.css";
 
-export function ArticuloPorId() {
-  const articulo = useRemoteArticles(4);
+export function ArticuloPorId({ idArticulo }) {
+  const articulo = useRemoteArticles(idArticulo);
 
   return (
     <div className="ArticuloPorId">
@@ -54,6 +54,7 @@ export function ArticuloPorId() {
         <img
           className="ArticuloPorId-img"
           src="https://via.placeholder.com/1220x1024.png"
+          alt="articulo"
         />
       </div>
       <div className="ArticuloPorId-datos">
