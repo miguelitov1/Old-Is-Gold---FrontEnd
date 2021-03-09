@@ -1,0 +1,65 @@
+.Perfil-img {
+  display: flex;
+}
+.Perfil-info {
+  padding: 10px;
+}
+
+.Perfil-foto-de-perfil {
+  height: 100px;
+  background-color: black;
+  border-radius: 100px;
+  text-align: center;
+  margin: 20px auto;
+}
+
+.Perfil-valoraciones {
+  margin: auto;
+  text-align: center;
+}
+
+.Perfil-form {
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.Perfil-form input {
+  font-size: 18px;
+  margin: 5px;
+  background: transparent;
+  outline: none;
+  height: 35px;
+  border: none;
+  width: auto;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.Perfil-form input:hover {
+  border-bottom: 2px solid;
+}
+.Perfil-label {
+  padding: 5px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.Perfil-botones {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Perfil-botones button {
+  width: 50%;
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+  height: 50px;
+  margin: 20px;
+  background-color: #f8d334;
+  color: #000;
+}
