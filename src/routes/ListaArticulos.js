@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useRemoteArticles } from "../herramientas/useRemoteArticles";
 import { ShowArticles } from "../componentes/Articulos/ShowArticles";
+import "../componentes/Articulos/ShowArticles.css";
 // import { Link } from "react-router-dom";
 // import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -9,7 +10,7 @@ export function ListaArticulos(props) {
   const articulos = useRemoteArticles(props.path);
 
   return (
-    <div>
+    <div className="Lista-articulos-body">
       <h2>{props.titulo}</h2>
       {articulos.map((articulo) => (
         <ShowArticles

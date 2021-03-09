@@ -10,7 +10,7 @@ export function ShowArticles(props) {
 
       <div className="ArticuloHome">
         <div className="ArticuloHome-conteiner2">
-          <h2>{props.titulo.toUpperCase()}</h2>
+          <h2 className="ArticuloHome-titulo">{props.titulo.toUpperCase()}</h2>
           <img
             className="ArticuloHome-corazon"
             src="./corazon-estrellas/corazonFav.png"
