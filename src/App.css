@@ -8,3 +8,11 @@
   flex-direction: row;
   list-style: none;
 }
+
+.App-img {
+  background-image: url("./old-is-gold-horizontal.png");
+  background-position: center;
+  background-size: cover;
+  height: 50px;
+  padding: 20px;
+}

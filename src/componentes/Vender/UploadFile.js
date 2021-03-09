@@ -113,6 +113,7 @@ export const UploadFile = (props) => {
           <button type="submit">Upload</button>
         </form>
       </div>
+      <p>*Acepta sólo imagenes jpeg, jpg y png</p>
     </>
   );
 };

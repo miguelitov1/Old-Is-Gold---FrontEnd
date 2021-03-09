@@ -4,8 +4,8 @@ import { AuthContext } from "../componentes/providers/AuthProvider";
 import { Valoracion } from "../componentes/Valoraciones/Valoracion";
 import { useRemoteValoraciones } from "../herramientas/useRemoteValoraciones";
 
-export function Valoraciones() {
-  const valoraciones = useRemoteValoraciones();
+export function Valoraciones(idUsuario) {
+  const [valoraciones, setValoraciones] = useRemoteValoraciones(idUsuario);
   const [token, setToken] = useContext(AuthContext);
   const arrayValoracion = valoraciones.valoraciones;
 

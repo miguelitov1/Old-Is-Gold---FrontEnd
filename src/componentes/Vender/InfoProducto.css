@@ -1,0 +1,43 @@
+div .InfoProducto {
+  padding: 30px;
+}
+
+div .InfoProducto form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div .InfoProducto form label {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 10px;
+}
+
+.InfoProducto input {
+  font-size: 20px;
+}
+
+.InfoProducto textarea {
+  height: 150px;
+  font-size: 15px;
+}
+
+.InfoProducto button {
+  background-color: #f8d334;
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+  height: 50px;
+  width: 150px;
+}
+
+.InfoProducto-button {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}

@@ -1,14 +1,14 @@
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../componentes/providers/AuthProvider";
 
-export const useRemoteValoraciones = (idArticulo) => {
+export const useRemoteValoraciones = (idUsuario) => {
   const [valoraciones, setValoraciones] = useState([]);
   const [errorMsg, setErrorMsg] = useState("");
   const [token, setToken] = useContext(AuthContext);
   useEffect(() => {
     const loadArticle = async () => {
       const response = await fetch(
-        `http://localhost:8081/api/v1/proyecto8/ventas/verValoraciones/1`,
+        `http://localhost:8081/api/v1/proyecto8/ventas/verValoraciones/${idUsuario}`,
         {
           method: "GET",
           headers: {
@@ -30,5 +30,5 @@ export const useRemoteValoraciones = (idArticulo) => {
     };
     loadArticle();
   }, []);
-  return valoraciones;
+  return [valoraciones, setValoraciones];
 };

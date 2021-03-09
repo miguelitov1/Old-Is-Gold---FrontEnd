@@ -35,5 +35,5 @@ export const useRemoteUser = (idUsuario) => {
     };
     loadUser();
   }, [idUsuario, token]);
-  return usuario;
+  return [usuario, setUsuario];
 };

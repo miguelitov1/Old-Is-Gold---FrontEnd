@@ -25,6 +25,7 @@ function App() {
         <Categorias />
         <Switch>
           <Route path="/" exact>
+            <div className="App-img"></div>
             <ListaArticulos path="" />
           </Route>
           <Route path="/registro" exact>
@@ -37,10 +38,10 @@ function App() {
             <ArticuloPorId idArticulo="4" />
           </Route>
           <Route path="/valoraciones" exact>
-            <Valoraciones />
+            <Valoraciones idUsuario="1" />
           </Route>
           <Route path="/perfil" exact>
-            <Perfil />
+            <Perfil idUsuario="1" />
           </Route>{" "}
           <Route path="/vender" exact>
             <Vender />

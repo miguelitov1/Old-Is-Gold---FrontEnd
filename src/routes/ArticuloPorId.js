@@ -1,10 +1,14 @@
 import React from "react";
 import { useRemoteArticles } from "../herramientas/useRemoteArticles";
 import { formatearFecha } from "../herramientas/formatearFecha";
+import { useRemoteValoraciones } from "../herramientas/useRemoteValoraciones";
+import { pintarEstrellas } from "../herramientas/pintarEstrellas";
 import "./ArticuloPorId.css";
 
 export function ArticuloPorId({ idArticulo }) {
-  const articulo = useRemoteArticles(idArticulo);
+  const [articulo, setArticulo] = useRemoteArticles(idArticulo);
+  const [valoraciones, setValoraciones] = useRemoteValoraciones(1);
+  const estrellas = pintarEstrellas(4.33);
 
   return (
     <div className="ArticuloPorId">
@@ -23,7 +27,10 @@ export function ArticuloPorId({ idArticulo }) {
             alt="img"
           />
           <div>
-            <img
+            {estrellas.map((estrella) => (
+              <img src={estrella} alt="estrella" />
+            ))}
+            {/* <img
               src="./corazon-estrellas/estrella-100.png"
               alt="estrella"
             ></img>
@@ -39,10 +46,10 @@ export function ArticuloPorId({ idArticulo }) {
               src="./corazon-estrellas/estrella-100.png"
               alt="estrella"
             ></img>
-            <img src="./corazon-estrellas/estrella-50.png" alt="estrella"></img>
+            <img src="./corazon-estrellas/estrella-50.png" alt="estrella"></img> */}
           </div>
 
-          <p>12 opiniones</p>
+          <p>{valoraciones.nroValoraciones} opiniones</p>
         </div>
         <div className="ArticuloPorId-datos-usuario2">
           <img src="/iconos/visto.png" alt="visto" />

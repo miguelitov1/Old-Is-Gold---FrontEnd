@@ -34,5 +34,5 @@ export const useRemoteArticles = (path) => {
     };
     loadArticle();
   }, [path]);
-  return articulos;
+  return [articulos, setArticulos];
 };

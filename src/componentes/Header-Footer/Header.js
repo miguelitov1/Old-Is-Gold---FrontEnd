@@ -15,7 +15,7 @@ export const Header = () => {
         </div>
         <input type="text" placeholder="¿Que estás buscando?"></input>
       </form>
-      <Link to="/vender">
+      <Link to="/vender" style={{ textDecoration: "none" }}>
         <p>VENDER</p>
       </Link>
     </header>

@@ -7,7 +7,7 @@ import "../componentes/Articulos/ShowArticles.css";
 
 export function ListaArticulos(props) {
   // const [articuloSeleccionado, setArticuloSeleccionado] = useState("");
-  const articulos = useRemoteArticles(props.path);
+  const [articulos, setArticulo] = useRemoteArticles(props.path);
 
   return (
     <div className="Lista-articulos-body">
