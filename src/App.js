@@ -11,6 +11,7 @@ import { Header } from "./componentes/Header-Footer/Header";
 import { sidebarCategorias } from "./componentes/Categorias/sidebarCategorias";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import { Logout } from "./routes/Logout";
+import { Chat } from "./componentes/Chat/Chat";
 
 function App() {
   return (
@@ -33,7 +34,10 @@ function App() {
           </Route>
           <Route path="/perfil" exact>
             <Perfil />
-          </Route>{" "}
+          </Route>
+          <Route path="/chat" exact>
+            <Chat />
+          </Route>
           <Route path="/vender" exact>
             <Vender />
             {/* <Route path="/logout" exact>
