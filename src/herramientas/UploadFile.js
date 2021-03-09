@@ -3,52 +3,95 @@ import { AuthContext } from "../componentes/providers/AuthProvider";
 import "./UploadFile.css";
 
 export const UploadFile = (props) => {
-  const [files, setFiles] = useState([]);
+  const [files, setFiles] = useState([null, null, null, null, null]);
   const [token, setToken] = useContext(AuthContext);
+  const [message, setMessage] = useState(null);
 
-  function upload() {
-    let data = new FormData();
-    // data.append("userid", 1231);
-    data.append("image", files);
-    fetch(
-      `http://localhost:8081/api/v1/proyecto8/fotos/subirImagen/${props.idArticulo}`,
-      {
-        method: "POST",
-        headers: {
-          // "Content-type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: data,
+  async function upload(e) {
+    e.preventDefault();
+
+    try {
+      let index = 1;
+      for (const file of files) {
+        if (file) {
+          setMessage(`Subiendo foto número: ${index}`);
+          const data = new FormData();
+          data.append("imagenArticulo", file);
+          data.append(`slot`, index);
+          await fetch(
+            `http://localhost:8081/api/v1/proyecto8/fotos/subirImagen/${props.idArticulo}`,
+            {
+              method: "POST",
+              headers: {
+                // "Content-type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+              body: data,
+            }
+          );
+        }
+
+        index++;
       }
-    )
-      .then((response) => response.json())
-      .then((success) => {
-        // Do something with the successful response
-      })
-      .catch((error) => console.log(error));
+    } catch (error) {
+      setMessage(error.message);
+    }
   }
-  const onFileChange = (event) => {
-    const f = event.target.files[0];
-    setFiles(f);
+
+  const setFile = (index, file) => {
+    const newFiles = [...files];
+    newFiles[index] = file;
+    setFiles(newFiles);
   };
 
   return (
     <div className="App">
+      {message && <p>{message}</p>}
       <form onSubmit={upload}>
         <div>
-          <input type="file" onChange={onFileChange} />
+          foto1
+          <input
+            type="file"
+            onChange={(e) => {
+              setFile(0, e.target.files[0]);
+            }}
+          />
         </div>
         <div>
-          <input type="file" onChange={onFileChange} />
+          foto2
+          <input
+            type="file"
+            onChange={(e) => {
+              setFile(1, e.target.files[0]);
+            }}
+          />
         </div>
         <div>
-          <input type="file" onChange={onFileChange} />
+          foto3
+          <input
+            type="file"
+            onChange={(e) => {
+              setFile(2, e.target.files[0]);
+            }}
+          />
         </div>
         <div>
-          <input type="file" onChange={onFileChange} />
+          foto4
+          <input
+            type="file"
+            onChange={(e) => {
+              setFile(3, e.target.files[0]);
+            }}
+          />
         </div>
         <div>
-          <input type="file" onChange={onFileChange} />
+          foto5
+          <input
+            type="file"
+            onChange={(e) => {
+              setFile(4, e.target.files[0]);
+            }}
+          />
         </div>
         <button type="submit">Upload</button>
       </form>
