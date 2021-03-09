@@ -22,7 +22,6 @@ export const useRemoteValoraciones = (idArticulo) => {
         const json = await response.json();
 
         setValoraciones(json);
-        console.log("holaaaaaa", valoraciones);
 
         setErrorMsg("");
       } else {

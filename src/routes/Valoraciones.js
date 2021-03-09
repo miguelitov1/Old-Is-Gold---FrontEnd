@@ -15,11 +15,11 @@ export function Valoraciones() {
     <>
       <h1>Promedio:{valoraciones.promedio}</h1>
       <h2>Nro. valoraciones:{valoraciones.nroValoraciones}</h2>
-      {console.log("promedio :  " + valoraciones.promedio)}
 
       {arrayValoracion.map((valoracion) => {
         return (
           <Valoracion
+            key={valoracion.id_articulo}
             comentarioValoracion={valoracion.comentarioValoracion}
             respuestaVendedor={valoracion.respuestaVendedor}
           />
