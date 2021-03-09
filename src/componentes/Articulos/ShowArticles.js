@@ -3,13 +3,13 @@ import "./ShowArticles.css";
 
 export function ShowArticles(props) {
   return (
-    <div className="ArticuloHome-conteiner">
+    <div className="ArticuloHome-container">
       <div className="ArticuloHome-divImg">
         <img src="./gamecube.jpg" alt="gamecube"></img>
       </div>
 
       <div className="ArticuloHome">
-        <div className="ArticuloHome-conteiner2">
+        <div className="ArticuloHome-container2">
           <h2 className="ArticuloHome-titulo">{props.titulo.toUpperCase()}</h2>
           <img
             className="ArticuloHome-corazon"

@@ -24,7 +24,7 @@
   color: #f8d334;
 }
 
-.ArticuloHome-conteiner {
+.ArticuloHome-container {
   margin: 10px;
   /* width: 100%; */
   height: 120px;
@@ -51,7 +51,7 @@
   height: 25px;
 }
 
-.ArticuloHome-conteiner2 {
+.ArticuloHome-container2 {
   margin: 5px;
   display: flex;
   justify-content: space-between;

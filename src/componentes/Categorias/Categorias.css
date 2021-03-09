@@ -1,4 +1,4 @@
-.Categorias-conteiner {
+.Categorias-container {
   background-image: url("./fondo-movil.png");
   background-position: center;
   background-repeat: no-repeat;
@@ -9,11 +9,11 @@
   overflow: auto;
 }
 
-.Categorias-conteiner img {
+.Categorias-container img {
   height: 25px;
 }
 
-.Categorias-conteiner p {
+.Categorias-container p {
   font-family: sans-serif;
   color: #ffffff;
   padding-top: 5px;
@@ -22,7 +22,7 @@
   width: 64px;
 }
 
-.Categorias-conteiner div {
+.Categorias-container div {
   margin-top: 7px;
   margin-bottom: 7px;
   display: flex;

@@ -1,4 +1,4 @@
-.ElejirCategoria-conteiner {
+.ElejirCategoria-container {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -6,25 +6,30 @@
   align-items: center;
   align-items: flex-start;
   overflow: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
-.ElejirCategoria-conteiner img {
+.ElejirCategoria-container img {
   height: 25px;
 }
 
-.ElejirCategoria-conteiner p {
+.ElejirCategoria-container p {
   font-family: sans-serif;
-  color: #ffffff;
+  color: black;
   padding-top: 5px;
   text-align: center;
   font-size: 6.5pt;
   width: 64px;
 }
 
-.ElejirCategoria-conteiner div {
+.ElejirCategoria-container div {
   margin-top: 7px;
   margin-bottom: 7px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.Categoria-container {
 }

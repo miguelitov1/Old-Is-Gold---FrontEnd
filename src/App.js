@@ -1,15 +1,20 @@
 import "./App.css";
+
 import { Login } from "./routes/Login";
 import { Register } from "./routes/Register";
-import { ListaArticulos } from "./routes/ListaArticulos";
-import { Perfil } from "./componentes/Usuarios/Perfil";
-import { Categorias } from "./componentes/Categorias/Categorias";
-import { ArticuloPorId } from "./routes/ArticuloPorId";
+import { Perfil } from "./routes/Perfil";
 import { Vender } from "./routes/Vender";
+import { ListaArticulos } from "./routes/ListaArticulos";
+import { ArticuloPorId } from "./routes/ArticuloPorId";
+import { Valoraciones } from "./routes/Valoraciones";
+
+import { Categorias } from "./componentes/Categorias/Categorias";
 import { Footer } from "./componentes/Header-Footer/Footer";
 import { Header } from "./componentes/Header-Footer/Header";
 import { sidebarCategorias } from "./componentes/Categorias/sidebarCategorias";
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 // import { Logout } from "./routes/Logout";
 
 function App() {
@@ -30,6 +35,9 @@ function App() {
           </Route>
           <Route path="/articulo" exact>
             <ArticuloPorId idArticulo="4" />
+          </Route>
+          <Route path="/valoraciones" exact>
+            <Valoraciones />
           </Route>
           <Route path="/perfil" exact>
             <Perfil />

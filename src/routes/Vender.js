@@ -5,10 +5,10 @@ import "./Vender.css";
 
 export function Vender() {
   return (
-    <>
+    <div className="Vender">
       <h3>¿Qué desea vender?</h3>
       <ElegirCategoria />
       <UploadFile path={20} />
-    </>
+    </div>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import * as BiIcons from "react-icons/bi";
 import "./UploadFile.css";
 
 export const UploadFile = (props) => {
@@ -45,56 +46,75 @@ export const UploadFile = (props) => {
   };
 
   return (
-    <div className="UploadFile">
+    <>
       {message && <p>{message}</p>}
-      <form onSubmit={upload}>
-        <div>
-          foto1
-          <input
-            type="file"
-            onChange={(e) => {
-              setFile(0, e.target.files[0]);
-            }}
-          />
-        </div>
-        <div>
-          foto2
-          <input
-            type="file"
-            onChange={(e) => {
-              setFile(1, e.target.files[0]);
-            }}
-          />
-        </div>
-        <div>
-          foto3
-          <input
-            type="file"
-            onChange={(e) => {
-              setFile(2, e.target.files[0]);
-            }}
-          />
-        </div>
-        <div>
-          foto4
-          <input
-            type="file"
-            onChange={(e) => {
-              setFile(3, e.target.files[0]);
-            }}
-          />
-        </div>
-        <div>
-          foto5
-          <input
-            type="file"
-            onChange={(e) => {
-              setFile(4, e.target.files[0]);
-            }}
-          />
-        </div>
-        <button type="submit">Upload</button>
-      </form>
-    </div>
+      <div className="UploadFile">
+        <form onSubmit={upload}>
+          <div>
+            <label>
+              <BiIcons.BiCamera />
+              <input
+                type="file"
+                onChange={(e) => {
+                  setFile(0, e.target.files[0]);
+                }}
+              />
+            </label>
+          </div>
+
+          <div>
+            <label>
+              <BiIcons.BiCamera />
+              <input
+                type="file"
+                onChange={(e) => {
+                  setFile(1, e.target.files[0]);
+                }}
+              />
+            </label>
+          </div>
+
+          <div>
+            <label>
+              <BiIcons.BiCamera />
+              <input
+                type="file"
+                onChange={(e) => {
+                  setFile(2, e.target.files[0]);
+                }}
+              />
+            </label>
+          </div>
+
+          <div>
+            <label>
+              <BiIcons.BiCamera />
+              <input
+                type="file"
+                onChange={(e) => {
+                  setFile(3, e.target.files[0]);
+                }}
+              />
+            </label>
+          </div>
+
+          <div>
+            <label>
+              <BiIcons.BiCamera />
+              <input
+                type="file"
+                onChange={(e) => {
+                  setFile(4, e.target.files[0]);
+                }}
+              />
+            </label>
+          </div>
+
+          <button type="submit">Upload</button>
+        </form>
+      </div>
+    </>
   );
 };
+
+//http://localhost:8081/images/articulos/20_f62fdeda-c323-418f-aa5c-d4b21ed3d2f9.jpg

@@ -1,8 +1,10 @@
 import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import { Redirect } from "react-router";
-import { AuthContext } from "../providers/AuthProvider";
-import { useRemoteUser } from "../../herramientas/useRemoteUser";
-import { Logout } from "../../routes/Logout";
+import { AuthContext } from "../componentes/providers/AuthProvider";
+import { useRemoteUser } from "../herramientas/useRemoteUser";
+import { Logout } from "../routes/Logout";
+
 import "./Perfil.css";
 export function Perfil() {
   const perfil = useRemoteUser(1);
@@ -20,11 +22,25 @@ export function Perfil() {
         </div>
 
         <div className="Perfil-valoraciones">
-          <img src="./corazon-estrellas/estrella-100.png" alt="estrella"></img>
-          <img src="./corazon-estrellas/estrella-100.png" alt="estrella"></img>
-          <img src="./corazon-estrellas/estrella-100.png" alt="estrella"></img>
-          <img src="./corazon-estrellas/estrella-100.png" alt="estrella"></img>
-          <img src="./corazon-estrellas/estrella-50.png" alt="estrella"></img>
+          <Link to="/valoraciones">
+            <img
+              src="./corazon-estrellas/estrella-100.png"
+              alt="estrella"
+            ></img>
+            <img
+              src="./corazon-estrellas/estrella-100.png"
+              alt="estrella"
+            ></img>
+            <img
+              src="./corazon-estrellas/estrella-100.png"
+              alt="estrella"
+            ></img>
+            <img
+              src="./corazon-estrellas/estrella-100.png"
+              alt="estrella"
+            ></img>
+            <img src="./corazon-estrellas/estrella-50.png" alt="estrella"></img>
+          </Link>
           <h2 className="Perfil-info">Datos del usuario</h2>
         </div>
 
