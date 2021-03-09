@@ -6,7 +6,7 @@ import "./Categorias.css";
 export function Categorias() {
   return (
     <>
-      <div className="Categorias-conteiner">
+      <div className="Categorias-container">
         {sidebarCategorias.map((categoria) => (
           <Link
             key={categoria.idCategoria}
