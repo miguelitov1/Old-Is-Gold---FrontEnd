@@ -1,14 +1,20 @@
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../componentes/providers/AuthProvider";
 
-export const useRemoteValoraciones = (idArticulo) => {
-  const [valoraciones, setValoraciones] = useState([]);
-  const [errorMsg, setErrorMsg] = useState("");
+export const useRemoteArticlesSales = (path) => {
+  const [articulos, setArticulos] = useState([]);
+  const [, setErrorMsg] = useState("");
+  // const [random, setRandom] = useState(Math.random());
   const [token, setToken] = useContext(AuthContext);
+
+  // const refetch = () => {
+  //   setRandom(Math.random());
+  // };
+
   useEffect(() => {
     const loadArticle = async () => {
       const response = await fetch(
-        `http://localhost:8081/api/v1/proyecto8/ventas/verValoraciones/51`,
+        `http://localhost:8081/api/v1/proyecto8/usuarios/51/articulos`,
         {
           method: "GET",
           headers: {
@@ -20,15 +26,13 @@ export const useRemoteValoraciones = (idArticulo) => {
 
       if (response.status === 200) {
         const json = await response.json();
-
-        setValoraciones(json);
-
+        setArticulos(json);
         setErrorMsg("");
       } else {
         setErrorMsg("Ha sucedido un error");
       }
     };
     loadArticle();
-  }, []);
-  return valoraciones;
+  }, [path]);
+  return articulos;
 };

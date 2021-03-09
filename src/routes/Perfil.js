@@ -1,10 +1,3 @@
-<<<<<<< HEAD:src/componentes/Usuarios/Perfil.js
-import React, { useContext } from "react";
-import { Redirect } from "react-router";
-import { AuthContext } from "../providers/AuthProvider";
-import { useRemoteUser } from "../../herramientas/useRemoteUser";
-// import { Logout } from "../../routes/Logout";
-=======
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router";
@@ -12,10 +5,9 @@ import { AuthContext } from "../componentes/providers/AuthProvider";
 import { useRemoteUser } from "../herramientas/useRemoteUser";
 import { Logout } from "../routes/Logout";
 
->>>>>>> 2000b1dd02943fb9e26c26c828b7a2d1795b0529:src/routes/Perfil.js
 import "./Perfil.css";
 export function Perfil() {
-  const perfil = useRemoteUser(1);
+  const perfil = useRemoteUser(51);
   const [token, setToken] = useContext(AuthContext);
   const handleOnClick = () => setToken("");
   return token ? (

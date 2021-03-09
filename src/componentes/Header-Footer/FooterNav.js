@@ -14,6 +14,7 @@ export function FooterNav() {
             ? SidebarDataToken.map((item, index) => {
                 return (
                   <li key={index} className={item.cName}>
+                    {console.log(item.path)}
                     <Link to={item.path}>
                       {item.icon}
                       <span>{item.tittle}</span>
