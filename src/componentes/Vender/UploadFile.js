@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { AuthContext } from "../componentes/providers/AuthProvider";
+import { AuthContext } from "../providers/AuthProvider";
 import "./UploadFile.css";
 
 export const UploadFile = (props) => {
@@ -19,7 +19,7 @@ export const UploadFile = (props) => {
           data.append("imagenArticulo", file);
           data.append(`slot`, index);
           await fetch(
-            `http://localhost:8081/api/v1/proyecto8/fotos/subirImagen/${props.idArticulo}`,
+            `http://localhost:8081/api/v1/proyecto8/fotos/subirImagen/${props.path}`,
             {
               method: "POST",
               headers: {
@@ -45,7 +45,7 @@ export const UploadFile = (props) => {
   };
 
   return (
-    <div className="App">
+    <div className="UploadFile">
       {message && <p>{message}</p>}
       <form onSubmit={upload}>
         <div>

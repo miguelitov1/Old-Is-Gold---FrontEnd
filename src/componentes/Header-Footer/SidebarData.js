@@ -31,7 +31,7 @@ export const SidebarDataToken = [
   },
   {
     tittle: "Favoritos",
-    path: "/vender",
+    path: "/favoritos",
     icon: <BsIcons.BsHeart />,
     cName: "Nav-token",
   },

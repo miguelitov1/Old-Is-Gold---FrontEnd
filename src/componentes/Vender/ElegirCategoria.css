@@ -1,0 +1,30 @@
+.ElejirCategoria-conteiner {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  align-items: flex-start;
+  overflow: auto;
+}
+
+.ElejirCategoria-conteiner img {
+  height: 25px;
+}
+
+.ElejirCategoria-conteiner p {
+  font-family: sans-serif;
+  color: #ffffff;
+  padding-top: 5px;
+  text-align: center;
+  font-size: 6.5pt;
+  width: 64px;
+}
+
+.ElejirCategoria-conteiner div {
+  margin-top: 7px;
+  margin-bottom: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -15,8 +15,9 @@ export const Header = () => {
         </div>
         <input type="text" placeholder="¿Que estás buscando?"></input>
       </form>
-
-      <p>VENDER</p>
+      <Link to="/vender">
+        <p>VENDER</p>
+      </Link>
     </header>
   );
 };
