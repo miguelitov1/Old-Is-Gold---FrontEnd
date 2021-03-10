@@ -3,12 +3,18 @@ import { Link } from "react-router-dom";
 import { Redirect } from "react-router";
 import { AuthContext } from "../componentes/providers/AuthProvider";
 import { useRemoteUser } from "../herramientas/useRemoteUser";
+import { useRemoteValoraciones } from "../herramientas/useRemoteValoraciones";
+import { pintarEstrellas } from "../herramientas/pintarEstrellas";
 
 import "./Perfil.css";
 
 export function Perfil({ idUsuario }) {
   const [usuario, setUsuario] = useRemoteUser(idUsuario);
   const [token, setToken] = useContext(AuthContext);
+  const [valoraciones, setValoraciones] = useRemoteValoraciones(1);
+
+  const estrellas = pintarEstrellas(valoraciones.promedio);
+
   const handleOnClick = () => setToken("");
 
   return token ? (
@@ -24,23 +30,9 @@ export function Perfil({ idUsuario }) {
 
         <div className="Perfil-valoraciones">
           <Link to="/valoraciones">
-            <img
-              src="./corazon-estrellas/estrella-100.png"
-              alt="estrella"
-            ></img>
-            <img
-              src="./corazon-estrellas/estrella-100.png"
-              alt="estrella"
-            ></img>
-            <img
-              src="./corazon-estrellas/estrella-100.png"
-              alt="estrella"
-            ></img>
-            <img
-              src="./corazon-estrellas/estrella-100.png"
-              alt="estrella"
-            ></img>
-            <img src="./corazon-estrellas/estrella-50.png" alt="estrella"></img>
+            {estrellas?.map((estrella, index) => (
+              <img src={estrella} alt="estrella" key={index} />
+            ))}
           </Link>
           <h2 className="Perfil-info">Datos del usuario</h2>
         </div>
