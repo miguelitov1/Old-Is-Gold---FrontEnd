@@ -4,7 +4,7 @@
 }
 
 .Header-container {
-  background-color: rgb(0, 0, 0);
+  background-color: #202020;
   font-family: sans-serif;
   font-weight: bold;
   padding: 10px;
@@ -17,10 +17,11 @@
   height: 30px;
   position: sticky;
   top: 0px;
+  z-index: 100;
 }
 
 .Header-container2 {
-  background-color: rgb(0, 0, 0);
+  background-color: #202020;
   padding-right: 0;
   padding-left: 5;
   display: flex;

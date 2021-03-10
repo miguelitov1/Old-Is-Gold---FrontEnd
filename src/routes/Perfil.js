@@ -10,8 +10,9 @@ import "./Perfil.css";
 
 export function Perfil({ idUsuario }) {
   const [usuario, setUsuario] = useRemoteUser(idUsuario);
+  console.log(usuario);
   const [token, setToken] = useContext(AuthContext);
-  const [valoraciones, setValoraciones] = useRemoteValoraciones(1);
+  const [valoraciones, setValoraciones] = useRemoteValoraciones(usuario.id);
   const estrellas = pintarEstrellas(valoraciones.promedio);
 
   const handleOnClick = () => setToken("");

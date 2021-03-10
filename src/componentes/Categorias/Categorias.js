@@ -6,6 +6,9 @@ import "./Categorias.css";
 export function Categorias() {
   return (
     <>
+      {/* <img src="./iconos/flecha1.png" alt="flecha1" />
+      <img src="./iconos/flecha2.png" alt="flecha2" /> */}
+
       <div className="Categorias-container">
         {sidebarCategorias.map((categoria) => (
           <Link

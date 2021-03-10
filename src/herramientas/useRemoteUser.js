@@ -33,7 +33,9 @@ export const useRemoteUser = (idUsuario) => {
         setErrorMsg("Ha sucedido un error");
       }
     };
-    loadUser();
+    if (idUsuario) {
+      loadUser();
+    }
   }, [idUsuario, token]);
   return [usuario, setUsuario];
 };

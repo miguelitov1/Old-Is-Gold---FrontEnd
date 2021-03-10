@@ -15,7 +15,7 @@ export const pintarEstrellas = (valor) => {
       render.push("../corazon-estrellas/estrella-50.png");
     } else if (+numero[1] > 70 && +numero[1] <= 95) {
       render.push("../corazon-estrellas/estrella-75.png");
-    } else {
+    } else if (+numero[1] > 95 && +numero[1] < 100) {
       render.push("../corazon-estrellas/estrella-100.png");
     }
     for (let i = 0; i < estrellasVacias; i++) {

@@ -28,7 +28,9 @@ export const useRemoteValoraciones = (idUsuario) => {
         setErrorMsg("Ha sucedido un error");
       }
     };
-    loadArticle();
-  }, []);
+    if (idUsuario) {
+      loadArticle();
+    }
+  }, [idUsuario, token]);
   return [valoraciones, setValoraciones];
 };

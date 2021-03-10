@@ -17,7 +17,7 @@
 /* MENU FOOTER */
 
 .Footer-menu {
-  background-color: #000000;
+  background-color: #202020;
   height: auto;
 }
 .Footer-nav {
@@ -91,7 +91,7 @@
     padding: 20px;
   }
   .Footer-footer {
-    background-color: #000000;
+    background-color: #202020;
     display: flex;
     justify-content: space-around;
     color: white;

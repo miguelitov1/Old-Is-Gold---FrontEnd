@@ -12,10 +12,15 @@ import "./ArticuloPorId.css";
 export function ArticuloPorId() {
   const { idArticulo } = useParams();
   const [articulo, setArticulo] = useRemoteArticles(idArticulo);
-  const [valoraciones, setValoraciones] = useRemoteValoraciones(1);
-  const [usuario, setUsuario] = useRemoteUser(1);
-  const estrellas = pintarEstrellas(valoraciones.promedio);
+  const [valoraciones, setValoraciones] = useRemoteValoraciones(
+    articulo?.id_usuario
+  );
+  const [usuario, setUsuario] = useRemoteUser(articulo?.id_usuario);
+  const estrellas = pintarEstrellas(valoraciones?.promedio);
 
+  if (Object.keys(usuario).length === 0) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="ArticuloPorId">
       <div className="fechaTitulo">
