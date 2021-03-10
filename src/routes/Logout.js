@@ -5,5 +5,6 @@ export function Logout() {
   const [setToken] = useContext(AuthContext);
 
   const logout = () => setToken("");
-  return;
+
+  return logout();
 }

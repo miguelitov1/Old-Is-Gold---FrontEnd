@@ -13,7 +13,7 @@ export const SidebarDataToken = [
   },
   {
     tittle: "Mis artículos",
-    path: "/articulo",
+    path: "/misArticulosVentas",
     icon: <BsIcons.BsTag />,
     cName: "Nav-token",
   },

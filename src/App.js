@@ -7,7 +7,7 @@ import { Vender } from "./routes/Vender";
 import { ListaArticulos } from "./routes/ListaArticulos";
 import { ArticuloPorId } from "./routes/ArticuloPorId";
 import { Valoraciones } from "./routes/Valoraciones";
-
+import { MisArticulosVentas } from "./routes/MisArticulosVentas";
 import { Categorias } from "./componentes/Categorias/Categorias";
 import { Footer } from "./componentes/Header-Footer/Footer";
 import { Header } from "./componentes/Header-Footer/Header";
@@ -16,6 +16,7 @@ import { sidebarCategorias } from "./componentes/Categorias/sidebarCategorias";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // import { Logout } from "./routes/Logout";
+import { Chat } from "./componentes/Chat/Chat";
 
 function App() {
   return (
@@ -34,15 +35,18 @@ function App() {
           <Route path="/login" exact>
             <Login />
           </Route>
-          <Route path="/articulo" exact>
-            <ArticuloPorId idArticulo="4" />
+          <Route path="/misArticulosVentas" exact>
+            <MisArticulosVentas />
           </Route>
           <Route path="/valoraciones" exact>
             <Valoraciones idUsuario={1} />
           </Route>
           <Route path="/perfil" exact>
             <Perfil idUsuario="1" />
-          </Route>{" "}
+          </Route>
+          <Route path="/chat" exact>
+            <Chat />
+          </Route>
           <Route path="/vender" exact>
             <Vender />
             {/* <Route path="/logout" exact>

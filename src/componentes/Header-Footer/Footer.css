@@ -42,8 +42,8 @@
 }
 .Nav-token a:hover,
 .Nav-no-token a:hover {
-  background-color: #f7cd2d;
-  color: #000000;
+  /* background-color: #f7cd2d; */
+  color: white;
 }
 
 .Nav-token a {
