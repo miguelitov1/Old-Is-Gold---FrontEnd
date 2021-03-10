@@ -47,7 +47,7 @@ img[alt="visto"] {
 
 .ArticuloPorId-user-img {
   border-radius: 100%;
-  width: 35px;
+  width: 50px;
 }
 
 .ArticuloPorId-img {
@@ -67,13 +67,13 @@ img[alt="visto"] {
 .ArticuloPorId-datos img {
   height: 30px;
 }
-.contenedor {
+.ArticuloPorId-contenedor {
   width: 320px;
   height: 240px;
   border: 1px solid;
   display: flex;
   justify-content: center;
-  margin: 0 auto;
+  margin: auto;
 }
 
 .ArticuloPorId-buttons button {

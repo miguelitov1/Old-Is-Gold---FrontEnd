@@ -5,7 +5,10 @@ export function ShowArticles(props) {
   return (
     <div className="ArticuloHome-container">
       <div className="ArticuloHome-divImg">
-        <img src="./gamecube.jpg" alt="gamecube"></img>
+        <img
+          src={`http://localhost:8081/images/articulos/${props.foto}`}
+          alt="gamecube"
+        ></img>
       </div>
 
       <div className="ArticuloHome">

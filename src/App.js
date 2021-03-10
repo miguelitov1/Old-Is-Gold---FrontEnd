@@ -38,7 +38,7 @@ function App() {
             <ArticuloPorId idArticulo="4" />
           </Route>
           <Route path="/valoraciones" exact>
-            <Valoraciones idUsuario="1" />
+            <Valoraciones idUsuario={1} />
           </Route>
           <Route path="/perfil" exact>
             <Perfil idUsuario="1" />
@@ -52,7 +52,7 @@ function App() {
           {sidebarCategorias.map((categoria) =>
             categoria.idCategoria === 0 ? (
               <Route key={categoria.idCategoria} path={categoria.path} exact>
-                <ListaArticulos path="" />
+                <ListaArticulos path="" titulo="Todas las categorias" />
               </Route>
             ) : (
               <Route key={categoria.idCategoria} path={categoria.path} exact>

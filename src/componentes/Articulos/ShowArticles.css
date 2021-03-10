@@ -36,14 +36,16 @@
 
 .ArticuloHome-divImg {
   background-color: white;
-  padding: 5px;
-  padding-right: 10px;
   display: flex;
   justify-content: center;
   margin-top: auto;
   margin-bottom: auto;
-  width: 130px;
+  margin-right: 10px;
+  width: 200px;
   height: 100px;
+  overflow: hidden;
+}
+.ArticuloHome-divImg img {
 }
 
 .ArticuloHome-corazon {

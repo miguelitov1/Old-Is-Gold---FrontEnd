@@ -18,6 +18,7 @@ export function ListaArticulos(props) {
           descripcion={articulo.descripcion}
           titulo={articulo.titulo}
           precio={articulo.precio}
+          foto={articulo.foto1}
         />
       ))}
     </div>
