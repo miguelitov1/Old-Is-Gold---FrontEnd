@@ -12,7 +12,6 @@ export function Perfil({ idUsuario }) {
   const [usuario, setUsuario] = useRemoteUser(idUsuario);
   const [token, setToken] = useContext(AuthContext);
   const [valoraciones, setValoraciones] = useRemoteValoraciones(1);
-
   const estrellas = pintarEstrellas(valoraciones.promedio);
 
   const handleOnClick = () => setToken("");
@@ -23,7 +22,7 @@ export function Perfil({ idUsuario }) {
         <div className="Perfil-img">
           <img
             className="Perfil-foto-de-perfil"
-            src="logo/logo_old-is-gold.png"
+            src={`http://localhost:8081/images/profiles/${usuario.foto}`}
             alt="Foto de perfil"
           ></img>
         </div>

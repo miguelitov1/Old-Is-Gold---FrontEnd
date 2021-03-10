@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../componentes/providers/AuthProvider";
 
-export const useRemoteArticlesSales = (path) => {
+export const useRemoteArticlesSales = () => {
   const [articulos, setArticulos] = useState([]);
   const [, setErrorMsg] = useState("");
   // const [random, setRandom] = useState(Math.random());
@@ -14,7 +14,7 @@ export const useRemoteArticlesSales = (path) => {
   useEffect(() => {
     const loadArticle = async () => {
       const response = await fetch(
-        `http://localhost:8081/api/v1/proyecto8/usuarios/51/articulos`,
+        `http://localhost:8081/api/v1/proyecto8/usuarios/1/articulos`,
         {
           method: "GET",
           headers: {
@@ -33,6 +33,6 @@ export const useRemoteArticlesSales = (path) => {
       }
     };
     loadArticle();
-  }, [path]);
-  return articulos;
+  }, []);
+  return [articulos, setArticulos];
 };

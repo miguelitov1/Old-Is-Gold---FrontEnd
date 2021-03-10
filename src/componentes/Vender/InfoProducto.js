@@ -1,28 +1,28 @@
 import React from "react";
 import "./InfoProducto.css";
 
-export function InfoProductos() {
+export function InfoProductos({ handleSubmit }) {
   return (
     <div className="InfoProducto">
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>
           Titulo:
-          <input type="text" maxLength="60" required></input>
+          <input name="titulo" type="text" maxLength="60" required></input>
         </label>
 
         <label>
           Descripcion:
-          <textarea required></textarea>
+          <textarea name="descripcion" required></textarea>
         </label>
 
         <label>
           Precio:
-          <input type="number" placeholder="€" required></input>
+          <input name="precio" type="number" placeholder="€" required></input>
         </label>
 
         <label>
           Localidad
-          <input type="text" required></input>
+          <input name="localizacion" type="text" required></input>
         </label>
 
         <label className="InfoProducto-button">

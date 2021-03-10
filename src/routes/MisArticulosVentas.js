@@ -8,14 +8,15 @@ import { useRemoteArticlesSales } from "../herramientas/useRemoteArticlesSales";
 
 export function MisArticulosVentas(props) {
   // const [articuloSeleccionado, setArticuloSeleccionado] = useState("");
-  const articulos = useRemoteArticlesSales(props.path);
+  const [articulos] = useRemoteArticlesSales();
   // console.log(props.path);
   return (
     <div className="Lista-articulos-body">
       <h2>{props.titulo}</h2>
-      {articulos.map((articulo) => (
+      {articulos?.map((articulo) => (
         <ShowArticles
           key={articulo.id}
+          foto={articulo.foto1}
           descripcion={articulo.descripcion}
           titulo={articulo.titulo}
           precio={articulo.precio}

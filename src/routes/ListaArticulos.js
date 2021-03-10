@@ -15,6 +15,7 @@ export function ListaArticulos(props) {
       {articulos.map((articulo) => (
         <ShowArticles
           key={articulo.id}
+          id={articulo.id}
           descripcion={articulo.descripcion}
           titulo={articulo.titulo}
           precio={articulo.precio}

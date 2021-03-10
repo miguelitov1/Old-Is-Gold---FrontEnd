@@ -1,116 +1,93 @@
-import React, { useState, useContext } from "react";
-import { AuthContext } from "../providers/AuthProvider";
+import React from "react";
+
 import * as BiIcons from "react-icons/bi";
 import "./UploadFile.css";
 
-export const UploadFile = (props) => {
-  const [files, setFiles] = useState([null, null, null, null, null]);
-  const [token, setToken] = useContext(AuthContext);
-  const [message, setMessage] = useState(null);
-
-  async function upload(e) {
-    e.preventDefault();
-
-    try {
-      let index = 1;
-      for (const file of files) {
-        if (file) {
-          setMessage(`Subiendo foto número: ${index}`);
-          const data = new FormData();
-          data.append("imagenArticulo", file);
-          data.append(`slot`, index);
-          await fetch(
-            `http://localhost:8081/api/v1/proyecto8/fotos/subirImagen/${props.path}`,
-            {
-              method: "POST",
-              headers: {
-                // "Content-type": "application/json",
-                Authorization: `Bearer ${token}`,
-              },
-              body: data,
-            }
-          );
-        }
-
-        index++;
-      }
-    } catch (error) {
-      setMessage(error.message);
-    }
-  }
-
-  const setFile = (index, file) => {
-    const newFiles = [...files];
-    newFiles[index] = file;
-    setFiles(newFiles);
-  };
+const Photo = ({ data }) => {
+  if (!data) return <BiIcons.BiCamera />;
 
   return (
+    <img
+      src={window.URL.createObjectURL(data)}
+      style={{ width: "50px", height: "50px", objectFit: "cover" }}
+      alt="img-foto"
+    />
+  );
+};
+
+export const UploadFile = ({ files, setFile }) => {
+  return (
     <>
-      {message && <p>{message}</p>}
       <div className="UploadFile">
-        <form onSubmit={upload}>
+        <form>
           <div>
             <label>
-              <BiIcons.BiCamera />
+              <Photo data={files[0]} />
               <input
                 type="file"
                 onChange={(e) => {
                   setFile(0, e.target.files[0]);
                 }}
+                accept=".png,.jpg,.jpeg"
               />
             </label>
           </div>
 
           <div>
             <label>
-              <BiIcons.BiCamera />
+              <Photo data={files[1]} />
+
               <input
                 type="file"
                 onChange={(e) => {
                   setFile(1, e.target.files[0]);
                 }}
+                accept=".png,.jpg,.jpeg"
               />
             </label>
           </div>
 
           <div>
             <label>
-              <BiIcons.BiCamera />
+              <Photo data={files[2]} />
+
               <input
                 type="file"
                 onChange={(e) => {
                   setFile(2, e.target.files[0]);
                 }}
+                accept=".png,.jpg,.jpeg"
               />
             </label>
           </div>
 
           <div>
             <label>
-              <BiIcons.BiCamera />
+              <Photo data={files[3]} />
+
               <input
                 type="file"
                 onChange={(e) => {
                   setFile(3, e.target.files[0]);
                 }}
+                accept=".png,.jpg,.jpeg"
               />
             </label>
           </div>
 
           <div>
             <label>
-              <BiIcons.BiCamera />
+              <Photo data={files[4]} />
+
               <input
                 type="file"
                 onChange={(e) => {
                   setFile(4, e.target.files[0]);
                 }}
+                accept=".png,.jpg,.jpeg"
               />
             </label>
           </div>
-
-          <button type="submit">Upload</button>
         </form>
       </div>
       <p>*Acepta sólo imagenes jpeg, jpg y png</p>

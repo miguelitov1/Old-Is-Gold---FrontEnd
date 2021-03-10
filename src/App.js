@@ -35,6 +35,9 @@ function App() {
           <Route path="/login" exact>
             <Login />
           </Route>
+          <Route path="/articulo/:idArticulo" exact>
+            <ArticuloPorId />
+          </Route>
           <Route path="/misArticulosVentas" exact>
             <MisArticulosVentas />
           </Route>
@@ -49,9 +52,6 @@ function App() {
           </Route>
           <Route path="/vender" exact>
             <Vender />
-            {/* <Route path="/logout" exact>
-              <Logout />
-            </Route> */}
           </Route>
           {sidebarCategorias.map((categoria) =>
             categoria.idCategoria === 0 ? (

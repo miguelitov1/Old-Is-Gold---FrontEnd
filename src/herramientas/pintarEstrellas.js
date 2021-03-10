@@ -5,21 +5,21 @@ export const pintarEstrellas = (valor) => {
     const estrellasVacias = 4 - +numero[0];
     const render = [];
     for (let i = 0; i < +numero[0]; i++) {
-      render.push("./corazon-estrellas/estrella-100.png");
+      render.push("../corazon-estrellas/estrella-100.png");
     }
     if (+numero[1] <= 20) {
-      render.push("./corazon-estrellas/estrella-0.png");
+      render.push("../corazon-estrellas/estrella-0.png");
     } else if (+numero[1] > 20 && +numero[1] <= 40) {
-      render.push("./corazon-estrellas/estrella-25.png");
+      render.push("../corazon-estrellas/estrella-25.png");
     } else if (+numero[1] > 40 && +numero[1] <= 70) {
-      render.push("./corazon-estrellas/estrella-50.png");
+      render.push("../corazon-estrellas/estrella-50.png");
     } else if (+numero[1] > 70 && +numero[1] <= 95) {
-      render.push("./corazon-estrellas/estrella-75.png");
+      render.push("../corazon-estrellas/estrella-75.png");
     } else {
-      render.push("./corazon-estrellas/estrella-100.png");
+      render.push("../corazon-estrellas/estrella-100.png");
     }
     for (let i = 0; i < estrellasVacias; i++) {
-      render.push("./corazon-estrellas/estrella-0.png");
+      render.push("../corazon-estrellas/estrella-0.png");
     }
 
     return render;

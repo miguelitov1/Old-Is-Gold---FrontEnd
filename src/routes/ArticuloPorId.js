@@ -4,11 +4,13 @@ import { formatearFecha } from "../herramientas/formatearFecha";
 import { useRemoteValoraciones } from "../herramientas/useRemoteValoraciones";
 import { useRemoteUser } from "../herramientas/useRemoteUser";
 import { pintarEstrellas } from "../herramientas/pintarEstrellas";
+import { useParams } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
 import Slider from "infinite-react-carousel";
 import "./ArticuloPorId.css";
 
-export function ArticuloPorId({ idArticulo }) {
+export function ArticuloPorId() {
+  const { idArticulo } = useParams();
   const [articulo, setArticulo] = useRemoteArticles(idArticulo);
   const [valoraciones, setValoraciones] = useRemoteValoraciones(1);
   const [usuario, setUsuario] = useRemoteUser(1);
@@ -45,7 +47,7 @@ export function ArticuloPorId({ idArticulo }) {
       </div>
 
       <div className="ArticuloPorId-contenedor">
-        <Slider dots>
+        {/* <Slider dots>
           <img
             className="ArticuloPorId-img"
             src={`http://localhost:8081/images/articulos/${articulo.foto1}`}
@@ -63,18 +65,18 @@ export function ArticuloPorId({ idArticulo }) {
             src={`http://localhost:8081/images/articulos/${articulo.foto3}`}
             alt="First slide"
           />
-        </Slider>
-        {/* <img
+        </Slider> */}
+        <img
           className="ArticuloPorId-img"
-          src="https://via.placeholder.com/1220x1024.png"
-          alt="articulo"
-        /> */}
+          src={`http://localhost:8081/images/articulos/${articulo.foto1}`}
+          alt="First slide"
+        />
       </div>
       <div className="ArticuloPorId-datos">
         <p>{articulo.precio}€</p>
-        <img src="./corazon-estrellas/corazon.png" alt="corazon"></img>
+        <img src="../corazon-estrellas/corazon.png" alt="corazon"></img>
         <div className="ArticuloPorId-datos-usuario2">
-          <img src="./iconos/localizacion.png" alt="localizacion"></img>
+          <img src="../iconos/localizacion.png" alt="localizacion"></img>
           <p id="ArticuloPorId-localizacion">{articulo.localizacion}</p>
         </div>
       </div>
