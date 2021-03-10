@@ -7,7 +7,7 @@ import { Vender } from "./routes/Vender";
 import { ListaArticulos } from "./routes/ListaArticulos";
 import { ArticuloPorId } from "./routes/ArticuloPorId";
 import { Valoraciones } from "./routes/Valoraciones";
-
+import { MisArticulosVentas } from "./routes/MisArticulosVentas";
 import { Categorias } from "./componentes/Categorias/Categorias";
 import { Footer } from "./componentes/Header-Footer/Footer";
 import { Header } from "./componentes/Header-Footer/Header";
@@ -34,8 +34,8 @@ function App() {
           <Route path="/login" exact>
             <Login />
           </Route>
-          <Route path="/articulo" exact>
-            <ArticuloPorId idArticulo="4" />
+          <Route path="/misArticulosVentas" exact>
+            <MisArticulosVentas />
           </Route>
           <Route path="/valoraciones" exact>
             <Valoraciones />
