@@ -4,6 +4,7 @@ import { ElegirCategoria } from "../componentes/Vender/ElegirCategoria";
 import { InfoProductos } from "../componentes/Vender/InfoProducto";
 import { AuthContext } from "../componentes/providers/AuthProvider";
 import { useHistory } from "react-router-dom";
+import { Redirect } from "react-router";
 
 import "./Vender.css";
 
@@ -89,7 +90,9 @@ export function Vender(props) {
     setFiles(newFiles);
   };
 
-  return (
+  return !token ? (
+    <Redirect to="/login" />
+  ) : (
     <div className="Vender">
       <h3>¿Qué desea vender?</h3>
       <ElegirCategoria category={category} setCategory={setCategory} />

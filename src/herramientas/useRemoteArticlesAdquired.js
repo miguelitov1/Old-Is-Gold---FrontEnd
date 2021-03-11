@@ -1,20 +1,16 @@
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../componentes/providers/AuthProvider";
 
-export const useRemoteArticlesSales = () => {
+export const useRemoteArticlesAdquired = (path) => {
   const [articulos, setArticulos] = useState([]);
   const [, setErrorMsg] = useState("");
-  // const [random, setRandom] = useState(Math.random());
   const [token, setToken] = useContext(AuthContext);
-
-  // const refetch = () => {
-  //   setRandom(Math.random());
-  // };
 
   useEffect(() => {
     const loadArticle = async () => {
+      console.log(1);
       const response = await fetch(
-        `http://localhost:8081/api/v1/proyecto8/usuarios/1/articulos`,
+        `http://localhost:8081/api/v1/proyecto8/ventas/compras`,
         {
           method: "GET",
           headers: {
@@ -33,6 +29,6 @@ export const useRemoteArticlesSales = () => {
       }
     };
     loadArticle();
-  }, []);
+  }, [path]);
   return [articulos, setArticulos];
 };

@@ -1,5 +1,15 @@
 import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useContext } from "react";
+import jwt_decode from "jwt-decode";
 
+import { Categorias } from "./componentes/Categorias/Categorias";
+import { Footer } from "./componentes/Header-Footer/Footer";
+import { Header } from "./componentes/Header-Footer/Header";
+import { sidebarCategorias } from "./componentes/Categorias/sidebarCategorias";
+import { AuthContext } from "./componentes/providers/AuthProvider";
+
+import { Chat } from "./routes/Chat";
 import { Login } from "./routes/Login";
 import { Register } from "./routes/Register";
 import { Perfil } from "./routes/Perfil";
@@ -8,17 +18,16 @@ import { ListaArticulos } from "./routes/ListaArticulos";
 import { ArticuloPorId } from "./routes/ArticuloPorId";
 import { Valoraciones } from "./routes/Valoraciones";
 import { MisArticulosVentas } from "./routes/MisArticulosVentas";
-import { Categorias } from "./componentes/Categorias/Categorias";
-import { Footer } from "./componentes/Header-Footer/Footer";
-import { Header } from "./componentes/Header-Footer/Header";
-import { sidebarCategorias } from "./componentes/Categorias/sidebarCategorias";
-
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
-// import { Logout } from "./routes/Logout";
-import { Chat } from "./componentes/Chat/Chat";
+import { Favoritos } from "./routes/Favoritos";
+import { Compras } from "./routes/Compras";
 
 function App() {
+  const [token, setToken] = useContext(AuthContext);
+  let payload = null;
+  if (token) {
+    payload = jwt_decode(token, process.env.JWT_SECRET);
+  }
+
   return (
     <div className="App">
       <Router>
@@ -32,6 +41,9 @@ function App() {
           <Route path="/registro" exact>
             <Register />
           </Route>
+          <Route path="/compras" exact>
+            <Compras />
+          </Route>
           <Route path="/login" exact>
             <Login />
           </Route>
@@ -42,10 +54,13 @@ function App() {
             <MisArticulosVentas />
           </Route>
           <Route path="/valoraciones" exact>
-            <Valoraciones idUsuario={1} />
+            <Valoraciones idUsuario={payload ? payload.id : null} />
           </Route>
           <Route path="/perfil" exact>
-            <Perfil idUsuario="1" />
+            <Perfil idUsuario={payload ? payload.id : null} />
+          </Route>
+          <Route path="/favoritos" exact>
+            <Favoritos titulo="Favoritos" />
           </Route>
           <Route path="/chat" exact>
             <Chat />
