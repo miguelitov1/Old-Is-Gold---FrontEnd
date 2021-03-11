@@ -21,6 +21,7 @@ export function ArticuloPorId() {
   if (Object.keys(usuario).length === 0) {
     return <div>Loading...</div>;
   }
+
   return (
     <div className="ArticuloPorId">
       <div className="fechaTitulo">
