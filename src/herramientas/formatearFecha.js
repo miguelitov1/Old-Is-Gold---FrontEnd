@@ -1,3 +1,8 @@
+/**
+ * Esta función formatea una fecha
+ * @param {*} fecha
+ * @returns
+ */
 export const formatearFecha = (fecha) => {
   if (fecha) {
     const year = fecha.substr(0, 4);
