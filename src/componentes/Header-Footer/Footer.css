@@ -16,6 +16,14 @@
 
 /* MENU FOOTER */
 
+.Footer-nav img {
+  width: 65px;
+}
+
+.Footer-nav .Footer-Perfil {
+  display: none;
+}
+
 .Footer-menu {
   background-color: #202020;
   height: auto;

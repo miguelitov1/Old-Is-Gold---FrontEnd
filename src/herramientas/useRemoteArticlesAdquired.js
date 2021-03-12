@@ -20,12 +20,13 @@ export const useRemoteArticlesAdquired = (path) => {
         }
       );
 
-      if (response.status === 200) {
+      if (response.ok) {
         const json = await response.json();
         setArticulos(json);
         setErrorMsg("");
       } else {
-        setErrorMsg("Ha sucedido un error");
+        const json = await response.json();
+        setErrorMsg(json.error);
       }
     };
     loadArticle();

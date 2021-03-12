@@ -1,21 +1,20 @@
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../componentes/providers/AuthProvider";
 
-export const useRemoteUser = (idUsuario) => {
-  const [usuario, setUsuario] = useState({});
+export const useRemoteArticlesReserved = () => {
+  const [articulos, setArticulos] = useState([]);
   const [, setErrorMsg] = useState("");
-  const [token] = useContext(AuthContext);
   // const [random, setRandom] = useState(Math.random());
-  // const [token, setToken] = useContext(AuthContext);
+  const [token, setToken] = useContext(AuthContext);
 
   // const refetch = () => {
   //   setRandom(Math.random());
   // };
 
   useEffect(() => {
-    const loadUser = async () => {
+    const loadArticles = async () => {
       const response = await fetch(
-        `http://localhost:8081/api/v1/proyecto8/usuarios/${idUsuario}`,
+        `http://localhost:8081/api/v1/proyecto8/ventas/reservados`,
         {
           method: "GET",
           headers: {
@@ -27,16 +26,14 @@ export const useRemoteUser = (idUsuario) => {
 
       if (response.ok) {
         const json = await response.json();
-        setUsuario(json);
+        setArticulos(json);
         setErrorMsg("");
       } else {
         const json = await response.json();
         setErrorMsg(json.error);
       }
     };
-    if (idUsuario) {
-      loadUser();
-    }
-  }, [idUsuario, token]);
-  return [usuario, setUsuario];
+    loadArticles();
+  }, [token]);
+  return [articulos, setArticulos];
 };

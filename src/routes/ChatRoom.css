@@ -1,0 +1,15 @@
+.ChatRoom-h2 {
+  margin-left: 10px;
+}
+.ChatRoom-cabecera {
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid gray;
+  align-items: center;
+}
+
+.ChatRoom-imagen-perfil {
+  border-radius: 100px;
+  width: 30px;
+  background-color: black;
+}
