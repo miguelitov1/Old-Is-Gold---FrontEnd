@@ -1,21 +1,35 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Chat.css";
 
-export function Chat({ usuario, foto, titulo }) {
+export function Chat({
+  usuario,
+  foto,
+  titulo,
+  ultimoMensaje,
+  idVendedor,
+  idComprador,
+  idArticulo,
+}) {
   return (
-    <div className="Chat">
-      <div className="Chat-img">
-        <img
-          className="Chat-imagen-articulo"
-          src={`http://localhost:8081/images/articulos/${foto}`}
-          alt="img-articulo"
-        ></img>
+    <Link
+      to={`/chat/${idArticulo}/${idVendedor}/${idComprador}`}
+      style={{ textDecoration: "none" }}
+    >
+      <div className="Chat">
+        <div className="Chat-img">
+          <img
+            className="Chat-imagen-articulo"
+            src={`http://localhost:8081/images/articulos/${foto}`}
+            alt="img-articulo"
+          ></img>
+        </div>
+        <div className="Chat-info">
+          <p className="Chat-p-usuario">{usuario}</p>
+          <h3 className="Chat-p-titulo-anuncio">{titulo}</h3>
+          <p className="Chat-p-ultimo-chat">{ultimoMensaje}</p>
+        </div>
       </div>
-      <div className="Chat-info">
-        <p className="Chat-p-usuario">{usuario}</p>
-        <p className="Chat-p-titulo-anuncio">{titulo}</p>
-        <p className="Chat-p-ultimo-chat">Ultimo chat</p>
-      </div>
-    </div>
+    </Link>
   );
 }

@@ -9,9 +9,10 @@ export function FooterNav() {
   const [token] = useContext(AuthContext);
   let payload = "";
   if (token) {
-    payload = jwt_decode(token, process.env.JWT_SECRET);
+    payload = jwt_decode(token);
   }
   const menu = footerBar(payload);
+  console.log(payload);
 
   return (
     <>

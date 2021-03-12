@@ -9,7 +9,7 @@ import { Header } from "./componentes/Header-Footer/Header";
 import { sidebarCategorias } from "./componentes/Categorias/sidebarCategorias";
 import { AuthContext } from "./componentes/providers/AuthProvider";
 
-import { ChatRoom } from "./routes/ChatRoom";
+import { AllChatsRoom } from "./routes/AllChatsRoom";
 import { Login } from "./routes/Login";
 import { Register } from "./routes/Register";
 import { Perfil } from "./routes/Perfil";
@@ -63,7 +63,7 @@ function App() {
             <Favoritos titulo="Favoritos" />
           </Route>
           <Route path="/chat" exact>
-            <ChatRoom fotoUsuario={payload ? payload.foto : null} />
+            <AllChatsRoom fotoUsuario={payload ? payload.foto : null} />
           </Route>
           <Route path="/vender" exact>
             <Vender />
