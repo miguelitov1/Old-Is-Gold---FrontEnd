@@ -21,7 +21,7 @@ export function MisArticulosVentas() {
   return (
     <>
       <div className="Lista-articulos-body">
-        <h2>Todos mis articulos</h2>
+        <h2>Articulos publicados</h2>
         {articulosPublicados?.map((articulo) => (
           <ShowArticles
             key={articulo.id}
