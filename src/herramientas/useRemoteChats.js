@@ -1,14 +1,15 @@
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../componentes/providers/AuthProvider";
 
-export const useRemoteValoraciones = (idUsuario) => {
-  const [valoraciones, setValoraciones] = useState([]);
+export const useRemoteChats = () => {
+  const [chats, setChats] = useState([]);
   const [errorMsg, setErrorMsg] = useState("");
   const [token, setToken] = useContext(AuthContext);
+
   useEffect(() => {
-    const loadArticle = async () => {
+    const loadChats = async () => {
       const response = await fetch(
-        `http://localhost:8081/api/v1/proyecto8/ventas/verValoraciones/${idUsuario}`,
+        `http://localhost:8081/api/v1/proyecto8/mensajes`,
         {
           method: "GET",
           headers: {
@@ -20,18 +21,15 @@ export const useRemoteValoraciones = (idUsuario) => {
 
       if (response.ok) {
         const json = await response.json();
-
-        setValoraciones(json);
-
+        setChats(json);
         setErrorMsg("");
       } else {
         const json = await response.json();
         setErrorMsg(json.error);
       }
     };
-    if (idUsuario) {
-      loadArticle();
-    }
-  }, [idUsuario, token]);
-  return [valoraciones, setValoraciones];
+
+    loadChats();
+  }, [token]);
+  return [chats, setChats];
 };

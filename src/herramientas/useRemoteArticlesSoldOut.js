@@ -12,7 +12,7 @@ export const useRemoteArticlesSoldOut = () => {
   // };
 
   useEffect(() => {
-    const loadArticle = async () => {
+    const loadArticles = async () => {
       const response = await fetch(
         `http://localhost:8081/api/v1/proyecto8/ventas/ventas`,
         {
@@ -24,15 +24,16 @@ export const useRemoteArticlesSoldOut = () => {
         }
       );
 
-      if (response.status === 200) {
+      if (response.ok) {
         const json = await response.json();
         setArticulos(json);
         setErrorMsg("");
       } else {
-        setErrorMsg("Ha sucedido un error");
+        const json = await response.json();
+        setErrorMsg(json.error);
       }
     };
-    loadArticle();
+    loadArticles();
   }, [token]);
   return [articulos, setArticulos];
 };

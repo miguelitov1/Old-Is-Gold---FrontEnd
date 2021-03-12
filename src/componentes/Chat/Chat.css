@@ -1,15 +1,9 @@
-.Chats-div {
+.Chat-div {
   margin-bottom: 150px;
   font-family: sans-serif;
 }
 .Chat-h2 {
   margin-left: 10px;
-}
-.Chat-cabecera {
-  display: flex;
-  padding: 10px;
-  border-bottom: 1px solid gray;
-  align-items: center;
 }
 .Chat {
   display: flex;
@@ -17,15 +11,14 @@
   border-radius: 5px;
   margin: 10px;
 }
-.Chat-imagen-perfil {
-  border-radius: 100px;
-  width: 30px;
-  background-color: black;
-}
-.Chat-img {
+
+div.Chat-img {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 10px;
+  min-width: 50px;
+  max-width: 100px;
 }
 .Chat-imagen-articulo {
   background-color: black;
@@ -34,4 +27,7 @@
 }
 .Chat-info {
   padding: 10px;
+}
+.Chat-info p {
+  text-align: left;
 }

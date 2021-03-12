@@ -44,7 +44,7 @@ export function Vender(props) {
       const responseJson = await response.json();
 
       if (!response.ok) {
-        const error = new Error("No se ha podidso crear el articulo");
+        const error = new Error("No se ha podido crear el articulo");
         throw error;
       }
 
