@@ -12,9 +12,19 @@ export function Perfil({ idUsuario }) {
   const [usuario, setUsuario] = useRemoteUser(idUsuario);
   const [token, setToken] = useContext(AuthContext);
   const [valoraciones, setValoraciones] = useRemoteValoraciones(usuario.id);
+  const [mostrarBoton, setMostrarBoton] = useState(true);
   const estrellas = pintarEstrellas(valoraciones.promedio);
 
   const handleOnClick = () => setToken("");
+
+  const handleMostrarBoton = (e) => {
+    e.preventDefault();
+    if (mostrarBoton) {
+      setMostrarBoton(false);
+    } else {
+      setMostrarBoton(true);
+    }
+  };
 
   return token ? (
     <>
@@ -72,7 +82,12 @@ export function Perfil({ idUsuario }) {
           <input type="password" name="password" placeholder="********" />
         </label>
         <div className="Perfil-botones">
-          <button>Modificar perfil</button>
+          {mostrarBoton && (
+            <button onClick={handleMostrarBoton}>Modificar perfil</button>
+          )}
+          {!mostrarBoton && (
+            <button onClick={handleMostrarBoton}>Actualizar perfil</button>
+          )}
           <button onClick={handleOnClick}>Cerrar sesión</button>
         </div>
       </form>

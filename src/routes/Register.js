@@ -133,12 +133,6 @@ export function Register() {
           <button className="Register-button-activate" type="submit">
             Crear cuenta
           </button>
-          <button
-            className="Register-button-no-activate"
-            onClick={handleOnClick}
-          >
-            Iniciar sesión
-          </button>
         </div>
       </form>
       <div className="Register-error">{errorMsg && <div>{errorMsg}</div>}</div>{" "}

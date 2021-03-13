@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { useContext } from "react";
+import React, { useContext, useState } from "react";
 import jwt_decode from "jwt-decode";
 
 import { Categorias } from "./componentes/Categorias/Categorias";
@@ -20,18 +20,21 @@ import { Valoraciones } from "./routes/Valoraciones";
 import { MisArticulosVentas } from "./routes/MisArticulosVentas";
 import { Favoritos } from "./routes/Favoritos";
 import { Compras } from "./routes/Compras";
+import { ChatRoom } from "./routes/ChatRoom";
+import { ListaArticulosPorPalabras } from "./routes/ListaArticulosPorPalabras";
 
 function App() {
   const [token, setToken] = useContext(AuthContext);
+  const [words, setWords] = useState([]);
   let payload = null;
   if (token) {
-    payload = jwt_decode(token, process.env.JWT_SECRET);
+    payload = jwt_decode(token);
   }
 
   return (
     <div className="App">
       <Router>
-        <Header />
+        <Header words={words} setWords={setWords} />
         <Categorias />
         <Switch>
           <Route path="/" exact>
@@ -40,6 +43,9 @@ function App() {
           </Route>
           <Route path="/registro" exact>
             <Register />
+          </Route>
+          <Route path="/buscarPorPalabras" exact>
+            <ListaArticulosPorPalabras words={words} />
           </Route>
           <Route path="/compras" exact>
             <Compras />
@@ -65,6 +71,9 @@ function App() {
           <Route path="/chat" exact>
             <AllChatsRoom fotoUsuario={payload ? payload.foto : null} />
           </Route>
+          <Route path="/chat/:idArticulo/:idVendedor/:idComprador" exact>
+            <ChatRoom />
+          </Route>
           <Route path="/vender" exact>
             <Vender />
           </Route>
@@ -84,6 +93,7 @@ function App() {
             )
           )}
         </Switch>
+        <div className="App-espacioFinal"></div>
         <Footer />
       </Router>
     </div>

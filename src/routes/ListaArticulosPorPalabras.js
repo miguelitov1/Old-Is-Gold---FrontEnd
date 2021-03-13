@@ -1,14 +1,13 @@
-import React from "react";
-import { useRemoteArticles } from "../herramientas/useRemoteArticles";
+import React, { useState } from "react";
 import { ShowArticles } from "../componentes/Articulos/ShowArticles";
-import "../componentes/Articulos/ShowArticles.css";
+import { useRemoteArticlesByWords } from "../herramientas/useRemoteArticlesByWords";
 
-export function ListaArticulos(props) {
-  const [articulos, setArticulo] = useRemoteArticles(props.path);
+export function ListaArticulosPorPalabras(props) {
+  const [articulos, setArticulo] = useRemoteArticlesByWords(props.words);
 
   return (
     <div className="Lista-articulos-body">
-      <h2>{props.titulo}</h2>
+      <h2>{props.words}</h2>
       {articulos.map((articulo) => (
         <ShowArticles
           key={articulo.id}

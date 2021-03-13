@@ -1,25 +1,24 @@
-import { useState, useEffect, useContext } from "react";
-import { AuthContext } from "../componentes/providers/AuthProvider";
+import { useState, useEffect } from "react";
 
-export const useRemoteArticlesAdquired = (path) => {
+export const useRemoteArticlesByWords = (words) => {
   const [articulos, setArticulos] = useState([]);
+  const palabrasClaves = { palabrasClaves: words };
   const [, setErrorMsg] = useState("");
-  const [token, setToken] = useContext(AuthContext);
 
   useEffect(() => {
     const loadArticle = async () => {
       const response = await fetch(
-        `http://localhost:8081/api/v1/proyecto8/ventas/compras`,
+        `http://localhost:8081/api/v1/proyecto8/articulos/resultado/busqueda`,
         {
-          method: "GET",
+          method: "POST",
+          body: JSON.stringify(palabrasClaves),
           headers: {
             "Content-type": "application/json",
-            Authorization: `Bearer ${token}`,
           },
         }
       );
 
-      if (response.ok) {
+      if (response.status === 200) {
         const json = await response.json();
         setArticulos(json);
         setErrorMsg("");
@@ -29,6 +28,7 @@ export const useRemoteArticlesAdquired = (path) => {
       }
     };
     loadArticle();
-  }, [path]);
+  }, [words]);
+
   return [articulos, setArticulos];
 };

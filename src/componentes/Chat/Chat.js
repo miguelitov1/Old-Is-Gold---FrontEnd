@@ -25,7 +25,7 @@ export function Chat({
           ></img>
         </div>
         <div className="Chat-info">
-          <p className="Chat-p-usuario">{usuario}</p>
+          <p className="Chat-p-usuario">Nombre de usuario</p>
           <h3 className="Chat-p-titulo-anuncio">{titulo}</h3>
           <p className="Chat-p-ultimo-chat">{ultimoMensaje}</p>
         </div>

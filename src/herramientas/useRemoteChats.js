@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../componentes/providers/AuthProvider";
 
-export const useRemoteChats = () => {
+export const useRemoteChats = (path) => {
   const [chats, setChats] = useState([]);
   const [errorMsg, setErrorMsg] = useState("");
   const [token, setToken] = useContext(AuthContext);
@@ -9,7 +9,7 @@ export const useRemoteChats = () => {
   useEffect(() => {
     const loadChats = async () => {
       const response = await fetch(
-        `http://localhost:8081/api/v1/proyecto8/mensajes`,
+        `http://localhost:8081/api/v1/proyecto8/mensajes/${path}`,
         {
           method: "GET",
           headers: {
@@ -30,6 +30,6 @@ export const useRemoteChats = () => {
     };
 
     loadChats();
-  }, [token]);
+  }, [path, token]);
   return [chats, setChats];
 };
