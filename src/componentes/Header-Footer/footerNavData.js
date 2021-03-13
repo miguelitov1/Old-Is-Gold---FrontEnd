@@ -33,7 +33,7 @@ export function footerBar(payload) {
       },
       {
         tittle: "Mis compras",
-        path: "/",
+        path: "/compras",
         icon: <BsIcons.BsCreditCard />,
         cName: "Nav-token",
       },

@@ -17,13 +17,14 @@ div.Chat-img {
   align-items: center;
   justify-content: center;
   padding: 10px;
-  min-width: 50px;
-  max-width: 100px;
+  width: 68px;
+  border-radius: 15px;
 }
 .Chat-imagen-articulo {
   background-color: black;
   border-radius: 5px;
   height: 50px;
+  overflow: hidden;
 }
 .Chat-info {
   padding: 10px;

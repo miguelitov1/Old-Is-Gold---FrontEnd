@@ -7,7 +7,7 @@ import "./AllChatsRoom.css";
 
 export function AllChatsRoom({ fotoUsuario }) {
   const [token] = useContext(AuthContext);
-  const [chats, setChats] = useRemoteChats([]);
+  const [chats, setChats] = useRemoteChats("");
 
   let showedChats;
   if (chats) {
@@ -15,7 +15,8 @@ export function AllChatsRoom({ fotoUsuario }) {
       const foundChat = stats.find(
         (alternativo) =>
           alternativo.id_vendedor === chat.id_vendedor &&
-          alternativo.id_comprador === chat.id_comprador
+          alternativo.id_comprador === chat.id_comprador &&
+          alternativo.id_articulo === chat.id_articulo
       );
       if (!foundChat) {
         stats.push(chat);

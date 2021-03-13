@@ -6,36 +6,62 @@ export const useRemoteUser = (idUsuario) => {
   const [, setErrorMsg] = useState("");
   const [token] = useContext(AuthContext);
   // const [random, setRandom] = useState(Math.random());
-  // const [token, setToken] = useContext(AuthContext);
 
   // const refetch = () => {
   //   setRandom(Math.random());
   // };
 
   useEffect(() => {
-    const loadUser = async () => {
-      const response = await fetch(
-        `http://localhost:8081/api/v1/proyecto8/usuarios/${idUsuario}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+    let response;
+    if (token) {
+      const loadUser = async () => {
+        response = await fetch(
+          `http://localhost:8081/api/v1/proyecto8/usuarios/${idUsuario}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
-      if (response.ok) {
-        const json = await response.json();
-        setUsuario(json);
-        setErrorMsg("");
-      } else {
-        const json = await response.json();
-        setErrorMsg(json.error);
+        if (response.ok) {
+          const json = await response.json();
+          setUsuario(json);
+          setErrorMsg("");
+        } else {
+          const json = await response.json();
+          setErrorMsg(json.error);
+        }
+      };
+      if (idUsuario) {
+        loadUser();
       }
-    };
-    if (idUsuario) {
-      loadUser();
+    } else {
+      const loadUser = async () => {
+        response = await fetch(
+          `http://localhost:8081/api/v1/proyecto8/usuarios/usuarioSinRegistro/${idUsuario}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-type": "application/json",
+            },
+          }
+        );
+
+        if (response.ok) {
+          const json = await response.json();
+          setUsuario(json);
+          setErrorMsg("");
+        } else {
+          const json = await response.json();
+          setErrorMsg(json.error);
+        }
+      };
+      if (idUsuario) {
+        loadUser();
+      }
     }
   }, [idUsuario, token]);
   return [usuario, setUsuario];

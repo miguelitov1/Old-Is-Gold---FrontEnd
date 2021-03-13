@@ -67,15 +67,9 @@ export function Login() {
           value={contrasenha}
           onChange={(e) => setContrasenha(e.target.value)}
         />
-        <div className="buttons">
+        <div className="Register-buttons">
           <button className="Register-button-activate" type="submit">
             Iniciar sesión
-          </button>
-          <button
-            className="Register-button-no-activate"
-            onClick={handleOnClick}
-          >
-            Registrarse
           </button>
         </div>
       </form>

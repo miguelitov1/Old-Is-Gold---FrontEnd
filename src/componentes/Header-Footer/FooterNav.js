@@ -12,7 +12,6 @@ export function FooterNav() {
     payload = jwt_decode(token);
   }
   const menu = footerBar(payload);
-  console.log(payload);
 
   return (
     <>
