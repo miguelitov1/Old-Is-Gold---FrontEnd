@@ -17,9 +17,9 @@ import { Vender } from "./routes/Vender";
 import { ListaArticulos } from "./routes/ListaArticulos";
 import { ArticuloPorId } from "./routes/ArticuloPorId";
 import { Valoraciones } from "./routes/Valoraciones";
-import { MisArticulosVentas } from "./routes/MisArticulosVentas";
+import { MisArticulos } from "./routes/MisArticulos";
 import { Favoritos } from "./routes/Favoritos";
-import { Compras } from "./routes/Compras";
+import { MisCompras } from "./routes/MisCompras";
 import { ChatRoom } from "./routes/ChatRoom";
 import { ListaArticulosPorPalabras } from "./routes/ListaArticulosPorPalabras";
 
@@ -47,8 +47,8 @@ function App() {
           <Route path="/buscarPorPalabras" exact>
             <ListaArticulosPorPalabras words={words} />
           </Route>
-          <Route path="/compras" exact>
-            <Compras />
+          <Route path="/misCompras" exact>
+            <MisCompras />
           </Route>
           <Route path="/login" exact>
             <Login />
@@ -56,8 +56,8 @@ function App() {
           <Route path="/articulo/:idArticulo" exact>
             <ArticuloPorId />
           </Route>
-          <Route path="/misArticulosVentas" exact>
-            <MisArticulosVentas />
+          <Route path="/misArticulos" exact>
+            <MisArticulos />
           </Route>
           <Route path="/valoraciones" exact>
             <Valoraciones idUsuario={payload ? payload.id : null} />
