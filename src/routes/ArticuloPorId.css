@@ -28,7 +28,11 @@ img[alt="visto"] {
 }
 .ArticuloPorId .fechaTitulo h1 {
   font-size: 19pt;
-  width: max-content;
+  /* width: max-content; */
+  /* width: 80%; */
+  overflow: hidden;
+  max-height: 40pt;
+  text-overflow: ellipsis;
 }
 
 .ArticuloPorId-datos-usuario {
@@ -97,6 +101,7 @@ img[alt="visto"] {
 .ArticuloPorId-button-no-activate {
   background-color: white;
   color: #f89334;
+  font-weight: bold;
 }
 
 img[alt="estrella"] {
@@ -121,4 +126,10 @@ img[alt="localizacion"] {
   margin-left: 10px;
   margin-right: 10px;
   text-align: justify;
+}
+
+.ArticuloPorId-respuesta {
+  text-align: center;
+  margin: 10px;
+  color: red;
 }

@@ -70,7 +70,7 @@ div.ChatRoom-imagen {
   flex-direction: column;
   padding: 10px;
   background-color: aliceblue;
-  padding-bottom: 125px;
+  padding-bottom: 60px;
 }
 
 .ChatRoom-info-producto p {
@@ -91,10 +91,14 @@ div.ChatRoom-imagen {
 .ChatRoom-mensaje {
   width: 100%;
   position: fixed;
-  bottom: 75px;
+  bottom: 65px;
+  background-color: aliceblue;
+  padding-top: 5px;
+  padding-bottom: 10px;
 }
 .ChatRoom-mensaje button {
   border: none;
+  z-index: 100;
   background-color: rgb(230, 230, 230);
   outline: none;
   height: 44px;
@@ -103,4 +107,6 @@ div.ChatRoom-imagen {
   float: right;
   margin-left: 10px;
   margin-right: 10px;
+}
+.ChatRoom-mensaje form {
 }

@@ -16,7 +16,7 @@ export function footerBar(payload) {
       },
       {
         tittle: "Mis artículos",
-        path: "/misArticulosVentas",
+        path: "/misArticulos",
         icon: <BsIcons.BsTag />,
         cName: "Nav-token",
       },
@@ -33,7 +33,7 @@ export function footerBar(payload) {
       },
       {
         tittle: "Mis compras",
-        path: "/compras",
+        path: "/misCompras",
         icon: <BsIcons.BsCreditCard />,
         cName: "Nav-token",
       },

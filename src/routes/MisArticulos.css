@@ -1,0 +1,15 @@
+.MisArticulos-filtros {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.MisArticulos-filtros p {
+  font-size: 15px;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

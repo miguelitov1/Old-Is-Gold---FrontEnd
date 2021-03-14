@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import jwt_decode from "jwt-decode";
 import { Link } from "react-router-dom";
 
@@ -23,6 +23,7 @@ export function ArticuloPorId() {
     articulo?.id_usuario
   );
   const [usuario, setUsuario] = useRemoteUser(articulo?.id_usuario);
+  const [message, setMessage] = useState("");
   const estrellas = pintarEstrellas(valoraciones?.promedio);
 
   let payload;
@@ -37,6 +38,29 @@ export function ArticuloPorId() {
   if (!payload || payload.id === usuario.id) {
     activarBotonChat = false;
   }
+
+  const reservarArticulo = async (idArticulo) => {
+    try {
+      const response = await fetch(
+        `http://localhost:8081/api/v1/proyecto8/articulos/${idArticulo}/reservarArticulo`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const json = await response.json();
+      setMessage(json);
+    } catch (err) {
+      setMessage(err);
+    }
+  };
+
+  const handleOnClick = () => {
+    reservarArticulo(articulo.id);
+  };
 
   return (
     <div className="ArticuloPorId">
@@ -104,10 +128,17 @@ export function ArticuloPorId() {
           <p id="ArticuloPorId-localizacion">{articulo.localizacion}</p>
         </div>
       </div>
+      {message && (
+        <div className="ArticuloPorId-respuesta">{message.respuesta}</div>
+      )}
       <div className="ArticuloPorId-buttons">
-        {activarBotonChat && (
-          <button className="ArticuloPorId-button-activate" type="submit">
-            Comprar
+        {activarBotonChat && articulo.id_usuario_comprador === null && (
+          <button
+            className="ArticuloPorId-button-activate"
+            type="submit"
+            onClick={handleOnClick}
+          >
+            Reservar
           </button>
         )}
         {activarBotonChat && (
