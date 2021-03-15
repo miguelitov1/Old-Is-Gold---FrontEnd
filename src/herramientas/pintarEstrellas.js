@@ -2,7 +2,8 @@ export const pintarEstrellas = (valor) => {
   if (valor) {
     const numeroAString = valor.toString();
     const numero = numeroAString.split(".");
-    const estrellasVacias = 4 - +numero[0];
+    const estrellasVacias = Math.trunc(5 - valor);
+
     const render = [];
     for (let i = 0; i < +numero[0]; i++) {
       render.push("../corazon-estrellas/estrella-100.png");

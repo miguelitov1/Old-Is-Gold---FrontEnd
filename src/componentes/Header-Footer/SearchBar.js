@@ -12,7 +12,7 @@ export const SearchBar = (props) => {
     <div className="Header-container2">
       <Link to="buscarPorPalabras" style={{ textDecoration: "none" }}>
         <div className="Header-lupa">
-          <img src="./iconos/lupa.png" alt="lupa" />
+          <img src="/iconos/lupa.png" alt="lupa" />
         </div>
       </Link>
       <Link to="buscarPorPalabras" style={{ textDecoration: "none" }}>

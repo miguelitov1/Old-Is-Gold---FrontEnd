@@ -22,6 +22,7 @@ import { Favoritos } from "./routes/Favoritos";
 import { MisCompras } from "./routes/MisCompras";
 import { ChatRoom } from "./routes/ChatRoom";
 import { ListaArticulosPorPalabras } from "./routes/ListaArticulosPorPalabras";
+import { Valorar } from "./routes/Valorar";
 
 function App() {
   const [token, setToken] = useContext(AuthContext);
@@ -59,8 +60,11 @@ function App() {
           <Route path="/misArticulos" exact>
             <MisArticulos />
           </Route>
-          <Route path="/valoraciones" exact>
-            <Valoraciones idUsuario={payload ? payload.id : null} />
+          <Route path="/valoraciones/:idUsuario" exact>
+            <Valoraciones />
+          </Route>
+          <Route path="/valorar/:idArticulo" exact>
+            <Valorar />
           </Route>
           <Route path="/perfil" exact>
             <Perfil idUsuario={payload ? payload.id : null} />

@@ -63,6 +63,7 @@ export function MisCompras(props) {
           precio={articulo.precio}
           idComprador={articulo.id_usuario_comprador}
           idVendedor={articulo.id_usuario}
+          valoracion={articulo.valoracionSiNo}
         />
       ))}
     </div>

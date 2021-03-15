@@ -34,9 +34,13 @@ export function ShowBoughtReserved(props) {
           <div className="ArticuloPorId-respuesta">{message.respuesta}</div>
         )}
       </Link>
-      <div className="ArticuloHome-calificar">
-        <p>Calificar vendedor</p>
-      </div>
+      {!props.valoracion && (
+        <Link to={`/valorar/${props.id}`} style={{ textDecoration: "none" }}>
+          <div className="ArticuloHome-calificar">
+            <p>Valorar vendedor</p>
+          </div>
+        </Link>
+      )}
     </div>
   );
 }
