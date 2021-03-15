@@ -25,15 +25,15 @@ export function MisArticulos() {
 
   const stylePublicados = {
     cursor: "pointer",
-    backgroundColor: filtro === "publicados" ? "white" : "transparent",
+    backgroundColor: filtro === "publicados" ? "transparent" : "white",
   };
   const styleVendidos = {
     cursor: "pointer",
-    backgroundColor: filtro === "vendidos" ? "white" : "transparent",
+    backgroundColor: filtro === "vendidos" ? "transparent" : "white",
   };
   const styleReservados = {
     cursor: "pointer",
-    backgroundColor: filtro === "reservados" ? "white" : "transparent",
+    backgroundColor: filtro === "reservados" ? "transparent" : "white",
   };
 
   return filtro === "publicados" ? (

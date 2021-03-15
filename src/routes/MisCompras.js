@@ -15,11 +15,11 @@ export function MisCompras(props) {
 
   const styleReservados = {
     cursor: "pointer",
-    backgroundColor: filtro === "reservados" ? "white" : "transparent",
+    backgroundColor: filtro === "reservados" ? "transparent" : "white",
   };
   const styleComprados = {
     cursor: "pointer",
-    backgroundColor: filtro === "comprados" ? "white" : "transparent",
+    backgroundColor: filtro === "comprados" ? "transparent" : "white",
   };
 
   return filtro === "reservados" ? (

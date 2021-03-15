@@ -2,7 +2,9 @@
   background-color: #ededed;
   font-family: sans-serif;
 }
-
+.App > div:last-of-type {
+  margin-bottom: 65px;
+}
 .App-links ul {
   display: flex;
   flex-direction: row;
@@ -18,10 +20,10 @@
   padding: 20px;
 }
 
-.App-espacioFinal {
+/* .App-espacioFinal {
   height: 65px;
   background-color: aliceblue;
-}
+} */
 .mensaje-error {
   color: red;
   font-weight: bold;
