@@ -1,0 +1,39 @@
+.Valoraciones-cabecera {
+  display: flex;
+  background-color: rgb(231, 228, 228);
+  height: 100px;
+}
+.Valoraciones-caja {
+  display: flex;
+}
+.Valoracion-imagen-articulo {
+  height: 100px;
+  padding: 10px;
+}
+.Valoraciones-respuesta-comprador {
+  width: 100%;
+  display: flex;
+}
+.Valoraciones-estrellas {
+  display: flex;
+  padding: 10px;
+}
+.Valoraciones-texto {
+  display: flex;
+  text-align: left;
+}
+.Valoracion-texto-comentario p,
+.Valoraciones-respuesta-vendedor {
+  font-size: 15px;
+  padding: 5px;
+  text-align: left;
+}
+.Valoracion-texto-titulos {
+  font-size: 15px;
+  padding: 5px;
+}
+.Valoraciones-respuesta-vendedor {
+  background-color: rgb(231, 228, 228);
+  background-color: gray;
+  padding: 5px;
+}

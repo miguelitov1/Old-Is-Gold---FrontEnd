@@ -22,6 +22,7 @@ import { Favoritos } from "./routes/Favoritos";
 import { Compras } from "./routes/Compras";
 import { ChatRoom } from "./routes/ChatRoom";
 import { ListaArticulosPorPalabras } from "./routes/ListaArticulosPorPalabras";
+import { UsuarioPorId } from "./routes/UsuarioPorId";
 
 function App() {
   const [token, setToken] = useContext(AuthContext);
@@ -61,6 +62,9 @@ function App() {
           </Route>
           <Route path="/valoraciones" exact>
             <Valoraciones idUsuario={payload ? payload.id : null} />
+          </Route>
+          <Route path="/usuarios/:idUsuario">
+            <UsuarioPorId />
           </Route>
           <Route path="/perfil" exact>
             <Perfil idUsuario={payload ? payload.id : null} />

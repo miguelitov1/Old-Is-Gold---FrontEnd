@@ -1,0 +1,27 @@
+.Perfil-usuario-info {
+  font-size: 18px;
+  margin: 5px;
+  background: transparent;
+  outline: none;
+  height: 35px;
+  border: none;
+  width: auto;
+  margin: 10px auto;
+  text-align: center;
+  font-weight: bold;
+}
+
+.Perfil-usuario-info-1 {
+  font-size: 18px;
+  margin: 5px;
+  background: transparent;
+  outline: none;
+  height: 35px;
+  border: none;
+  width: auto;
+  margin: 10px auto;
+  text-align: center;
+}
+.Perfil-info-caja {
+  background-color: #ededed;
+}
