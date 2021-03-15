@@ -1,0 +1,64 @@
+.Valoraciones-caja {
+  display: flex;
+  color: black;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.Valoraciones-respuesta-comprador {
+  width: 100%;
+  display: flex;
+  background-color: aliceblue;
+  padding: 10px;
+  padding-bottom: 0px;
+}
+.Valoraciones-estrellas {
+  display: flex;
+  padding: 10px;
+}
+.Valoraciones-texto {
+  display: flex;
+  text-align: left;
+}
+.Valoracion-texto-comentario {
+  font-size: 15px;
+  padding: 5px;
+}
+.Valoracion-texto-comentario p {
+  text-align: left;
+}
+.Valoracion-texto-titulos {
+  font-size: 15px;
+  padding: 5px;
+}
+.Valoraciones-respuesta-vendedor {
+  background-color: rgb(184, 184, 184);
+}
+.Valoraciones-respuesta-vendedor p {
+  text-align: left;
+  margin: 10px;
+}
+.Valoraciones-respuesta-vendedor h3 {
+  text-align: left;
+  margin: 10px;
+  padding: 0;
+}
+
+.Valoraciones-img {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.Valoraciones-contenedor {
+  width: 50px;
+  height: 50px;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  /* padding: 10px; */
+}
+
+.Valoraciones-separador {
+  padding-top: 40px;
+}

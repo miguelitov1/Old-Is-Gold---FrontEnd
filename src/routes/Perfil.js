@@ -38,7 +38,7 @@ export function Perfil({ idUsuario }) {
         </div>
 
         <div className="Perfil-valoraciones">
-          <Link to="/valoraciones">
+          <Link to={`/valoraciones/${idUsuario}`}>
             {estrellas?.map((estrella, index) => (
               <img src={estrella} alt="estrella" key={index} />
             ))}

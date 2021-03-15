@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
@@ -16,11 +16,18 @@ export function ChatRoom() {
   const [token, setToken] = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState(null);
   const [mensaje, setMensaje] = useState("");
+  const final = useRef();
 
   let payload = null;
   if (token) {
     payload = jwt_decode(token);
   }
+
+  useEffect(() => {
+    if (chat.length && final.current) {
+      final.current.scrollIntoView();
+    }
+  }, [chat.length]);
 
   if (Object.keys(payload).length === 0 || Object.keys(articulo).length === 0) {
     return <div>Loading...</div>;
@@ -52,6 +59,7 @@ export function ChatRoom() {
       }
 
       const mensajeJson = await response.json();
+      console.log(mensajeJson);
       setChat([...chat, mensajeJson]);
     } catch (err) {
       setErrorMessage(err.errorMessage);
@@ -109,7 +117,7 @@ export function ChatRoom() {
 
       <div className="ChatRoom-mensajes">
         {chat.map((mensaje) => {
-          if (mensaje.id_emisor === payload.id) {
+          if (Number(mensaje.id_emisor) === payload.id) {
             return (
               <div className="ChatRoom-mio" key={mensaje.id}>
                 <p>{mensaje.mensaje}</p>
@@ -125,6 +133,7 @@ export function ChatRoom() {
             );
           }
         })}
+        <div ref={final}></div>
       </div>
 
       <div className="ChatRoom-mensaje">

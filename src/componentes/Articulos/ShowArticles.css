@@ -85,7 +85,8 @@
 }
 
 .ArticuloHome-calificar p {
-  width: 150px;
+  width: 135px;
+  color: black;
   background-color: #f8d334;
   border-radius: 5px;
   padding: 5px;

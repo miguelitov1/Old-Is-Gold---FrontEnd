@@ -22,3 +22,8 @@
   height: 65px;
   background-color: aliceblue;
 }
+.mensaje-error {
+  color: red;
+  font-weight: bold;
+  padding: 20px;
+}
