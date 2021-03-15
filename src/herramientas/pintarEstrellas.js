@@ -8,7 +8,7 @@ export const pintarEstrellas = (valor) => {
     for (let i = 0; i < +numero[0]; i++) {
       render.push("../corazon-estrellas/estrella-100.png");
     }
-    if (+numero[1] <= 20) {
+    if (+numero[1] <= 20 && +numero[1] !== 0) {
       render.push("../corazon-estrellas/estrella-0.png");
     } else if (+numero[1] > 20 && +numero[1] <= 40) {
       render.push("../corazon-estrellas/estrella-25.png");

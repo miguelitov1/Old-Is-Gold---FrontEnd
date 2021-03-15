@@ -18,24 +18,27 @@ export function Valoracion(props) {
       >
         <div className="Valoraciones-caja">
           <div className="Valoraciones-respuesta-comprador">
+            <div>
+              {estrellas?.map((estrella, index) => (
+                <img src={estrella} alt="estrella" key={index} />
+              ))}
+            </div>
             <div className="Valoraciones-contenedor">
               <img
                 className="Valoraciones-img"
                 src={`http://localhost:8081/images/articulos/${articulo.foto1}`}
                 alt="First slide"
               />
-            </div>
-            <div className="Valoracion-texto">
-              {estrellas?.map((estrella, index) => (
-                <img src={estrella} alt="estrella" key={index} />
-              ))}
-              <h2>{articulo.titulo}</h2>
-              <h3 className="Valoracion-texto-titulos">
-                Comentario del comprador:
-              </h3>
-              <p className="Valoracion-texto-comentario">
-                <p>{props.comentarioValoracion}</p>
-              </p>
+
+              <div className="Valoracion-texto">
+                <h2>{articulo.titulo}</h2>
+                <h3 className="Valoracion-texto-titulos">
+                  Comentario del comprador:
+                </h3>
+                <p className="Valoracion-texto-comentario">
+                  <p>{props.comentarioValoracion}</p>
+                </p>
+              </div>
             </div>
           </div>
           {props.respuestaVendedor && (
