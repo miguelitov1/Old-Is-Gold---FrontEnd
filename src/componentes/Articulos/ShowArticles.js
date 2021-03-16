@@ -7,7 +7,7 @@ import { useRemoteArticlesFavourites } from "../../herramientas/useRemoteArticle
 import "./ShowArticles.css";
 
 export function ShowArticles(props) {
-  const [favoritos] = useRemoteArticlesFavourites(props.idUsuario);
+  const [favoritos, , refetch] = useRemoteArticlesFavourites(props.idUsuario);
   const [token] = useContext(AuthContext);
   const [message, setMessage] = useState("");
 
@@ -15,10 +15,9 @@ export function ShowArticles(props) {
     e.preventDefault();
 
     if (favoritos.find((favorito) => favorito.id === props.id)) {
-      console.log("hola");
       try {
         const response = await fetch(
-          `http://localhost:8081/api/v1/proyecto8/articulos/${props.id}`,
+          `http://localhost:8081/api/v1/proyecto8/articulosFav/${props.id}`,
           {
             method: "DELETE",
             headers: {
@@ -29,9 +28,10 @@ export function ShowArticles(props) {
         );
 
         if (!response.ok) {
-          const error = new Error("No se ha podido agregar a favoritos");
+          const error = new Error("No se ha podido quitar de favoritos");
           throw error;
         }
+        refetch();
       } catch (err) {
         setMessage(err.message);
         console.log(message);
@@ -53,6 +53,7 @@ export function ShowArticles(props) {
           const error = new Error("No se ha podido agregar a favoritos");
           throw error;
         }
+        refetch();
       } catch (err) {
         setMessage(err.message);
       }
