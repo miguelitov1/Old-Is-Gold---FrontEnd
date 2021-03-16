@@ -23,9 +23,10 @@ import { MisCompras } from "./routes/MisCompras";
 import { ChatRoom } from "./routes/ChatRoom";
 import { ListaArticulosPorPalabras } from "./routes/ListaArticulosPorPalabras";
 import { Valorar } from "./routes/Valorar";
+import { Usuario } from "./routes/Usuario";
 
 function App() {
-  const [token, setToken] = useContext(AuthContext);
+  const [token] = useContext(AuthContext);
   const [words, setWords] = useState([]);
   let payload = null;
   if (token) {
@@ -40,13 +41,16 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <div className="App-img"></div>
-            <ListaArticulos path="" />
+            <ListaArticulos path="" idUsuario={payload ? payload.id : null} />
           </Route>
           <Route path="/registro" exact>
             <Register />
           </Route>
           <Route path="/buscarPorPalabras" exact>
-            <ListaArticulosPorPalabras words={words} />
+            <ListaArticulosPorPalabras
+              words={words}
+              idUsuario={payload ? payload.id : null}
+            />
           </Route>
           <Route path="/misCompras" exact>
             <MisCompras />
@@ -66,11 +70,17 @@ function App() {
           <Route path="/valorar/:idArticulo" exact>
             <Valorar />
           </Route>
+          <Route path="/perfil/:idUsuario" exact>
+            <Usuario />
+          </Route>
           <Route path="/perfil" exact>
             <Perfil idUsuario={payload ? payload.id : null} />
           </Route>
           <Route path="/favoritos" exact>
-            <Favoritos titulo="Favoritos" />
+            <Favoritos
+              titulo="Favoritos"
+              idUsuario={payload ? payload.id : null}
+            />
           </Route>
           <Route path="/chat" exact>
             <AllChatsRoom fotoUsuario={payload ? payload.foto : null} />
@@ -84,7 +94,11 @@ function App() {
           {sidebarCategorias.map((categoria) =>
             categoria.idCategoria === 0 ? (
               <Route key={categoria.idCategoria} path={categoria.path} exact>
-                <ListaArticulos path="" titulo="Todas las categorias" />
+                <ListaArticulos
+                  path=""
+                  titulo="Todas las categorias"
+                  idUsuario={payload ? payload.id : null}
+                />
               </Route>
             ) : (
               <Route key={categoria.idCategoria} path={categoria.path} exact>
@@ -92,6 +106,7 @@ function App() {
                   path={`categoria/${categoria.idCategoria}`}
                   titulo={categoria.nombre}
                   key={categoria.idCategoria}
+                  idUsuario={payload ? payload.id : null}
                 />
               </Route>
             )

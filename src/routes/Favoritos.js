@@ -17,6 +17,7 @@ export function Favoritos(props) {
           descripcion={articulo.descripcion}
           titulo={articulo.titulo}
           precio={articulo.precio}
+          idUsuario={props.idUsuario}
         />
       ))}
     </div>

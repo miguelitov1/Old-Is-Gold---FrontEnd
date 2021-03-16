@@ -7,7 +7,6 @@ export function Login() {
   const [email, setEmail] = useState("");
   const [contrasenha, setContrasenha] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-  const [redirection, setRedirection] = useState(false);
   const [token, setToken] = useContext(AuthContext);
 
   const handleSubmit = async (event) => {
@@ -43,12 +42,8 @@ export function Login() {
     }
   };
 
-  const handleOnClick = () => setRedirection(true);
-
   return token ? (
     <Redirect to="/" />
-  ) : redirection ? (
-    <Redirect to="/registro" />
   ) : (
     <div className="Register-section">
       <form className="form-register" onSubmit={handleSubmit}>

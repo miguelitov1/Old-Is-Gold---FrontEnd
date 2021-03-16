@@ -2,12 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./ShowArticles.css";
 
-import { useContext, useState } from "react";
-import { AuthContext } from "../providers/AuthProvider";
+import { useState } from "react";
 
 export function ShowBoughtReserved(props) {
-  const [message, setMessage] = useState("");
-  const [token, setToken] = useContext(AuthContext);
+  const [message] = useState("");
 
   return (
     <div className="ArticulosHome-todo">

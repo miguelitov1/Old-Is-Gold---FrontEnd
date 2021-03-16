@@ -5,15 +5,13 @@ import { AuthContext } from "../componentes/providers/AuthProvider";
 import { useRemoteUser } from "../herramientas/useRemoteUser";
 import { useRemoteValoraciones } from "../herramientas/useRemoteValoraciones";
 import { pintarEstrellas } from "../herramientas/pintarEstrellas";
-import jwt_decode from "jwt-decode";
+
 import "./Perfil.css";
-import { BsColumnsGap } from "react-icons/bs";
-import { BiPause } from "react-icons/bi";
 
 export function Perfil({ idUsuario }) {
-  const [user, setUser] = useRemoteUser(idUsuario);
+  const [user] = useRemoteUser(idUsuario);
   const [token, setToken] = useContext(AuthContext);
-  const [valoraciones, setValoraciones] = useRemoteValoraciones(idUsuario);
+  const [valoraciones] = useRemoteValoraciones(idUsuario);
   const estrellas = pintarEstrellas(valoraciones.promedio);
 
   const [nombre, setNombre] = useState("");
@@ -23,7 +21,6 @@ export function Perfil({ idUsuario }) {
   const [localidad, setLocalidad] = useState("");
 
   const [errorMsg, setErrorMsg] = useState("");
-  const [redirection, setRedirection] = useState("");
   const [mostrarBoton, setMostrarBoton] = useState(false);
   const [contrasenha, setContrasenha] = useState("");
   const [repetirContrasenha, setRepetirContrasenha] = useState("");

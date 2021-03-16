@@ -17,12 +17,10 @@ import "./ArticuloPorId.css";
 
 export function ArticuloPorId() {
   const { idArticulo } = useParams();
-  const [token, setToken] = useContext(AuthContext);
-  const [articulo, setArticulo] = useRemoteArticles(idArticulo);
-  const [valoraciones, setValoraciones] = useRemoteValoraciones(
-    articulo?.id_usuario
-  );
-  const [usuario, setUsuario] = useRemoteUser(articulo?.id_usuario);
+  const [token] = useContext(AuthContext);
+  const [articulo] = useRemoteArticles(idArticulo);
+  const [valoraciones] = useRemoteValoraciones(articulo?.id_usuario);
+  const [usuario] = useRemoteUser(articulo?.id_usuario);
   const [message, setMessage] = useState("");
   const estrellas = pintarEstrellas(valoraciones?.promedio);
 
@@ -71,26 +69,28 @@ export function ArticuloPorId() {
         </div>
       </div>
 
-      <div className="ArticuloPorId-datos-usuario">
-        <div className="ArticuloPorId-datos-usuario2">
-          <img
-            className="ArticuloPorId-user-img"
-            src={`http://localhost:8081/images/profiles/${usuario.foto}`}
-            alt="img"
-          />
-          <div>
-            {estrellas?.map((estrella, index) => (
-              <img src={estrella} alt="estrella" key={index} />
-            ))}
-          </div>
+      <Link to={`/perfil/${usuario.id}`} style={{ textDecoration: "none" }}>
+        <div className="ArticuloPorId-datos-usuario">
+          <div className="ArticuloPorId-datos-usuario2">
+            <img
+              className="ArticuloPorId-user-img"
+              src={`http://localhost:8081/images/profiles/${usuario.foto}`}
+              alt="img"
+            />
+            <div>
+              {estrellas?.map((estrella, index) => (
+                <img src={estrella} alt="estrella" key={index} />
+              ))}
+            </div>
 
-          <p>{valoraciones.nroValoraciones} valoraciones</p>
+            <p>{valoraciones.nroValoraciones} valoraciones</p>
+          </div>
+          <div className="ArticuloPorId-datos-usuario2">
+            <img src="/iconos/visto.png" alt="visto" />
+            <p>{articulo.nro_visitas}</p>
+          </div>
         </div>
-        <div className="ArticuloPorId-datos-usuario2">
-          <img src="/iconos/visto.png" alt="visto" />
-          <p>{articulo.nro_visitas}</p>
-        </div>
-      </div>
+      </Link>
 
       <div className="ArticuloPorId-contenedor">
         {/* <Slider dots>

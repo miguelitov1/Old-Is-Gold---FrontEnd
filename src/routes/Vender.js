@@ -11,9 +11,8 @@ import "./Vender.css";
 export function Vender(props) {
   const [category, setCategory] = useState(null);
   const [files, setFiles] = useState([null, null, null, null, null]);
-  const [token, setToken] = useContext(AuthContext);
+  const [token] = useContext(AuthContext);
   const [message, setMessage] = useState(null);
-  const [idArticulo, setIdArticulo] = useState(null);
 
   const history = useHistory();
 

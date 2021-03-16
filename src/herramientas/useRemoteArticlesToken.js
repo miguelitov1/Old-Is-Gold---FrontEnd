@@ -3,8 +3,8 @@ import { AuthContext } from "../componentes/providers/AuthProvider";
 
 export const useRemoteArticles = (path) => {
   const [articulos, setArticulos] = useState([]);
-  const [errorMsg, setErrorMsg] = useState("");
-  const [token, setToken] = useContext(AuthContext);
+  const [, setErrorMsg] = useState("");
+  const [token] = useContext(AuthContext);
 
   // const [random, setRandom] = useState(Math.random());
 
@@ -35,6 +35,6 @@ export const useRemoteArticles = (path) => {
       }
     };
     loadArticle();
-  }, []);
+  }, [path, token]);
   return articulos;
 };

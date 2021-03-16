@@ -12,8 +12,8 @@ import { pintarEstrellas } from "../herramientas/pintarEstrellas";
 
 export function Valoraciones() {
   const { idUsuario } = useParams();
-  const [valoraciones, setValoraciones] = useRemoteValoraciones(idUsuario);
-  const [token, setToken] = useContext(AuthContext);
+  const [valoraciones, , refetch] = useRemoteValoraciones(idUsuario);
+  const [token] = useContext(AuthContext);
   const arrayValoracion = valoraciones.valoraciones;
 
   ////////////////////////////////
@@ -49,6 +49,7 @@ export function Valoraciones() {
               comentarioValoracion={valoracion.comentarioValoracion}
               respuestaVendedor={valoracion.respuestaVendedor}
               valoracion={valoracion.valoracion}
+              refetch={refetch}
             />
           );
         })}

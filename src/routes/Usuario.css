@@ -1,0 +1,13 @@
+.Perfil-valoraciones p {
+  color: gray;
+}
+
+.Usuario-datos {
+  padding: 10px;
+  padding-top: 30px;
+}
+
+.Usuario-datos p {
+  font-size: 20px;
+  padding: 20px;
+}

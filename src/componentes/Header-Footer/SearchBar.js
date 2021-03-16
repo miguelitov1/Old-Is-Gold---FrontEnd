@@ -1,6 +1,6 @@
 //rfc
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React from "react";
 import "./Header.css";
 
 export const SearchBar = (props) => {
