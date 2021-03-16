@@ -5,7 +5,7 @@ export const useRemoteArticlesReserved = () => {
   const [articulos, setArticulos] = useState([]);
   const [, setErrorMsg] = useState("");
   // const [random, setRandom] = useState(Math.random());
-  const [token, setToken] = useContext(AuthContext);
+  const [token] = useContext(AuthContext);
 
   // const refetch = () => {
   //   setRandom(Math.random());

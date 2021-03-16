@@ -3,7 +3,6 @@ import { useContext, useState } from "react";
 import jwt_decode from "jwt-decode";
 import "./MisArticulos.css";
 
-import { ShowArticles } from "../componentes/Articulos/ShowArticles";
 import { ShowArticlesReserved } from "../componentes/Articulos/ShowArticlesReserved";
 import { ShowMyArticles } from "../componentes/Articulos/ShowMyArticles";
 import { AuthContext } from "../componentes/providers/AuthProvider";
@@ -13,7 +12,7 @@ import { useRemoteArticlesSoldOut } from "../herramientas/useRemoteArticlesSoldO
 import { useRemoteArticlesReserved } from "../herramientas/useRemoteArticlesReserved";
 
 export function MisArticulos() {
-  const [token, setToken] = useContext(AuthContext);
+  const [token] = useContext(AuthContext);
   let payload = null;
   if (token) {
     payload = jwt_decode(token, process.env.JWT_SECRET);

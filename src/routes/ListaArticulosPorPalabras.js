@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { ShowArticles } from "../componentes/Articulos/ShowArticles";
 import { useRemoteArticlesByWords } from "../herramientas/useRemoteArticlesByWords";
 
 export function ListaArticulosPorPalabras(props) {
-  const [articulos, setArticulo] = useRemoteArticlesByWords(props.words);
+  const [articulos] = useRemoteArticlesByWords(props.words);
 
   return (
     <div className="Lista-articulos-body">
@@ -16,6 +16,7 @@ export function ListaArticulosPorPalabras(props) {
           titulo={articulo.titulo}
           precio={articulo.precio}
           foto={articulo.foto1}
+          idUsuario={props.idUsuario}
         />
       ))}
     </div>

@@ -7,7 +7,7 @@ import { AuthContext } from "../providers/AuthProvider";
 
 export function ShowArticlesReserved(props) {
   const [message, setMessage] = useState("");
-  const [token, setToken] = useContext(AuthContext);
+  const [token] = useContext(AuthContext);
 
   const aceptarCompra = async (idArticulo) => {
     try {

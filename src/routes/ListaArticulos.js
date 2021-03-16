@@ -4,7 +4,7 @@ import { ShowArticles } from "../componentes/Articulos/ShowArticles";
 import "../componentes/Articulos/ShowArticles.css";
 
 export function ListaArticulos(props) {
-  const [articulos, setArticulo] = useRemoteArticles(props.path);
+  const [articulos] = useRemoteArticles(props.path);
 
   return (
     <div className="Lista-articulos-body">
@@ -17,6 +17,7 @@ export function ListaArticulos(props) {
           titulo={articulo.titulo}
           precio={articulo.precio}
           foto={articulo.foto1}
+          idUsuario={props.idUsuario}
         />
       ))}
     </div>

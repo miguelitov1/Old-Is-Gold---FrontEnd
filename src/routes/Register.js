@@ -14,7 +14,7 @@ export function Register() {
   const [localidad, setLocalidad] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [redirection, setRedirection] = useState("");
-  const [token, setToken] = useContext(AuthContext);
+  const [token] = useContext(AuthContext);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -68,12 +68,8 @@ export function Register() {
     }
   };
 
-  const handleOnClick = () => setRedirection("login");
-
   return token ? (
     <Redirect to="/" />
-  ) : redirection === "login" ? (
-    <Redirect to="/login" />
   ) : redirection === "usuarioRegistrado" ? (
     <UsuarioRegistrado />
   ) : (

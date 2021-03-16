@@ -3,8 +3,14 @@ import { AuthContext } from "../componentes/providers/AuthProvider";
 
 export const useRemoteValoraciones = (idUsuario) => {
   const [valoraciones, setValoraciones] = useState([]);
-  const [errorMsg, setErrorMsg] = useState("");
-  const [token, setToken] = useContext(AuthContext);
+  const [, setErrorMsg] = useState("");
+  const [random, setRandom] = useState(Math.random());
+  const [token] = useContext(AuthContext);
+
+  const refetch = () => {
+    setRandom(Math.random());
+  };
+
   useEffect(() => {
     const loadArticle = async () => {
       const response = await fetch(
@@ -32,6 +38,6 @@ export const useRemoteValoraciones = (idUsuario) => {
     if (idUsuario) {
       loadArticle();
     }
-  }, [idUsuario, token]);
-  return [valoraciones, setValoraciones];
+  }, [idUsuario, token, random]);
+  return [valoraciones, setValoraciones, refetch];
 };

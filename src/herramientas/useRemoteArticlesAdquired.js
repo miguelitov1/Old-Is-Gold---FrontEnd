@@ -4,7 +4,7 @@ import { AuthContext } from "../componentes/providers/AuthProvider";
 export const useRemoteArticlesAdquired = (path) => {
   const [articulos, setArticulos] = useState([]);
   const [, setErrorMsg] = useState("");
-  const [token, setToken] = useContext(AuthContext);
+  const [token] = useContext(AuthContext);
 
   useEffect(() => {
     const loadArticle = async () => {

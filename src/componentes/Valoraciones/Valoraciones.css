@@ -5,18 +5,13 @@
   padding: 10px;
 }
 
-.Valoraciones-respuesta-comprador {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.Valoraciones-contenedor {
   background-color: aliceblue;
   padding: 10px;
   padding-bottom: 0px;
-}
-
-.Valoraciones-contenedor {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
   margin: auto;
   /* padding: 10px; */
 }
@@ -24,46 +19,77 @@
 .Valoraciones-estrellas {
   display: flex;
 }
-.Valoraciones-texto {
-  display: flex;
+
+.Valoracion-texto {
+  color: black;
+  min-width: 225px;
+  max-width: 400px;
 }
 
-.Valoracion-texto h2,
+.Valoracion-texto h2 {
+  text-align: left;
+  padding: 0;
+  font-size: 18px;
+}
 .Valoracion-texto h3 {
   text-align: left;
   padding: 0;
-  margin-left: 10px;
+  font-size: 14px;
+}
+.Valoracion-texto-comentario {
+  text-align: left;
+  font-size: 12px;
 }
 
-.Valoracion-texto-comentario {
-  font-size: 15px;
-}
-.Valoracion-texto-comentario p {
-  text-align: left;
-  margin-left: 10px;
-}
-.Valoracion-texto-titulos {
-  font-size: 15px;
-  padding: 5px;
-}
 .Valoraciones-respuesta-vendedor {
   background-color: rgb(184, 184, 184);
+  padding: 10px;
 }
 .Valoraciones-respuesta-vendedor p {
   text-align: left;
-  margin: 10px;
+  margin-left: 10px;
+  font-size: 12px;
 }
 .Valoraciones-respuesta-vendedor h3 {
   text-align: left;
-  margin: 10px;
   padding: 0;
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.Valoraciones-img img {
+  max-width: 70px;
+  max-height: 70px;
 }
 
 .Valoraciones-img {
-  max-width: 65px;
-  max-height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  margin-right: 15px;
 }
 
 .Valoraciones-separador {
   padding-top: 30px;
+}
+
+.Valoraciones-form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: flex-end;
+}
+.Valoraciones-form textarea {
+  width: 100%;
+  height: 50px;
+}
+.Valoraciones-form button {
+  width: 50px;
+  height: 20px;
+  background-color: #f8d334;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
 }

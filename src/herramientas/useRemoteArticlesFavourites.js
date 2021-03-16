@@ -4,12 +4,12 @@ import { AuthContext } from "../componentes/providers/AuthProvider";
 export const useRemoteArticlesFavourites = () => {
   const [articulos, setArticulos] = useState([]);
   const [, setErrorMsg] = useState("");
-  // const [random, setRandom] = useState(Math.random());
-  const [token, setToken] = useContext(AuthContext);
+  const [random, setRandom] = useState(Math.random());
+  const [token] = useContext(AuthContext);
 
-  // const refetch = () => {
-  //   setRandom(Math.random());
-  // };
+  const refetch = () => {
+    setRandom(Math.random());
+  };
 
   useEffect(() => {
     const loadArticle = async () => {
@@ -34,6 +34,6 @@ export const useRemoteArticlesFavourites = () => {
       }
     };
     loadArticle();
-  }, [token]);
-  return [articulos, setArticulos];
+  }, [token, random]);
+  return [articulos, setArticulos, refetch];
 };

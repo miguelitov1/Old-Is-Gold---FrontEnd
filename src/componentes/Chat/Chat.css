@@ -31,6 +31,16 @@ div.Chat-img {
 }
 .Chat-info p {
   text-align: left;
+  color: rgb(59, 59, 59);
+}
+
+.Chat-info h3 {
+  font-size: 14px;
+}
+
+.Chat-usuario {
+  font-size: 12px;
+  color: gray;
 }
 
 .Chat-p-usuario {

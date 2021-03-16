@@ -7,7 +7,7 @@ import "./AllChatsRoom.css";
 
 export function AllChatsRoom({ fotoUsuario }) {
   const [token] = useContext(AuthContext);
-  const [chats, setChats] = useRemoteChats("");
+  const [chats] = useRemoteChats("");
 
   let showedChats;
   if (chats) {

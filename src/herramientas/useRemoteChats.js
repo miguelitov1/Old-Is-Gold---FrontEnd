@@ -3,8 +3,13 @@ import { AuthContext } from "../componentes/providers/AuthProvider";
 
 export const useRemoteChats = (path) => {
   const [chats, setChats] = useState([]);
-  const [errorMsg, setErrorMsg] = useState("");
-  const [token, setToken] = useContext(AuthContext);
+  const [, setErrorMsg] = useState("");
+  const [random, setRandom] = useState(Math.random());
+  const [token] = useContext(AuthContext);
+
+  const refetch = () => {
+    setRandom(Math.random());
+  };
 
   useEffect(() => {
     const loadChats = async () => {
@@ -30,6 +35,6 @@ export const useRemoteChats = (path) => {
     };
 
     loadChats();
-  }, [path, token]);
-  return [chats, setChats];
+  }, [path, token, random]);
+  return [chats, setChats, refetch];
 };
