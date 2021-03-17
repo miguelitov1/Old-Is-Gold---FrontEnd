@@ -11,6 +11,7 @@ import { useRemoteArticles } from "../herramientas/useRemoteArticles";
 import { useRemoteValoraciones } from "../herramientas/useRemoteValoraciones";
 import { useRemoteUser } from "../herramientas/useRemoteUser";
 import { pintarEstrellas } from "../herramientas/pintarEstrellas";
+import { useRemoteArticlesFavourites } from "../herramientas/useRemoteArticlesFavourites";
 
 import { AuthContext } from "../componentes/providers/AuthProvider";
 import "./ArticuloPorId.css";
@@ -23,6 +24,7 @@ export function ArticuloPorId() {
   const [usuario] = useRemoteUser(articulo?.id_usuario);
   const [message, setMessage] = useState("");
   const estrellas = pintarEstrellas(valoraciones?.promedio);
+  const [favoritos, , refetch] = useRemoteArticlesFavourites(usuario?.id);
 
   let payload;
   let activarBotonChat = true;
@@ -58,6 +60,54 @@ export function ArticuloPorId() {
 
   const handleOnClick = () => {
     reservarArticulo(articulo.id);
+  };
+
+  const handleOnClick2 = async (e) => {
+    e.preventDefault();
+
+    if (favoritos.find((favorito) => favorito.id === articulo.id)) {
+      try {
+        const response = await fetch(
+          `http://localhost:8081/api/v1/proyecto8/articulosFav/${articulo.id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        if (!response.ok) {
+          const error = new Error("No se ha podido quitar de favoritos");
+          throw error;
+        }
+        refetch();
+      } catch (err) {
+        setMessage(err.message);
+      }
+    } else {
+      try {
+        const response = await fetch(
+          `http://localhost:8081/api/v1/proyecto8/articulos/${articulo.id}`,
+          {
+            method: "POST",
+            headers: {
+              "Content-type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        if (!response.ok) {
+          const error = new Error("No se ha podido agregar a favoritos");
+          throw error;
+        }
+        refetch();
+      } catch (err) {
+        setMessage(err.message);
+      }
+    }
   };
 
   return (
@@ -121,7 +171,15 @@ export function ArticuloPorId() {
       <div className="ArticuloPorId-datos">
         <p>{articulo.precio}€</p>
         {activarBotonChat && (
-          <img src="../corazon-estrellas/corazon.png" alt="corazon"></img>
+          <img
+            src={
+              favoritos.find((favorito) => favorito.id === articulo.id)
+                ? "/corazon-estrellas/corazonFav.png"
+                : "/corazon-estrellas/corazon.png"
+            }
+            alt="corazon"
+            onClick={handleOnClick2}
+          />
         )}
         <div className="ArticuloPorId-datos-usuario2">
           <img src="../iconos/localizacion.png" alt="localizacion"></img>

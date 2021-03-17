@@ -5,29 +5,36 @@ import { AuthContext } from "../componentes/providers/AuthProvider";
 import { useRemoteUser } from "../herramientas/useRemoteUser";
 import { useRemoteValoraciones } from "../herramientas/useRemoteValoraciones";
 import { pintarEstrellas } from "../herramientas/pintarEstrellas";
-
+import jwt_decode from "jwt-decode";
 import "./Perfil.css";
+import { BsColumnsGap } from "react-icons/bs";
+import { BiPause } from "react-icons/bi";
+import * as BiIcons from "react-icons/bi";
+import "../componentes/Vender/UploadFile.css";
+import { UploadFileProfile } from "../componentes/Usuarios/UploadFileProfile";
+import { useHistory } from "react-router-dom";
 
 export function Perfil({ idUsuario }) {
-  const [user] = useRemoteUser(idUsuario);
+  const [user, , refetch] = useRemoteUser(idUsuario);
   const [token, setToken] = useContext(AuthContext);
-  const [valoraciones] = useRemoteValoraciones(idUsuario);
+  const [valoraciones, setValoraciones] = useRemoteValoraciones(idUsuario);
   const estrellas = pintarEstrellas(valoraciones.promedio);
-
   const [nombre, setNombre] = useState("");
   const [apellidos, setApellidos] = useState("");
   const [email, setEmail] = useState("");
   const [usuario, setUsuario] = useState("");
   const [localidad, setLocalidad] = useState("");
-
+  const [foto, setFoto] = useState("");
+  const [fotoNueva, setFotoNueva] = useState(null);
   const [errorMsg, setErrorMsg] = useState("");
+  const [redirection, setRedirection] = useState("");
   const [mostrarBoton, setMostrarBoton] = useState(false);
   const [contrasenha, setContrasenha] = useState("");
   const [repetirContrasenha, setRepetirContrasenha] = useState("");
   const [mostrarRepetirContrasenha, setMostrarRepetirContrasenha] = useState(
     false
   );
-
+  let history = useHistory();
   useEffect(() => {
     if (user) {
       setNombre(user.nombre);
@@ -35,10 +42,14 @@ export function Perfil({ idUsuario }) {
       setEmail(user.email);
       setUsuario(user.nombreUsuario);
       setLocalidad(user.localidad);
+      setFoto(user.foto);
     }
   }, [user]);
 
-  const handleOnClick = () => setToken("");
+  const handleOnClick = () => {
+    setToken("");
+    window.location.reload();
+  };
   const handleMostrarBoton = (e) => {
     e.preventDefault();
     if (mostrarBoton) {
@@ -61,25 +72,27 @@ export function Perfil({ idUsuario }) {
       contrasenha !== "" &&
       repetirContrasenha !== ""
     ) {
-      const newUserForServer = {
-        nombre: nombre,
-        apellidos: apellidos,
-        email: email,
-        nombreUsuario: usuario,
-        localidad: localidad,
-        contrasenha: contrasenha,
-        repetirContrasenha: repetirContrasenha,
-      };
+      const payload = new FormData();
+      payload.append("nombre", nombre);
 
+      payload.append("apellidos", apellidos);
+      payload.append("email", email);
+      payload.append("nombreUsuario", usuario);
+      payload.append("localidad", localidad);
+      payload.append("contrasenha", contrasenha);
+      payload.append("repetirContrasenha", repetirContrasenha);
+      if (fotoNueva) {
+        payload.append("foto", fotoNueva);
+      }
       const res = await fetch(
         `http://localhost:8081/api/v1/proyecto8/usuarios/actualizar`,
         {
           method: "PUT",
           headers: {
-            "Content-type": "application/json",
+            //"Content-type": "application/json",
             Authorization: `Bearer ${token}`,
           },
-          body: JSON.stringify(newUserForServer),
+          body: payload,
         }
       );
 
@@ -89,6 +102,9 @@ export function Perfil({ idUsuario }) {
         setErrorMsg("Perfil actualizado");
         setMostrarRepetirContrasenha(false);
         setMostrarBoton(false);
+        window.location.reload();
+
+        // history.push("/");
       } else {
         const json = await res.json();
         setErrorMsg(json.error);
@@ -97,19 +113,32 @@ export function Perfil({ idUsuario }) {
       setErrorMsg("Debe completar todos los campos");
     }
   };
-  if (!user || Object.keys(user).length === 0) return <div>Loading...</div>;
+
+  if (!user) return <div>Loading...</div>;
   return token ? (
     <>
       <form className="Perfil-form" onSubmit={handleSubmit}>
         <div className="Perfil-img">
-          <img
-            className="Perfil-foto-de-perfil"
-            src={`http://localhost:8081/images/profiles/${user.foto}`}
-            alt="Foto de perfil"
-          ></img>
+          {fotoNueva ? null : (
+            <img
+              className="Perfil-foto-de-perfil"
+              src={`http://localhost:8081/images/profiles/${foto}`}
+              alt="Foto de perfil"
+            ></img>
+          )}
+        </div>
+        <div>
+          <label>
+            {mostrarBoton && (
+              <UploadFileProfile
+                fotoNueva={fotoNueva}
+                setFotoNueva={setFotoNueva}
+              />
+            )}
+          </label>
         </div>
         <div className="Perfil-valoraciones">
-          <Link to={`/valoraciones/${user.id}`}>
+          <Link to={`/valoraciones/${idUsuario}`}>
             {estrellas?.map((estrella, index) => (
               <img src={estrella} alt="estrella" key={index} />
             ))}

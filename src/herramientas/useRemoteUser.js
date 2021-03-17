@@ -5,38 +5,39 @@ export const useRemoteUser = (idUsuario) => {
   const [usuario, setUsuario] = useState({});
   const [, setErrorMsg] = useState("");
   const [token] = useContext(AuthContext);
-  // const [random, setRandom] = useState(Math.random());
+  const [random, setRandom] = useState(Math.random());
 
-  // const refetch = () => {
-  //   setRandom(Math.random());
-  // };
+  const refetch = () => {
+    setRandom(Math.random());
+  };
+
+  const requestUser = async (idUsuario) => {
+    const response = await fetch(
+      `http://localhost:8081/api/v1/proyecto8/usuarios/${idUsuario}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    if (response.ok) {
+      const json = await response.json();
+      setUsuario(json);
+      setErrorMsg("");
+    } else {
+      const json = await response.json();
+      setErrorMsg(json.error);
+    }
+  };
 
   useEffect(() => {
     let response;
     if (token) {
-      const loadUser = async () => {
-        response = await fetch(
-          `http://localhost:8081/api/v1/proyecto8/usuarios/${idUsuario}`,
-          {
-            method: "GET",
-            headers: {
-              "Content-type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-
-        if (response.ok) {
-          const json = await response.json();
-          setUsuario(json);
-          setErrorMsg("");
-        } else {
-          const json = await response.json();
-          setErrorMsg(json.error);
-        }
-      };
       if (idUsuario) {
-        loadUser();
+        requestUser(idUsuario);
       }
     } else {
       const loadUser = async () => {
@@ -63,6 +64,6 @@ export const useRemoteUser = (idUsuario) => {
         loadUser();
       }
     }
-  }, [idUsuario, token]);
-  return [usuario, setUsuario];
+  }, [idUsuario, token, random]);
+  return [usuario, setUsuario, refetch];
 };

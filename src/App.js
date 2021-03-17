@@ -26,8 +26,8 @@ import { Valorar } from "./routes/Valorar";
 import { Usuario } from "./routes/Usuario";
 
 function App() {
-  const [token] = useContext(AuthContext);
   const [words, setWords] = useState([]);
+  const [token] = useContext(AuthContext);
   let payload = null;
   if (token) {
     payload = jwt_decode(token);
@@ -83,7 +83,7 @@ function App() {
             />
           </Route>
           <Route path="/chat" exact>
-            <AllChatsRoom fotoUsuario={payload ? payload.foto : null} />
+            <AllChatsRoom />
           </Route>
           <Route path="/chat/:idArticulo/:idVendedor/:idComprador" exact>
             <ChatRoom />

@@ -4,9 +4,10 @@ import React from "react";
 // import * as IoIcons from "react-icons/ai";
 import * as BsIcons from "react-icons/bs";
 
-export function footerBar(payload) {
+export function footerBar(user) {
+  console.log(user);
   let footerBar;
-  if (payload) {
+  if (user && user.foto) {
     return (footerBar = [
       {
         tittle: "Chat",
@@ -25,7 +26,7 @@ export function footerBar(payload) {
         path: "/perfil",
         icon: (
           <img
-            src={`http://localhost:8081/images/profiles/${payload.foto}`}
+            src={`http://localhost:8081/images/profiles/${user.foto}`}
             alt="foto perfil"
           />
         ),

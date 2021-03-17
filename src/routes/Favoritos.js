@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ShowArticles } from "../componentes/Articulos/ShowArticles";
 import "../componentes/Articulos/ShowArticles.css";
 import { useRemoteArticlesFavourites } from "../herramientas/useRemoteArticlesFavourites";
+import jwt_decode from "jwt-decode";
 
+import { AuthContext } from "../componentes/providers/AuthProvider";
 export function Favoritos(props) {
   const [favoritos] = useRemoteArticlesFavourites();
+  // const [token] = useContext(AuthContext);
+  // let payload = null;
+  // if (token) {
+  //   payload = jwt_decode(token);
+  // }
 
   return (
     <div className="Lista-articulos-body">
@@ -17,7 +24,7 @@ export function Favoritos(props) {
           descripcion={articulo.descripcion}
           titulo={articulo.titulo}
           precio={articulo.precio}
-          idUsuario={props.idUsuario}
+          idUsuario={props.id}
         />
       ))}
     </div>

@@ -9,7 +9,7 @@ import "./ShowArticles.css";
 export function ShowArticles(props) {
   const [favoritos, , refetch] = useRemoteArticlesFavourites(props.idUsuario);
   const [token] = useContext(AuthContext);
-  const [message, setMessage] = useState("");
+  const [, setMessage] = useState("");
 
   const handleOnClick = async (e) => {
     e.preventDefault();
@@ -34,7 +34,6 @@ export function ShowArticles(props) {
         refetch();
       } catch (err) {
         setMessage(err.message);
-        console.log(message);
       }
     } else {
       try {
@@ -75,16 +74,18 @@ export function ShowArticles(props) {
             <h2 className="ArticuloHome-titulo">
               {props.titulo.toUpperCase()}
             </h2>
-            <img
-              className="ArticuloHome-corazon"
-              src={
-                favoritos.find((favorito) => favorito.id === props.id)
-                  ? "/corazon-estrellas/corazonFav.png"
-                  : "/corazon-estrellas/corazon.png"
-              }
-              alt="corazon"
-              onClick={handleOnClick}
-            />
+            {token && (
+              <img
+                className="ArticuloHome-corazon"
+                src={
+                  favoritos.find((favorito) => favorito.id === props.id)
+                    ? "/corazon-estrellas/corazonFav.png"
+                    : "/corazon-estrellas/corazon.png"
+                }
+                alt="corazon"
+                onClick={handleOnClick}
+              />
+            )}
           </div>
           <p className="ArticuloHome-precio">{props.precio}€</p>
           <p className="ArticuloHome-descripcion">{props.descripcion}</p>

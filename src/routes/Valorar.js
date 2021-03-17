@@ -28,7 +28,6 @@ export function Valorar() {
   const handleOnClick = (e) => {
     const value = e.target.value;
     setPuntuacion(value);
-    console.log(value);
   };
 
   const handleSubmit = async (e) => {
