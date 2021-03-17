@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useRemoteArticles } from "../herramientas/useRemoteArticles";
 import { ShowArticles } from "../componentes/Articulos/ShowArticles";
+import jwt_decode from "jwt-decode";
+
+import { AuthContext } from "../componentes/providers/AuthProvider";
+
 import "../componentes/Articulos/ShowArticles.css";
 
 export function ListaArticulos(props) {
@@ -17,7 +21,7 @@ export function ListaArticulos(props) {
           titulo={articulo.titulo}
           precio={articulo.precio}
           foto={articulo.foto1}
-          idUsuario={props.idUsuario}
+          idUsuario={props.id}
         />
       ))}
     </div>

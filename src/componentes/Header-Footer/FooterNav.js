@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { footerBar } from "./footerNavData";
 import { AuthContext } from "../providers/AuthProvider";
 import jwt_decode from "jwt-decode";
+import { useRemoteUser } from "../../herramientas/useRemoteUser";
 
 export function FooterNav() {
   const [token] = useContext(AuthContext);
@@ -11,7 +12,8 @@ export function FooterNav() {
   if (token) {
     payload = jwt_decode(token);
   }
-  const menu = footerBar(payload);
+  const [user] = useRemoteUser(payload.id);
+  const menu = footerBar(user);
 
   return (
     <>

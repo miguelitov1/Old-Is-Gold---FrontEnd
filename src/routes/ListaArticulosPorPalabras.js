@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ShowArticles } from "../componentes/Articulos/ShowArticles";
 import { useRemoteArticlesByWords } from "../herramientas/useRemoteArticlesByWords";
+import jwt_decode from "jwt-decode";
+
+import { AuthContext } from "../componentes/providers/AuthProvider";
 
 export function ListaArticulosPorPalabras(props) {
   const [articulos] = useRemoteArticlesByWords(props.words);
+  // const [token] = useContext(AuthContext);
+
+  // let payload = null;
+  // if (token) {
+  //   payload = jwt_decode(token);
+  // }
 
   return (
     <div className="Lista-articulos-body">

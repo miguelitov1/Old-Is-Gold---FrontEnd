@@ -26,7 +26,6 @@ export function Usuario() {
   )
     <div>Loading...</div>;
 
-  console.log(compras);
   return (
     <div>
       <div className="Perfil-img">

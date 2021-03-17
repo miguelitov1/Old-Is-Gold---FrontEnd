@@ -1,13 +1,24 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Redirect } from "react-router";
+import jwt_decode from "jwt-decode";
+
 import { AuthContext } from "../componentes/providers/AuthProvider";
 import { Chat } from "../componentes/Chat/Chat";
+
 import { useRemoteChats } from "../herramientas/useRemoteChats";
+import { useRemoteUser } from "../herramientas/useRemoteUser";
+
 import "./AllChatsRoom.css";
 
-export function AllChatsRoom({ fotoUsuario }) {
+export function AllChatsRoom() {
   const [token] = useContext(AuthContext);
   const [chats] = useRemoteChats("");
+
+  let payload = null;
+  if (token) {
+    payload = jwt_decode(token);
+  }
+  const [user] = useRemoteUser(payload.id);
 
   let showedChats;
   if (chats) {
@@ -34,7 +45,7 @@ export function AllChatsRoom({ fotoUsuario }) {
       <div className="AllChatsRoom-cabecera">
         <img
           className="AllChatsRoom-imagen-perfil"
-          src={`http://localhost:8081/images/profiles/${fotoUsuario}`}
+          src={`http://localhost:8081/images/profiles/${user.foto}`}
           alt="imagen-perfil"
         ></img>
         <h2 className="AllChatsRoom-h2">Chats</h2>
@@ -51,6 +62,11 @@ export function AllChatsRoom({ fotoUsuario }) {
               idArticulo={chat.id_articulo}
               idVendedor={chat.id_vendedor}
               idComprador={chat.id_comprador}
+              idUsuario={
+                chat.id_vendedor === payload.id
+                  ? chat.id_comprador
+                  : chat.id_vendedor
+              }
             />
           );
         })}

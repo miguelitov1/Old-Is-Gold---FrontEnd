@@ -30,11 +30,7 @@ export function ChatRoom() {
     }
   }, [chat.length, payload, articulo]);
 
-  if (
-    Object.keys(payload).length === 0 ||
-    Object.keys(articulo).length === 0 ||
-    Object.keys(chat).length === 0
-  ) {
+  if (Object.keys(payload).length === 0 || Object.keys(articulo).length === 0) {
     return <div>Loading...</div>;
   }
 
@@ -62,7 +58,7 @@ export function ChatRoom() {
         const error = new Error("No se ha enviado correctamente el mensaje");
         throw error;
       }
-
+      setMensaje("");
       refetch();
     } catch (err) {
       setErrorMessage(err.errorMessage);
@@ -70,8 +66,8 @@ export function ChatRoom() {
   }
 
   return Object.keys(chat).length === 0 ? (
-    <Link to={`/articulo/${articulo.id}`} style={{ textDecoration: "none" }}>
-      <div>
+    <div>
+      <Link to={`/articulo/${articulo.id}`} style={{ textDecoration: "none" }}>
         <div className="ChatRoom">
           <div className="ChatRoom-producto">
             <div className="ChatRoom-imagen">
@@ -83,25 +79,24 @@ export function ChatRoom() {
             </div>
             <div className="ChatRoom-info-producto">
               <h3>{articulo.titulo}</h3>
-              <p>Nombre usuario</p>
             </div>
           </div>
         </div>
+      </Link>
 
-        <div className="ChatRoom-mensaje">
-          <form onSubmit={handleSubmit}>
-            <button type="submit"></button>
-            <input
-              type="text"
-              name="mensaje"
-              maxLength="255"
-              onChange={(e) => setMensaje(e.target.value)}
-              required
-            ></input>
-          </form>
-        </div>
+      <div className="ChatRoom-mensaje">
+        <form onSubmit={handleSubmit}>
+          <button type="submit"></button>
+          <input
+            type="text"
+            name="mensaje"
+            maxLength="255"
+            onChange={(e) => setMensaje(e.target.value)}
+            required
+          ></input>
+        </form>
       </div>
-    </Link>
+    </div>
   ) : Object.keys(payload).length === 0 ||
     Object.keys(articulo).length === 0 ? (
     <div>Loading...</div>
@@ -119,7 +114,6 @@ export function ChatRoom() {
             </div>
             <div className="ChatRoom-info-producto">
               <h3>{articulo.titulo}</h3>
-              <p>Nombre usuario</p>
             </div>
           </div>
         </div>
@@ -153,6 +147,7 @@ export function ChatRoom() {
             type="text"
             name="mensaje"
             maxLength="255"
+            value={mensaje}
             onChange={(e) => setMensaje(e.target.value)}
             required
           ></input>

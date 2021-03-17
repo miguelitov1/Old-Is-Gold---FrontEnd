@@ -51,7 +51,7 @@ export function Valoracion(props) {
     }
   };
 
-  return (
+  return props.comentarioValoracion ? (
     <>
       <div className="Valoraciones-caja">
         <Link
@@ -102,7 +102,7 @@ export function Valoracion(props) {
         )}
       </div>
     </>
-  );
+  ) : null;
 }
 //////////////////////
 
