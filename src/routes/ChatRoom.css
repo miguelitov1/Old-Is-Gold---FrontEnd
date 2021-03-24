@@ -52,18 +52,17 @@ div.ChatRoom-producto {
 }
 
 div.ChatRoom-imagen {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  width: 80px;
-}
-
-.ChatRoom-imagen-articulo {
-  /* background-color: black; */
-  border-radius: 5px;
+  background-color: aliceblue;
   height: 60px;
-  overflow: hidden;
+  width: 80px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  border-radius: 2px;
+  background-size: 100% auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .ChatRoom-mensajes {

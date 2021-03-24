@@ -1,14 +1,9 @@
 import React from "react";
-// import * as FaIcons from "react-icons/fa";
-// import * as AiIcons from "react-icons/ai";
-// import * as IoIcons from "react-icons/ai";
 import * as BsIcons from "react-icons/bs";
 
-export function footerBar(user) {
-  console.log(user);
-  let footerBar;
-  if (user && user.foto) {
-    return (footerBar = [
+export function footerBar(usuario) {
+  if (usuario && usuario.foto) {
+    return [
       {
         tittle: "Chat",
         path: "/chat",
@@ -24,12 +19,7 @@ export function footerBar(user) {
       {
         tittle: "Perfil",
         path: "/perfil",
-        icon: (
-          <img
-            src={`http://localhost:8081/images/profiles/${user.foto}`}
-            alt="foto perfil"
-          />
-        ),
+        icon: `http://localhost:8081/images/profiles/${usuario.foto}`,
         cName: "Nav-token",
       },
       {
@@ -44,9 +34,9 @@ export function footerBar(user) {
         icon: <BsIcons.BsHeart />,
         cName: "Nav-token",
       },
-    ]);
+    ];
   } else {
-    return (footerBar = [
+    return [
       {
         tittle: "Registro",
         path: "/registro",
@@ -59,6 +49,6 @@ export function footerBar(user) {
         icon: <BsIcons.BsChat />,
         cName: "Nav-no-token",
       },
-    ]);
+    ];
   }
 }

@@ -1,16 +1,18 @@
-.Perfil-img {
-  display: flex;
-}
 .Perfil-info {
   padding: 10px;
 }
 
-.Perfil-foto-de-perfil {
-  height: 100px;
+.Perfil-img {
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
   background-color: black;
-  border-radius: 100px;
-  text-align: center;
-  margin: 20px auto;
+  height: 100px;
+  width: 100px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  border-radius: 50%;
+  background-size: 100% auto;
 }
 
 .Perfil-valoraciones {

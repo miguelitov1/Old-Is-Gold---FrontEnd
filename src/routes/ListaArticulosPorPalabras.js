@@ -1,18 +1,12 @@
 import React, { useContext } from "react";
 import { ShowArticles } from "../componentes/Articulos/ShowArticles";
 import { useRemoteArticlesByWords } from "../herramientas/useRemoteArticlesByWords";
-import jwt_decode from "jwt-decode";
 
-import { AuthContext } from "../componentes/providers/AuthProvider";
+import { UserContext } from "../componentes/providers/UserProvider";
 
 export function ListaArticulosPorPalabras(props) {
   const [articulos] = useRemoteArticlesByWords(props.words);
-  // const [token] = useContext(AuthContext);
-
-  // let payload = null;
-  // if (token) {
-  //   payload = jwt_decode(token);
-  // }
+  const [usuario] = useContext(UserContext);
 
   return (
     <div className="Lista-articulos-body">
@@ -25,7 +19,7 @@ export function ListaArticulosPorPalabras(props) {
           titulo={articulo.titulo}
           precio={articulo.precio}
           foto={articulo.foto1}
-          idUsuario={props.idUsuario}
+          idUsuario={usuario.id}
         />
       ))}
     </div>

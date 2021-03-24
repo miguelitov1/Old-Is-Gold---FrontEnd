@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-import * as BiIcons from "react-icons/bi";
-import "../Vender/UploadFile.css";
+import "./UploadFileProfile.css";
 
 const Photo = ({ data }) => {
   return (
@@ -13,14 +12,26 @@ const Photo = ({ data }) => {
   );
 };
 
-export const UploadFileProfile = ({ fotoNueva, setFotoNueva }) => {
+export const UploadFileProfile = ({ fotoNueva, setFotoNueva, foto }) => {
   //console.log("fotoNueva: " + fotoNueva[0].name);
   return (
     <>
-      <div className="UploadFileFile">
+      <div className="UploadFileProfile">
         <div>
           <label>
-            {fotoNueva ? <Photo data={fotoNueva} /> : null} <BiIcons.BiCamera />
+            {fotoNueva ? (
+              <Photo data={fotoNueva} />
+            ) : (
+              <div
+                className="Perfil-img"
+                style={{
+                  backgroundImage: `url(
+              http://localhost:8081/images/profiles/${foto}
+            )`,
+                }}
+                alt="Foto de perfil"
+              />
+            )}
             <input
               type="file"
               onChange={(e) => {
@@ -31,7 +42,7 @@ export const UploadFileProfile = ({ fotoNueva, setFotoNueva }) => {
           </label>
         </div>
       </div>
-      <p>*Acepta sólo imagenes jpeg, jpg y png</p>
+      <p>*Acepta sólo imagenes jpg, jpeg y png</p>
     </>
   );
 };

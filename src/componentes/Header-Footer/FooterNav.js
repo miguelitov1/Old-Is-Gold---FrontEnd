@@ -3,17 +3,13 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { footerBar } from "./footerNavData";
 import { AuthContext } from "../providers/AuthProvider";
-import jwt_decode from "jwt-decode";
-import { useRemoteUser } from "../../herramientas/useRemoteUser";
+import { UserContext } from "../providers/UserProvider";
 
 export function FooterNav() {
   const [token] = useContext(AuthContext);
-  let payload = "";
-  if (token) {
-    payload = jwt_decode(token);
-  }
-  const [user] = useRemoteUser(payload.id);
-  const menu = footerBar(user);
+  const [usuario] = useContext(UserContext);
+
+  const menu = footerBar(usuario);
 
   return (
     <>
@@ -23,12 +19,23 @@ export function FooterNav() {
             ? menu.map((item, index) => {
                 return (
                   <li key={index} className={item.cName}>
-                    <Link to={item.path}>
-                      {item.icon}
-                      <span className={`Footer-${item.tittle}`}>
-                        {item.tittle}
-                      </span>
-                    </Link>
+                    {item.tittle === "Perfil" ? (
+                      <Link to={item.path}>
+                        <div
+                          className="FooterNav-imagen"
+                          style={{
+                            backgroundImage: `url(${item.icon})`,
+                          }}
+                        ></div>
+                      </Link>
+                    ) : (
+                      <Link to={item.path}>
+                        {item.icon}
+                        <span className={`Footer-${item.tittle}`}>
+                          {item.tittle}
+                        </span>
+                      </Link>
+                    )}
                   </li>
                 );
               })

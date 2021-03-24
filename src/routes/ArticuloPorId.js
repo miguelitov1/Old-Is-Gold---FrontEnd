@@ -1,11 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useContext, useState } from "react";
-import jwt_decode from "jwt-decode";
 import { Link } from "react-router-dom";
-
-// import Carousel from "react-bootstrap/Carousel";
-// import Slider from "infinite-react-carousel";
 
 import { useRemoteArticles } from "../herramientas/useRemoteArticles";
 import { useRemoteValoraciones } from "../herramientas/useRemoteValoraciones";
@@ -14,30 +10,49 @@ import { pintarEstrellas } from "../herramientas/pintarEstrellas";
 import { useRemoteArticlesFavourites } from "../herramientas/useRemoteArticlesFavourites";
 
 import { AuthContext } from "../componentes/providers/AuthProvider";
+import { UserContext } from "../componentes/providers/UserProvider";
+import { CarouselItems } from "../componentes/Articulos/CarouselItems";
+
 import "./ArticuloPorId.css";
 
 export function ArticuloPorId() {
   const { idArticulo } = useParams();
   const [token] = useContext(AuthContext);
+  const [usuario] = useContext(UserContext);
+
   const [articulo] = useRemoteArticles(idArticulo);
   const [valoraciones] = useRemoteValoraciones(articulo?.id_usuario);
-  const [usuario] = useRemoteUser(articulo?.id_usuario);
-  const [message, setMessage] = useState("");
+  const [usuarioArticulo] = useRemoteUser(articulo?.id_usuario);
   const estrellas = pintarEstrellas(valoraciones?.promedio);
+
+  const [message, setMessage] = useState("");
   const [favoritos, , refetch] = useRemoteArticlesFavourites(usuario?.id);
 
-  let payload;
   let activarBotonChat = true;
-  if (token) {
-    payload = jwt_decode(token);
-  }
 
-  if (Object.keys(usuario).length === 0) {
+  if (Object.keys(usuarioArticulo).length === 0) {
     return <div>Loading...</div>;
   }
-  if (!payload || payload.id === usuario.id) {
+  if (usuario.id === usuarioArticulo.id || !usuario) {
     activarBotonChat = false;
   }
+
+  const urlFotos = [
+    articulo.foto1,
+    articulo.foto2,
+    articulo.foto3,
+    articulo.foto4,
+    articulo.foto5,
+  ];
+  const fotos = urlFotos.reduce((acumulador, foto, index) => {
+    if (foto) {
+      acumulador.push({
+        url: `http://localhost:8081/images/articulos/${foto}`,
+        key: index,
+      });
+    }
+    return acumulador;
+  }, []);
 
   const reservarArticulo = async (idArticulo) => {
     try {
@@ -119,12 +134,15 @@ export function ArticuloPorId() {
         </div>
       </div>
 
-      <Link to={`/perfil/${usuario.id}`} style={{ textDecoration: "none" }}>
+      <Link
+        to={`/perfil/${usuarioArticulo.id}`}
+        style={{ textDecoration: "none" }}
+      >
         <div className="ArticuloPorId-datos-usuario">
           <div className="ArticuloPorId-datos-usuario2">
             <img
               className="ArticuloPorId-user-img"
-              src={`http://localhost:8081/images/profiles/${usuario.foto}`}
+              src={`http://localhost:8081/images/profiles/${usuarioArticulo.foto}`}
               alt="img"
             />
             <div>
@@ -142,32 +160,8 @@ export function ArticuloPorId() {
         </div>
       </Link>
 
-      <div className="ArticuloPorId-contenedor">
-        {/* <Slider dots>
-          <img
-            className="ArticuloPorId-img"
-            src={`http://localhost:8081/images/articulos/${articulo.foto1}`}
-            alt="First slide"
-          />
+      <CarouselItems fotos={fotos} />
 
-          <img
-            className="ArticuloPorId-img"
-            src={`http://localhost:8081/images/articulos/${articulo.foto2}`}
-            alt="First slide"
-          />
-
-          <img
-            className="ArticuloPorId-img"
-            src={`http://localhost:8081/images/articulos/${articulo.foto3}`}
-            alt="First slide"
-          />
-        </Slider> */}
-        <img
-          className="ArticuloPorId-img"
-          src={`http://localhost:8081/images/articulos/${articulo.foto1}`}
-          alt="First slide"
-        />
-      </div>
       <div className="ArticuloPorId-datos">
         <p>{articulo.precio}€</p>
         {activarBotonChat && (
@@ -201,7 +195,7 @@ export function ArticuloPorId() {
         )}
         {activarBotonChat && (
           <Link
-            to={`../chat/${idArticulo}/${usuario.id}/${payload?.id}/`}
+            to={`../chat/${idArticulo}/${usuarioArticulo.id}/${usuario.id}/`}
             style={{ textDecoration: "none" }}
           >
             <button className="ArticuloPorId-button-no-activate">Chat</button>
@@ -215,7 +209,3 @@ export function ArticuloPorId() {
     </div>
   );
 }
-
-//FECHA SQL declare @Existingdate datetime
-// Set @Existingdate=GETDATE()
-// Select CONVERT(varchar,@Existingdate,3) as [DD/MM/YY]
