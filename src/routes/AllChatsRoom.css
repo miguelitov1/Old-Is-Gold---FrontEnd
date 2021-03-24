@@ -9,7 +9,11 @@
 }
 
 .AllChatsRoom-imagen-perfil {
-  border-radius: 100px;
-  width: 30px;
   background-color: black;
+  height: 30px;
+  width: 30px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  border-radius: 50%;
+  background-size: 100% auto;
 }

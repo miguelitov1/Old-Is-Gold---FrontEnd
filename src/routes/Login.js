@@ -1,12 +1,16 @@
 import React, { useState, useContext } from "react";
 import { Redirect } from "react-router";
+import jwt_decode from "jwt-decode";
 import "./register-login.css";
+
 import { AuthContext } from "../componentes/providers/AuthProvider";
+import { UserContext } from "../componentes/providers/UserProvider";
 
 export function Login() {
   const [email, setEmail] = useState("");
   const [contrasenha, setContrasenha] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+  const [, setUsuario] = useContext(UserContext);
   const [token, setToken] = useContext(AuthContext);
 
   const handleSubmit = async (event) => {
@@ -31,6 +35,7 @@ export function Login() {
         //o sino el res.status===200 para login y 201 para register
         const json = await res.json();
         setToken(json.accessToken);
+        setUsuario(jwt_decode(json.accessToken));
         setEmail("");
         setContrasenha("");
       } else {

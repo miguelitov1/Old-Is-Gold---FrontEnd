@@ -2,22 +2,20 @@ import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router";
 import { AuthContext } from "../componentes/providers/AuthProvider";
-import { useRemoteUser } from "../herramientas/useRemoteUser";
+import { UserContext } from "../componentes/providers/UserProvider";
+
 import { useRemoteValoraciones } from "../herramientas/useRemoteValoraciones";
 import { pintarEstrellas } from "../herramientas/pintarEstrellas";
-import jwt_decode from "jwt-decode";
 import "./Perfil.css";
-import { BsColumnsGap } from "react-icons/bs";
-import { BiPause } from "react-icons/bi";
-import * as BiIcons from "react-icons/bi";
+
 import "../componentes/Vender/UploadFile.css";
 import { UploadFileProfile } from "../componentes/Usuarios/UploadFileProfile";
 import { useHistory } from "react-router-dom";
 
-export function Perfil({ idUsuario }) {
-  const [user, , refetch] = useRemoteUser(idUsuario);
+export function Perfil() {
   const [token, setToken] = useContext(AuthContext);
-  const [valoraciones, setValoraciones] = useRemoteValoraciones(idUsuario);
+  const [user, setUser] = useContext(UserContext);
+  const [valoraciones] = useRemoteValoraciones(user.id);
   const estrellas = pintarEstrellas(valoraciones.promedio);
   const [nombre, setNombre] = useState("");
   const [apellidos, setApellidos] = useState("");
@@ -27,7 +25,6 @@ export function Perfil({ idUsuario }) {
   const [foto, setFoto] = useState("");
   const [fotoNueva, setFotoNueva] = useState(null);
   const [errorMsg, setErrorMsg] = useState("");
-  const [redirection, setRedirection] = useState("");
   const [mostrarBoton, setMostrarBoton] = useState(false);
   const [contrasenha, setContrasenha] = useState("");
   const [repetirContrasenha, setRepetirContrasenha] = useState("");
@@ -48,7 +45,8 @@ export function Perfil({ idUsuario }) {
 
   const handleOnClick = () => {
     setToken("");
-    window.location.reload();
+    setUser("");
+    history.push("/");
   };
   const handleMostrarBoton = (e) => {
     e.preventDefault();
@@ -74,7 +72,6 @@ export function Perfil({ idUsuario }) {
     ) {
       const payload = new FormData();
       payload.append("nombre", nombre);
-
       payload.append("apellidos", apellidos);
       payload.append("email", email);
       payload.append("nombreUsuario", usuario);
@@ -97,14 +94,11 @@ export function Perfil({ idUsuario }) {
       );
 
       if (res.status === 200) {
-        //o sino el res.status===200 para login y 201 para register
-
+        const jsonUser = await res.json();
         setErrorMsg("Perfil actualizado");
         setMostrarRepetirContrasenha(false);
         setMostrarBoton(false);
-        window.location.reload();
-
-        // history.push("/");
+        setUser(jsonUser);
       } else {
         const json = await res.json();
         setErrorMsg(json.error);
@@ -118,27 +112,30 @@ export function Perfil({ idUsuario }) {
   return token ? (
     <>
       <form className="Perfil-form" onSubmit={handleSubmit}>
-        <div className="Perfil-img">
-          {fotoNueva ? null : (
-            <img
-              className="Perfil-foto-de-perfil"
-              src={`http://localhost:8081/images/profiles/${foto}`}
-              alt="Foto de perfil"
-            ></img>
-          )}
-        </div>
+        {!mostrarBoton && (
+          <div
+            className="Perfil-img"
+            style={{
+              backgroundImage: `url(
+              http://localhost:8081/images/profiles/${user.foto}
+            )`,
+            }}
+            alt="Foto de perfil"
+          />
+        )}
         <div>
           <label>
             {mostrarBoton && (
               <UploadFileProfile
                 fotoNueva={fotoNueva}
                 setFotoNueva={setFotoNueva}
+                foto={user.foto}
               />
             )}
           </label>
         </div>
         <div className="Perfil-valoraciones">
-          <Link to={`/valoraciones/${idUsuario}`}>
+          <Link to={`/valoraciones/${user.id}`}>
             {estrellas?.map((estrella, index) => (
               <img src={estrella} alt="estrella" key={index} />
             ))}
@@ -216,7 +213,7 @@ export function Perfil({ idUsuario }) {
         </div>{" "}
         <div className="Perfil-botones">
           {!mostrarBoton && (
-            <button onClick={handleMostrarBoton}>Modificar perfil</button>
+            <button onClick={handleMostrarBoton}>Editar perfil</button>
           )}
           {mostrarBoton && <button type="submit">Actualizar perfil</button>}
           <button onClick={handleOnClick}>Cerrar sesión</button>

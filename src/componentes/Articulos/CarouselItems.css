@@ -1,0 +1,10 @@
+.CarouselItems-img {
+  margin: auto;
+  border: 1px solid;
+  background-color: white;
+  height: 240px;
+  width: 320px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 100% auto;
+}

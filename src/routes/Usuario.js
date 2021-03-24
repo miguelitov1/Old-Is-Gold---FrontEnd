@@ -28,13 +28,16 @@ export function Usuario() {
 
   return (
     <div>
-      <div className="Perfil-img">
-        <img
-          className="Perfil-foto-de-perfil"
-          src={`http://localhost:8081/images/profiles/${usuario.foto}`}
-          alt="Foto de perfil"
-        ></img>
-      </div>
+      <div
+        className="Perfil-img"
+        style={{
+          backgroundImage: `url(
+              http://localhost:8081/images/profiles/${usuario.foto}
+            )`,
+        }}
+        alt="Foto de perfil"
+      ></div>
+
       <div className="Perfil-valoraciones">
         <h2 className="Perfil-info">{usuario.nombreUsuario}</h2>
         <Link

@@ -13,19 +13,18 @@
 }
 
 div.Chat-img {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  width: 68px;
-  border-radius: 15px;
-}
-.Chat-imagen-articulo {
-  background-color: black;
-  border-radius: 5px;
+  background-color: white;
   height: 50px;
-  overflow: hidden;
+  width: 68px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  border-radius: 2px;
+  background-size: 100% auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 10px;
 }
+
 .Chat-info {
   padding: 10px;
 }

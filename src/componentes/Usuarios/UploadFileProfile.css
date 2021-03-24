@@ -1,0 +1,12 @@
+.UploadFileProfile div label img {
+  width: 100px !important;
+  height: 100px !important;
+  background-color: black !important;
+  border-radius: 100px !important;
+  text-align: center !important;
+  margin: 20px auto !important;
+}
+
+.UploadFileProfile input[type="file"] {
+  display: none;
+}

@@ -66,11 +66,15 @@ export function Valorar() {
   return (
     <div className="Valorar">
       <div className="Valorar-perfil-img">
-        <img
-          className="Valorar-foto-de-perfil"
-          src={`http://localhost:8081/images/profiles/${vendedor.foto}`}
+        <div
+          className="Perfil-img"
+          style={{
+            backgroundImage: `url(
+              http://localhost:8081/images/profiles/${vendedor.foto}
+            )`,
+          }}
           alt="Foto de perfil"
-        ></img>
+        ></div>
         <p>{vendedor.nombreUsuario}</p>
       </div>
 

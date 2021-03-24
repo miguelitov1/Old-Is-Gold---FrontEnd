@@ -13,7 +13,6 @@ export function Chat({
   idVendedor,
   idComprador,
   idArticulo,
-  nombreUsuario,
 }) {
   const [usuario] = useRemoteUser(idUsuario);
 
@@ -23,13 +22,16 @@ export function Chat({
       style={{ textDecoration: "none" }}
     >
       <div className="Chat">
-        <div className="Chat-img">
-          <img
-            className="Chat-imagen-articulo"
-            src={`http://localhost:8081/images/articulos/${foto}`}
-            alt="img-articulo"
-          ></img>
-        </div>
+        <div
+          className="Chat-img"
+          style={{
+            backgroundImage: `url(
+              http://localhost:8081/images/articulos/${foto}
+            )`,
+          }}
+          alt="Foto articulo"
+        />
+
         <div className="Chat-info">
           <p className="Chat-usuario">{usuario.nombreUsuario}</p>
           <h3>{titulo}</h3>

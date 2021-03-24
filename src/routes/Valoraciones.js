@@ -26,13 +26,15 @@ export function Valoraciones() {
     <Redirect to="/login" />
   ) : arrayValoracion ? (
     <>
-      <div className="Perfil-img">
-        <img
-          className="Perfil-foto-de-perfil"
-          src={`http://localhost:8081/images/profiles/${usuario.foto}`}
-          alt="Foto de perfil"
-        ></img>
-      </div>
+      <div
+        className="Perfil-img"
+        style={{
+          backgroundImage: `url(
+              http://localhost:8081/images/profiles/${usuario.foto}
+            )`,
+        }}
+        alt="Foto de perfil"
+      ></div>
 
       <div className="Perfil-valoraciones">
         {estrellas?.map((estrella, index) => (

@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import { useRemoteArticles } from "../herramientas/useRemoteArticles";
 import { ShowArticles } from "../componentes/Articulos/ShowArticles";
-import jwt_decode from "jwt-decode";
 
-import { AuthContext } from "../componentes/providers/AuthProvider";
+import { UserContext } from "../componentes/providers/UserProvider";
 
 import "../componentes/Articulos/ShowArticles.css";
 
 export function ListaArticulos(props) {
   const [articulos] = useRemoteArticles(props.path);
+  const [usuario] = useContext(UserContext);
 
   return (
     <div className="Lista-articulos-body">
@@ -21,7 +21,7 @@ export function ListaArticulos(props) {
           titulo={articulo.titulo}
           precio={articulo.precio}
           foto={articulo.foto1}
-          idUsuario={props.id}
+          idUsuario={usuario.id}
         />
       ))}
     </div>

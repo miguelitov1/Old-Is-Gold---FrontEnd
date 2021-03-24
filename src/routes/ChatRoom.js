@@ -1,17 +1,17 @@
 import React, { useContext, useState, useRef, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
-import jwt_decode from "jwt-decode";
-
 import { useRemoteChats } from "../herramientas/useRemoteChats";
 import { useRemoteArticles } from "../herramientas/useRemoteArticles";
 import { AuthContext } from "../componentes/providers/AuthProvider";
+import { UserContext } from "../componentes/providers/UserProvider";
 
 import "./ChatRoom.css";
 
 export function ChatRoom() {
   const { idArticulo, idVendedor, idComprador } = useParams();
   const [articulo] = useRemoteArticles(idArticulo);
+  const [usuario] = useContext(UserContext);
   const path = `${idArticulo}/${idVendedor}/${idComprador}/`;
   const [chat, , refetch] = useRemoteChats(path);
   const [token] = useContext(AuthContext);
@@ -19,18 +19,13 @@ export function ChatRoom() {
   const [mensaje, setMensaje] = useState("");
   const final = useRef();
 
-  let payload = null;
-  if (token) {
-    payload = jwt_decode(token);
-  }
-
   useEffect(() => {
     if (chat.length && final.current) {
       final.current.scrollIntoView();
     }
-  }, [chat.length, payload, articulo]);
+  }, [chat.length, usuario, articulo]);
 
-  if (Object.keys(payload).length === 0 || Object.keys(articulo).length === 0) {
+  if (Object.keys(usuario).length === 0 || Object.keys(articulo).length === 0) {
     return <div>Loading...</div>;
   }
 
@@ -70,13 +65,16 @@ export function ChatRoom() {
       <Link to={`/articulo/${articulo.id}`} style={{ textDecoration: "none" }}>
         <div className="ChatRoom">
           <div className="ChatRoom-producto">
-            <div className="ChatRoom-imagen">
-              <img
-                className="ChatRoom-imagen-articulo"
-                src={`http://localhost:8081/images/articulos/${articulo.foto1}`}
-                alt="img-articulo"
-              ></img>
-            </div>
+            <div
+              className="ChatRoom-imagen"
+              style={{
+                backgroundImage: `url(
+              http://localhost:8081/images/articulos/${articulo.foto1}
+            )`,
+              }}
+              alt="Foto de perfil"
+            />
+
             <div className="ChatRoom-info-producto">
               <h3>{articulo.titulo}</h3>
             </div>
@@ -97,7 +95,7 @@ export function ChatRoom() {
         </form>
       </div>
     </div>
-  ) : Object.keys(payload).length === 0 ||
+  ) : Object.keys(usuario).length === 0 ||
     Object.keys(articulo).length === 0 ? (
     <div>Loading...</div>
   ) : (
@@ -105,13 +103,15 @@ export function ChatRoom() {
       <Link to={`/articulo/${articulo.id}`} style={{ textDecoration: "none" }}>
         <div className="ChatRoom">
           <div className="ChatRoom-producto">
-            <div className="ChatRoom-imagen">
-              <img
-                className="ChatRoom-imagen-articulo"
-                src={`http://localhost:8081/images/articulos/${articulo.foto1}`}
-                alt="img-articulo"
-              ></img>
-            </div>
+            <div
+              className="ChatRoom-imagen"
+              style={{
+                backgroundImage: `url(
+              http://localhost:8081/images/articulos/${articulo.foto1}
+            )`,
+              }}
+              alt="Foto de perfil"
+            />
             <div className="ChatRoom-info-producto">
               <h3>{articulo.titulo}</h3>
             </div>
@@ -121,7 +121,7 @@ export function ChatRoom() {
 
       <div className="ChatRoom-mensajes">
         {chat.map((mensaje) => {
-          if (Number(mensaje.id_emisor) === payload.id) {
+          if (Number(mensaje.id_emisor) === usuario.id) {
             return (
               <div className="ChatRoom-mio" key={mensaje.id}>
                 <p>{mensaje.mensaje}</p>

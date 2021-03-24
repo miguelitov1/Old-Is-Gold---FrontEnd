@@ -4,9 +4,9 @@ import { useLocalStorage } from "../../herramientas/useLocalStorage";
 export const UserContext = React.createContext();
 export const UserProvider = (props) => {
   const { children } = props;
-  const [user, setUser] = useLocalStorage("selectedPerson");
+  const [user, setUser] = useLocalStorage("loginPerson");
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={[user, setUser]}>
       {children}
     </UserContext.Provider>
   );
