@@ -33,7 +33,7 @@ export const useRemoteArticlesFavourites = () => {
         setErrorMsg(json.error);
       }
     };
-    loadArticle();
+    if (token) loadArticle();
   }, [token, random]);
   return [articulos, setArticulos, refetch];
 };

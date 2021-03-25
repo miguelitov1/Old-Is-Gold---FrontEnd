@@ -4,10 +4,12 @@ import "./ShowArticles.css";
 
 import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+// import { useRemoteUser } from "../../herramientas/useRemoteUser";
 
 export function ShowArticlesReserved(props) {
   const [message, setMessage] = useState("");
   const [token] = useContext(AuthContext);
+  // const [comprador] = useRemoteUser(props.idComprador);
 
   const aceptarCompra = async (idArticulo) => {
     try {
@@ -59,12 +61,15 @@ export function ShowArticlesReserved(props) {
     <div className="ArticulosHome-todo">
       <Link to={`/articulo/${props.id}`} style={{ textDecoration: "none" }}>
         <div className="ArticuloHome-container">
-          <div className="ArticuloHome-divImg">
-            <img
-              src={`http://localhost:8081/images/articulos/${props.foto}`}
-              alt="foto"
-            ></img>
-          </div>
+          <div
+            className="ArticuloHome-divImg"
+            style={{
+              backgroundImage: `url(
+              http://localhost:8081/images/articulos/${props.foto}
+            )`,
+            }}
+            alt="Foto articulo"
+          />
 
           <div className="ArticuloHome">
             <div className="ArticuloHome-container2">
@@ -76,6 +81,15 @@ export function ShowArticlesReserved(props) {
             <p className="ArticuloHome-descripcion">{props.descripcion}</p>
           </div>
         </div>
+        {/* <div
+          className="Comprador-img"
+          style={{
+            backgroundImage: `url(
+              http://localhost:8081/images/profiles/${comprador.foto}
+            )`,
+          }}
+          alt="Foto de perfil"
+        /> */}
         {message && (
           <div className="ArticuloPorId-respuesta">{message.respuesta}</div>
         )}

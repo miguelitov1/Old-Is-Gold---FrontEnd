@@ -33,15 +33,16 @@
 }
 
 .ArticuloHome-divImg {
+  /* border: solid 1px gray; */
   background-color: white;
-  display: flex;
-  justify-content: center;
+  height: 110px;
+  width: 220px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 100% auto;
+  margin: 5px;
   margin-top: auto;
   margin-bottom: auto;
-  margin-right: 10px;
-  width: 200px;
-  height: 100px;
-  overflow: hidden;
 }
 .ArticuloHome-corazon {
   width: 25px;
@@ -67,11 +68,16 @@
   padding-bottom: 10px;
 }
 .ArticuloHome-botones p {
-  border-radius: 5px;
+  /* border-radius: 2px; */
   width: 100px;
   padding: 5px;
   background-color: #f8d334;
   color: black;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
 }
 
 .ArticulosHome-todo {
@@ -91,3 +97,16 @@
   border-radius: 5px;
   padding: 5px;
 }
+
+/* .Comprador-img {
+  position: relative;
+  bottom: 100px;
+  left: 320px;
+  background-color: black;
+  height: 70px;
+  width: 70px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  border-radius: 50%;
+  background-size: 100% auto;
+} */

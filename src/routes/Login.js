@@ -33,11 +33,11 @@ export function Login() {
       );
       if (res.status === 200) {
         //o sino el res.status===200 para login y 201 para register
+        setEmail("");
+        setContrasenha("");
         const json = await res.json();
         setToken(json.accessToken);
         setUsuario(jwt_decode(json.accessToken));
-        setEmail("");
-        setContrasenha("");
       } else {
         const json = await res.json();
         setErrorMsg(json.error);
