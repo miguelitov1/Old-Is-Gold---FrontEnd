@@ -22,7 +22,7 @@ export function Perfil() {
   const [email, setEmail] = useState("");
   const [usuario, setUsuario] = useState("");
   const [localidad, setLocalidad] = useState("");
-  const [foto, setFoto] = useState("");
+  const [, setFoto] = useState("");
   const [fotoNueva, setFotoNueva] = useState(null);
   const [errorMsg, setErrorMsg] = useState("");
   const [mostrarBoton, setMostrarBoton] = useState(false);

@@ -29,6 +29,6 @@ export const useRemoteArticlesAdquired = (path) => {
       }
     };
     loadArticle();
-  }, [path]);
+  }, [token, path]);
   return [articulos, setArticulos];
 };

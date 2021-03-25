@@ -6,12 +6,15 @@ export function ShowMyArticles(props) {
   return (
     <Link to={`/articulo/${props.id}`} style={{ textDecoration: "none" }}>
       <div className="ArticuloHome-container">
-        <div className="ArticuloHome-divImg">
-          <img
-            src={`http://localhost:8081/images/articulos/${props.foto}`}
-            alt="foto"
-          ></img>
-        </div>
+        <div
+          className="ArticuloHome-divImg"
+          style={{
+            backgroundImage: `url(
+              http://localhost:8081/images/articulos/${props.foto}
+            )`,
+          }}
+          alt="Foto articulo"
+        />
 
         <div className="ArticuloHome">
           <div className="ArticuloHome-container2">

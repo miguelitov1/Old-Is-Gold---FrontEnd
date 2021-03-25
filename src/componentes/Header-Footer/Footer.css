@@ -44,7 +44,7 @@
 
 .Nav-token {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   list-style: none;
 }
@@ -85,7 +85,7 @@
 }
 .Nav-no-token {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   list-style: none;
   text-decoration: none;

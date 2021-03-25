@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 
 export const useRemoteArticlesByWords = (words) => {
   const [articulos, setArticulos] = useState([]);
-  const palabrasClaves = { palabrasClaves: words };
   const [, setErrorMsg] = useState("");
 
   useEffect(() => {
+    const palabrasClaves = { palabrasClaves: words };
     const loadArticle = async () => {
       const response = await fetch(
         `http://localhost:8081/api/v1/proyecto8/articulos/resultado/busqueda`,

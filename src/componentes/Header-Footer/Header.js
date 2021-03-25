@@ -11,10 +11,6 @@ export const Header = (props) => {
         <img src="/logo/logo_old-is-gold.png" alt="imgPerfil" />
       </Link>
       <form className="Header-container2">
-        {/* <div className="Header-lupa">
-          <img src="./iconos/lupa.png" alt="lupa" />
-        </div>
-        <input type="text" placeholder="¿Que estás buscando?"></input> */}
         <SearchBar words={props.words} setWords={props.setWords} />
       </form>
       <Link to="/vender" style={{ textDecoration: "none" }}>

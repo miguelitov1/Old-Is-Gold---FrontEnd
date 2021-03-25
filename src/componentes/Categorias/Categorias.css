@@ -7,6 +7,10 @@
   align-items: center;
   align-items: flex-start;
   overflow: auto;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 60px;
+  z-index: 100;
 }
 
 .Categorias-container img {
